@@ -1,0 +1,144 @@
+section {
+	margin-left: 0.8em;
+	margin-bottom: 2em;
+}
+
+#cardList dl, #cardList dt, #cardList dd {
+	box-sizing: border-box;
+	border: 1px solid #000;
+}
+
+
+
+.cardCount {
+	width: 100%;
+	height: 95%;
+	border: none;
+}
+
+#cardList {
+	display: flex;
+	width: 90%;
+	max-width: 40em;
+	flex-wrap: wrap;
+	margin-bottom: 0;
+}
+
+#cardList dt, #cardList dd {
+	width: 16.66666%;
+	height: 38px;
+	margin: 0;
+	padding: 0;
+}
+
+#cardList dt {
+	background-color: #000;
+	color: #fff;
+	display: flex;
+	-webkit-align-items: center; /* 縦方向中央揃え（Safari用） */
+	align-items: center; /* 縦方向中央揃え */
+}
+
+#cardList dt:not([class="last-line"]) {
+	border-bottom-color: #fff;
+}
+
+
+.redColor {
+	color: #f00;
+}
+
+
+
+#targetSection > p {
+	margin: 0.5em 0 0 0.5em;
+}
+
+#materialSection {
+	margin-bottom: 3em;
+}
+
+
+#materialSection dl, .optArea {
+	margin-left: 0.5em;
+}
+
+.optArea {
+	margin-top: 0.5em;
+	margin-bottom: 1.2em;
+}
+
+.execute {
+	font-size: 1.2em;
+	border-radius: 5px;
+	padding: 0.2em 1em;
+	background-color: aqua;
+	background: -webkit-gradient(radial, 49% 44%, 0, 49% 44%, 122, color-stop(1.00, #058dff), color-stop(0.00, #b8fcff));
+	background: -webkit-radial-gradient(49% 44%, circle, #b8fcff, #058dff);
+	background: -moz-radial-gradient(49% 44%, circle, #b8fcff, #058dff);
+	background: -o-radial-gradient(49% 44%, circle, #b8fcff, #058dff);
+	background: -ms-radial-gradient(49% 44%, circle, #b8fcff, #058dff);
+	background: radial-gradient(49% 44%, circle, #b8fcff, #058dff);
+	-moz-box-shadow: 1px 1px 1px rgba(000,000,000,0.3);
+	-webkit-box-shadow: 1px 1px 1px rgba(000,000,000,0.3);
+	border: 1px solid #DDD;
+
+}
+
+
+#outputArea {
+	width: 90%;
+	max-width: 580px;
+	margin-top: 1em;
+	margin-bottom: 2em;
+}
+
+
+.hukidashi {
+	position: relative;
+	background: #f5daa4;
+	border: 4px solid #d5ac59;
+	border-radius: 5px;
+	padding: 0.5em;
+}
+.hukidashi:after, .hukidashi:before {
+	top: 100%;
+	left: 20%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.hukidashi:after {
+	border-color: rgba(245, 218, 164, 0);
+	border-top-color: #f5daa4;
+	border-width: 30px;
+	margin-left: -30px;
+}
+.hukidashi:before {
+	border-color: rgba(213, 172, 89, 0);
+	border-top-color: #d5ac59;
+	border-width: 36px;
+	margin-left: -36px;
+}
+
+.optDispArea {
+	margin-bottom: 2em;
+}
+
+.perData {
+	width: 95%;
+	margin: 0.5em 0 0 0.5em;
+}
+
+.perData td, .perData th {
+	min-width: 3em;
+	padding: 0 0.25em;
+	text-align: center;
+	font-size: 90%;
+}
+
+

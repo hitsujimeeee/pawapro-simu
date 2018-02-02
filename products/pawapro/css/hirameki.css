@@ -1,0 +1,265 @@
+.bibiFace {
+	width: 130px;
+}
+
+
+.hiramekiChara td {
+	text-align:center;
+}
+.hiramekiChara tr:nth-child(odd) td {
+	width:60px;
+	height:30px;
+}
+.hiramekiChara tr:nth-child(even) td {
+	width:60px;
+	height:60px;
+}
+
+.hiramekiName {
+	background: -webkit-gradient(radial, 100% 0%, 0, 100% 0%, 218, color-stop(1.00, #078703), color-stop(0.00, #001a07));
+	background: -webkit-radial-gradient(100% 0%, circle, #001a07, #078703);
+	background: -moz-radial-gradient(100% 0%, circle, #001a07, #078703);
+	background: -o-radial-gradient(100% 0%, circle, #001a07, #078703);
+	background: -ms-radial-gradient(100% 0%, circle, #001a07, #078703);
+	background: radial-gradient(100% 0%, circle, #001a07, #078703);
+	color: #ffffff;
+	width:200px;
+	height:35px;
+	float:left;
+	padding-left:5px;
+	padding-top:5px;
+	font-weight:bold;
+	font-size:1.2em;
+	border-radius: 10px 0px 0px 0px;;		/* CSS3草案 */
+	-webkit-border-top-left-radius: 10px;	/* Safari,Google Chrome用 */
+	-moz-border-radius-topleft: 10px;	/* Firefox用 */
+}
+
+.hiramekiNameHit {
+	background: -webkit-gradient(radial, 0% 56%, 0, 0% 56%, 241, color-stop(1.00, #360b0b), color-stop(0.00, #d10003));
+	background: -webkit-radial-gradient(0% 56%, circle, #d10003, #360b0b);
+	background: -moz-radial-gradient(0% 56%, circle, #d10003, #360b0b);
+	background: -o-radial-gradient(0% 56%, circle, #d10003, #360b0b);
+	background: -ms-radial-gradient(0% 56%, circle, #d10003, #360b0b);
+	background: radial-gradient(0% 56%, circle, #d10003, #360b0b);
+}
+
+
+.hiramekiImage {
+	float:left;
+}
+
+
+.hiramekiPer {
+	float:right;
+	width:60px;
+	height:35px;
+	color:#ffffff;
+	padding-top:5px;
+	padding-right:5px;
+	font-size:1.2em;
+	text-align:right
+}
+
+.hiramekiDetail {
+	clear:both;
+	height:20px;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.00, #808080), color-stop(1.00, #121212));
+	background: -webkit-linear-gradient(#808080, #121212);
+	background: -moz-linear-gradient(#808080, #121212);
+	background: -o-linear-gradient(#808080, #121212);
+	background: -ms-linear-gradient(#808080, #121212);
+	background: linear-gradient(#808080, #121212);
+	color: #ffffff;
+	padding-left:5px;
+	border-radius: 0px 0px 10px 10px;;		/* CSS3草案 */
+	-webkit-border-bottom-right-radius: 10px;	/* Safari,Google Chrome用 */
+	-webkit-border-bottom-left-radius: 10px;	/* Safari,Google Chrome用 */
+	-moz-border-radius-bottomright: 10px;	/* Firefox用 */
+	-moz-border-radius-bottomleft: 10px;	/* Firefox用 */
+}
+.hiramekiContainer {
+	width:500px;
+
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.00, #5d5d5d), color-stop(1.00, #dedede));
+	background: -webkit-linear-gradient(#5d5d5d, #dedede);
+	background: -moz-linear-gradient(#5d5d5d, #dedede);
+	background: -o-linear-gradient(#5d5d5d, #dedede);
+	background: -ms-linear-gradient(#5d5d5d, #dedede);
+	background: linear-gradient(#5d5d5d, #dedede);
+	border-radius: 10px;		/* CSS3草案 */
+	-webkit-border-radius: 10px;	/* Safari,Google Chrome用 */
+	-moz-border-radius: 10px;	/* Firefox用 */
+	margin-bottom:10px;
+
+}
+
+.hiramekiContainerHit {
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.00, #ff0), color-stop(1.00, #ff6d00));
+	background: -webkit-linear-gradient(#ff0, #ff6d00);
+	background: -moz-linear-gradient(#ff0, #ff6d00);
+	background: -o-linear-gradient(#ff0, #ff6d00);
+	background: -ms-linear-gradient(#ff0, #ff6d00);
+	background: linear-gradient(#ff0, #ff6d00);
+}
+
+.hiramekiLearn {
+	position:absolute;
+	background-color: rgba(0, 0, 0, 0.5);
+	width:500px;
+	height:65px;
+	padding-top:5px;
+	bottom:0px;
+	border-radius: 10px;		/* CSS3草案 */
+	-webkit-border-radius: 10px;	/* Safari,Google Chrome用 */
+	-moz-border-radius: 10px;	/* Firefox用 */
+	text-align:center;
+	vertical-align:middel;
+	color:#008000;
+	font-size:+1.5em;
+	-webkit-text-stroke-color: #000000;
+	-webkit-text-stroke-width: 1px;
+}
+
+
+.hiramekiLearnStr {
+	position:absolute;
+	width:500px;
+	height:65px;
+	padding-top:5px;
+	bottom:0px;
+	text-align:center;
+	vertical-align:middel;
+	color:#00ff00;
+	font-size:+1.5em;
+}
+
+.hiramekiTarget {
+	position:absolute;
+	width:495px;
+	height:30px;
+	padding-top:5px;
+	padding-right:5px;
+	bottom:0px;
+	text-align:right;
+	vertical-align:bottom;
+	font-size:+1.2em;
+	color:#ff0000;
+}
+
+.hiddenBlock {
+	visibility:hidden;
+}
+
+
+
+
+.hiramekiWrapper {
+	position:relative;
+	cursor:pointer;
+	width:500px;
+}
+
+.eventCharaType {
+	border-radius: 10px;		/* CSS3草案 */
+	-webkit-border-radius: 10px;	/* Safari,Google Chrome用 */
+	-moz-border-radius: 10px;	/* Firefox用 */
+	cursor:pointer;
+}
+.EventCharaBatter {
+	background-color:#7cee22;
+}
+.EventCharaPitcher {
+	background-color:#ffa07a;
+}
+.EventCharaGF {
+	background-color:#ee82ee;
+}
+
+.SpecialtyTraining {
+	height:60px;
+	cursor:pointer;
+}
+
+.lockLayer {
+	top:0px;
+	right:0px;
+	position:absolute;
+	height:60px;
+	width:60px;
+	background-color: rgba(0, 0, 0, 0.1);
+	visibility:hidden;
+	text-align:right;
+}
+
+.imgContainer {
+	position:relative;
+	text-align:center;
+}
+
+
+img.lock{
+	width:20px;
+	height:20px;
+}
+
+
+button.brainShaffule {
+	background: -webkit-gradient(radial, 100% 100%, 0, 100% 100%, 241, color-stop(1.00, #cd0000), color-stop(0.00, #ff7200));
+	background: -webkit-radial-gradient(100% 100%, circle, #ff7200, #cd0000);
+	background: -moz-radial-gradient(100% 100%, circle, #ff7200, #cd0000);
+	background: -o-radial-gradient(100% 100%, circle, #ff7200, #cd0000);
+	background: -ms-radial-gradient(100% 100%, circle, #ff7200, #cd0000);
+	background: radial-gradient(100% 100%, circle, #ff7200, #cd0000);
+	width:220px;
+	height:40px;
+	font-size:1.2em;
+	color:#ffffff;
+	font-weight:bold;
+}
+
+
+button.calc {
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.00, #b4ddfe), color-stop(1.00, #0d4996));
+	background: -webkit-linear-gradient(#b4ddfe, #0d4996);
+	background: -moz-linear-gradient(#b4ddfe, #0d4996);
+	background: -o-linear-gradient(#b4ddfe, #0d4996);
+	background: -ms-linear-gradient(#b4ddfe, #0d4996);
+	background: linear-gradient(#b4ddfe, #0d4996);
+	width:220px;
+	height:40px;
+	font-size:1.2em;
+	color:#ffffff;
+	font-weight:bold;
+}
+
+.radius {
+	-webkit-border-radius: 10px;	/* Safari,Google Chrome用 */
+	-moz-border-radius: 10px;	/* Firefox用 */
+}
+
+.noneSelect {
+	user-select: none; /* CSS3 */
+	-moz-user-select: none; /* Firefox */
+	-webkit-user-select: none; /* Safari、Chromeなど */
+	-ms-user-select: none; /* IE10かららしい */
+}
+
+
+.pointTable td{
+	height:22px;
+	width:45px;
+}
+
+.header {
+	background: -webkit-gradient(radial, 100% 54%, 0, 100% 54%, 241, color-stop(1.00, #989898), color-stop(0.00, #272727));
+	background: -webkit-radial-gradient(100% 54%, circle, #272727, #989898);
+	background: -moz-radial-gradient(100% 54%, circle, #272727, #989898);
+	background: -o-radial-gradient(100% 54%, circle, #272727, #989898);
+	background: -ms-radial-gradient(100% 54%, circle, #272727, #989898);
+	background: radial-gradient(100% 54%, circle, #272727, #989898);
+}
+
+.hiramekiImage > img {
+	height:35px;
+}

@@ -1,0 +1,110 @@
+
+table.condList th {
+	padding: 0 0.3em;
+	text-align: left;
+}
+
+.condList input[type=text], .condList select {
+	width: 5em;
+	text-align: right;
+
+}
+
+.condInSec, targetSection {
+	margin-bottom: 1em;
+}
+
+.condInSec > div, .execForm, #targetRarelity, .ownStatusSection p {
+	margin-left: 1em;
+}
+
+.condInSec > table {
+	margin-left: 2em;
+
+}
+
+.isConfPickUp {
+	width: 2em;
+}
+
+
+
+/*ヘルプ*/
+.help + p.arrow_box {
+	display: none;
+	position: absolute;
+	padding: 5px;
+	width: 35em;
+	max-width: 80%;
+	left: 0;
+	right: 0;
+	border-radius: 4px;
+	background-color: #444;
+	color: #fff;
+	font-size: 90%;
+	z-index: 100;
+}
+
+.help:active + p.arrow_box,
+.help:hover + p.arrow_box {
+	display: block;
+}
+
+.condOthers input[type=checkbox] {
+	margin-left: 1em;
+}
+
+.manualAnnotation {
+	margin-left: 1.5em;
+}
+
+#displayArea {
+	border: 2px dashed #ffd700;
+	background-color: #fffacd;
+	min-height: 120px;
+	max-width: 640px;
+	width: 80%;
+	margin-left: 1.5em;
+	margin-bottom: 1em;
+}
+
+svg {
+	margin-left: 1.5em;
+	margin-bottom: 1em;
+}
+
+#displayArea > h4 {
+	font-size: 1em;
+}
+
+#displayArea > .mainText, .difList {
+	margin-left: 1em;
+}
+
+
+
+/* d3.js関連 */
+.axis text {
+	font: 10px sans-serif;
+}
+
+.axis path {
+	fill: Aquamarine;
+	opacity: 0.1;
+	stroke: #000;
+	stroke-width: 1;
+	shape-rendering: crispEdges;
+}
+
+.axis line {
+	stroke: #000;
+	stroke-width: 1;
+	shape-rendering: crispEdges;
+}
+
+.line {
+	fill: none;
+	stroke: #ff50f1;
+	stroke-width: 1.5px;
+}
+

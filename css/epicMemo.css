@@ -1,0 +1,164 @@
+main > section {
+	margin-bottom: 1em;
+}
+
+.sectionHeader {
+	margin-left: 0.5em;
+}
+
+.epicTable {
+    width: 90%;
+    max-width: 440px;
+	border-collapse: collapse;
+	margin-left: 1.5em;
+    margin-top: 0.5em;
+
+}
+
+.epicTable tr {
+    height: 40px;
+}
+
+.epicTable tr th:first-child {
+     width: 2em;
+}
+
+.epicTable td {
+    padding: 0;
+	font-size: 1.1em;
+}
+
+.epicButton {
+    width: 100%;
+    height: 40px;
+	background-color: #eee;
+	display: flex;
+	align-items: center;
+}
+
+.epicList {
+    padding: 0;
+}
+.epicList li {
+    list-style: none;
+    border: 1px solid #aaf;
+    border-radius: 5px;
+    padding: 0.4em 0;
+    margin-bottom: 0.25em;
+	display: flex;
+}
+
+.epicItem {
+    color: #000;
+	display: block;
+	width: 100%;
+	height: 100%;
+	font-size: 1.1em;
+	-ms-user-select: none;
+	-moz-user-select: -moz-none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+.epicButtonName, .epicListName, .epicTableHeaderRight > div:nth-child(1) {
+	flex: 1;
+	text-align: left;
+	padding-left: 0.5em;
+}
+
+.epicButtonDetail, .epicListDetail, .epicTableHeaderRight > div:nth-child(2) {
+	width: 4em;
+	text-align: right;
+	padding-right: 0.5em;
+}
+
+.epicTypeTitle > div:nth-child(1) {
+	flex: 1;
+	text-align: left;
+}
+
+.epicTypeTitle > div:nth-child(2) {
+	width: 4em;
+	text-align: right;
+}
+
+.epicTypeTitle, .epicTableHeaderRight {
+    text-align: left;
+	display: flex;
+	align-items: center;
+}
+
+.listType0 li, .buttonType0 {
+    background-color: #ff8d8d;
+}
+
+.listType1 li, .buttonType1 {
+    background-color: #e08ff8;
+}
+
+.listType2 li, .buttonType2 {
+    background-color: #ffff8d;
+}
+
+.listType3 li, .buttonType3 {
+    background-color: #b2eaff;
+}
+
+.listType4 li, .buttonType4 {
+    background-color: #76ff90;
+}
+
+.listType5 li, .buttonType5 {
+	background-color: #ffd293;
+}
+
+.actionArea {
+	margin: 0.5em 0 0.5em 1.5em;
+}
+
+.actionArea button {
+	border-radius: 5px;
+	padding: 0.1em 1em;
+	margin-right: 0.25em;
+}
+
+.iconImg {
+	width: 1.2em;
+}
+
+#modalWindow {
+	max-width: 540px;
+}
+
+.commentDiv {
+	margin: 0.5em 0 0 1.5em;
+	width: 90%;
+	max-width: 440px;
+}
+
+#commentArea {
+	width: 100%;
+	height: 6em;
+}
+
+.cpButtonArea {
+	margin: 0.5em 0 0 1em;
+}
+
+.cpTextArea {
+	display: none;
+	border: 2px dashed #ff9d00;
+	background-color: #fff9c9;
+	padding: 0.5em;
+	margin-left: 1em;
+	width: 90%;
+}
+
+.cpTextList {
+	padding: 0;
+}
+
+.cpTextList li {
+	list-style: none;
+}

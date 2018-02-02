@@ -1,0 +1,88 @@
+.changeBall th {
+	background: #ffffff !important;
+	border-color: #000000 !important;
+	text-align: center;
+}
+
+.changeBall img {
+	width: 32px;
+}
+
+.changeBallInput {
+	width: 100%;
+}
+
+
+.changeBallRank div {
+	height: 32px;
+	width: 32px;
+	background-repeat: no-repeat;
+	background-size:contain;
+	margin: auto;
+	position: relative;
+}
+
+.changeBallRank div > span {
+	position: absolute;
+	bottom: auto;
+	right: -5px;
+	font-size: 28px;
+	color: #000000;
+	text-shadow:
+		0px -1px #fff,
+		-1px -1px #fff,
+		1px 0px #fff,
+		0px 1px #fff,
+		-1px 1px #fff;
+}
+
+
+.changeBallRank div.st2 {
+	background-image: url(../img/st2.png);
+}
+
+.changeBallRank div.l {
+	background-image: url(../img/l.png);
+}
+
+.changeBallRank div.ld {
+	background-image: url(../img/ld.png);
+}
+
+.changeBallRank div.d {
+	background-image: url(../img/d.png);
+}
+
+.changeBallRank div.rd {
+	background-image: url(../img/rd.png);
+}
+
+.changeBallRank div.r {
+	background-image: url(../img/r.png);
+}
+
+.basePoint td {
+	width: 60px;
+}
+
+.basePoint .baseRank > td:nth-child(1) {
+	background-image: url(../img/ballspeed.jpg);
+	position: relative;
+}
+
+.baseRank .alphaScreen {
+	background: rgba(255, 255, 255, 0.4);
+	width: 100%;
+	height: 100%;
+}
+
+.baseRank .valueScreen {
+	position: absolute;
+	right: 0.2em;
+	bottom: -0.2em;
+	text-shadow:
+		1px 1px #fff,
+		-1px 1px #fff,
+		1px -1px #fff,
+		-1px -1px #fff;
+}

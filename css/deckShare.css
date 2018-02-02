@@ -1,0 +1,80 @@
+.pageHeader {
+	margin-bottom: 1.5em;
+}
+
+.menuContainer {
+	display: flex;
+	widows: 100%;
+	max-width: 800px;
+	margin: auto;
+	justify-content: space-around;
+	margin-bottom: 1.5em;
+}
+
+
+.linkBoxWrapper {
+	position: relative;
+	width: 40%;
+	max-width: 240px;
+	text-align: center;
+	border: 3px solid #ddd;
+	border-radius: 4px;
+}
+
+.linkBoxWrapper:before {
+	content: "";
+	display: block;
+	padding-top: 100%;
+}
+
+.linkBoxWrapper a {
+	color: #000;
+	text-decoration: none;
+}
+
+#deckSearch {
+	background: linear-gradient(#8af9ff, #0a94ff);
+}
+
+#deckList {
+	background: linear-gradient(#d1ff9e, #47ff74);
+}
+
+.linkBox {
+	position: absolute;
+	background-repeat: no-repeat;
+	background-size: 80%;
+	background-position: center center;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+
+#deckSearch .linkBox {
+	background-image: url(../img/icon/search.png);
+}
+
+#deckList .linkBox {
+	background-image: url(../img/icon/wrench.png);
+}
+
+.linkText {
+	position: absolute;
+	bottom: 0;
+	right: 2vw;
+	font-size: 12vw;
+	text-shadow:
+		1px 0px #fff,
+		0px 1px #fff,
+		-1px 0px #fff,
+		0px -1px #fff;
+	font-weight: bold;
+}
+
+@media screen and (min-width:550px) {
+	.linkText {
+		right: 1vw;
+		font-size: 400%;
+	}
+}

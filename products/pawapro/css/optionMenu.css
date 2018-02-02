@@ -1,0 +1,90 @@
+.floatMenu {
+	position: fixed;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	right: 0;
+	bottom: 0;
+}
+
+.remodalSection {
+	text-align: left;
+	margin-bottom: 1em;
+}
+
+.remodalSection > div {
+	margin-left: 0.5em;
+}
+
+.remodalSection h4 {
+	margin: 0;
+}
+
+.remodalSection hr {
+	margin: 0.2em 0 0.1em 0;
+}
+
+.remodalSection i {
+	margin-right: 0.2em;
+}
+
+#userInfoForm {
+	margin-bottom: 0;
+}
+
+#userInfoForm dt {
+	clear: left;
+	float: left;
+	width: 6em;
+	font-weight: bold;
+	margin-bottom: 0.2em;
+}
+
+#userInfoForm dd {
+	margin: 0 0 0.5em 6em;
+}
+
+#userInfoForm dt:after {
+	content: ":"
+}
+
+#userInfoForm input {
+	width: 100%;
+	max-width: 15em;
+}
+
+#optionModal p.arrow_box {
+	display: none;
+	position: absolute;
+	padding: 5px;
+	width: 100%;
+	left: 0;
+	right: 0;
+	border-radius: 4px;
+	background-color: #444;
+	color: #fff;
+	font-size: 90%;
+	z-index: 100;
+}
+
+#optionModal .remodalSection h4:active + p.arrow_box,
+#optionModal .remodalSection h4:hover + p.arrow_box {
+	display: block;
+}
+
+#passWatch {
+	color: cadetblue;
+}
+
+#optionModal .optionHr {
+	border-color: #aaaaaa;
+	margin: 5px 0px 15px 0px;
+}
+
+div.templateOption > div {
+	margin: 0.5em 0;
+}
+
+div.templateOption button {
+	border-radius: 3px;
+	padding: 0.2em 0.2em;
+}

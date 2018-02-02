@@ -1,0 +1,362 @@
+.button {
+	display: block;
+	width: 60%;
+	padding: 0.5em 1em;
+	border-radius: 8px;
+	color: #000;
+	font-size: 1.5em;
+	text-align: center;
+	margin: 2em auto;
+	box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.29);
+	text-decoration: none;
+}
+
+.button:hover,
+.button:link,
+.button:active,
+.button:visited {
+	text-decoration: none;
+}
+
+
+/*--------------------*/
+
+.contentContainer {
+	width: 95%;
+	min-height: 8em;
+	background-color: floralwhite;
+	border: 2px dashed #00ffff;
+	margin: 1em auto;
+	font-size: 1.1em;
+	padding: 0.5em 0.5em;
+	position: relative;
+}
+
+.contentsArea {
+	min-height: 6em;
+	padding-bottom: 2.5em;
+}
+
+.contentImageArea {
+	text-align: center;
+	margin: 0.5em;
+}
+
+.contentImageArea img{
+	width: 95%;
+}
+
+.contentPercent {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 100%;
+	height: 2.5em;
+	text-align: right;
+	font-size: 0.8em;
+}
+
+.optionContainer {
+	display: flex;
+	margin-bottom: 1em;
+}
+.optionContainer > .conItem {
+	width: 50%;
+	text-align: center;
+}
+
+#optionArea button {
+	border-top: 1px solid #3849ff;
+
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(1.00, #052dff), color-stop(0.46, #47dbff), color-stop(0.00, #052dff));
+	background: -webkit-linear-gradient(top, #052dff 0%, #47dbff 46%, #052dff 100%);
+	background: -moz-linear-gradient(top, #052dff 0%, #47dbff 46%, #052dff 100%);
+	background: -o-linear-gradient(top, #052dff 0%, #47dbff 46%, #052dff 100%);
+	background: -ms-linear-gradient(top, #052dff 0%, #47dbff 46%, #052dff 100%);
+	background: linear-gradient(to bottom, #052dff 0%, #47dbff 46%, #052dff 100%);
+
+
+	padding: 8px 16px;
+	width: 95%;
+	max-width: 240px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	-webkit-box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+	-moz-box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+	box-shadow: rgba(0, 0, 0, 1) 0 1px 0;
+	text-shadow: rgba(0, 0, 0, 0.4) 0 1px 0;
+	color: #fff;
+	font-size: 1.1em;
+	font-weight: bold;
+	font-family: 'MeiryoUI';
+	text-decoration: none;
+	vertical-align: middle;
+
+	text-shadow:
+		#000 1px 1px 0px,
+		#000 -1px 1px 0px,
+		#000 1px -1px 0px,
+		#000 -1px -1px 0px;
+}
+
+.nextButton {
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.99, #fe7816), color-stop(0.50, #ffd480), color-stop(0.00, #fe7816));
+	background: -webkit-linear-gradient(top, #fe7816 0%, #ffd480 50%, #fe7816 99%);
+	background: -moz-linear-gradient(top, #fe7816 0%, #ffd480 50%, #fe7816 99%);
+	background: -o-linear-gradient(top, #fe7816 0%, #ffd480 50%, #fe7816 99%);
+	background: -ms-linear-gradient(top, #fe7816 0%, #ffd480 50%, #fe7816 99%);
+	background: linear-gradient(to bottom, #fe7816 0%, #ffd480 50%, #fe7816 99%);
+	min-width: 6em;
+	padding: 5px 10px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+}
+
+#optionArea button:disabled {
+	border-top: 1px solid #5c5c5c;
+	background: #adadad;
+	color: #535353;
+	text-shadow: none;
+
+}
+
+
+#optionArea button.correct {
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.99, #00b80b), color-stop(0.50, #79f68c), color-stop(0.00, #00b80b));
+	background: -webkit-linear-gradient(top, #00b80b 0%, #79f68c 50%, #00b80b 99%);
+	background: -moz-linear-gradient(top, #00b80b 0%, #79f68c 50%, #00b80b 99%);
+	background: -o-linear-gradient(top, #00b80b 0%, #79f68c 50%, #00b80b 99%);
+	background: -ms-linear-gradient(top, #00b80b 0%, #79f68c 50%, #00b80b 99%);
+	background: linear-gradient(to bottom, #00b80b 0%, #79f68c 50%, #00b80b 99%);
+
+}
+
+
+
+#optionArea button.faild {
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.99, #fb2a18), color-stop(0.50, #f68679), color-stop(0.00, #fb2a18));
+	background: -webkit-linear-gradient(top, #fb2a18 0%, #f68679 50%, #fb2a18 99%);
+	background: -moz-linear-gradient(top, #fb2a18 0%, #f68679 50%, #fb2a18 99%);
+	background: -o-linear-gradient(top, #fb2a18 0%, #f68679 50%, #fb2a18 99%);
+	background: -ms-linear-gradient(top, #fb2a18 0%, #f68679 50%, #fb2a18 99%);
+	background: linear-gradient(to bottom, #fb2a18 0%, #f68679 50%, #fb2a18 99%);
+}
+
+
+
+
+
+#nextBUttonArea {
+	margin: 1em 0.5em;
+}
+
+#commentText {
+	min-height: 7em;
+}
+
+.voteArea, .voteResult {
+	text-align: right;
+}
+
+#ansResult {
+	margin: 0.25em 0;
+}
+
+.ansResultMark {
+	padding: 0.25em 1em;
+	width:3em;
+	height: 1em;
+	background-color: #ddd;
+	font-weight: bold;
+	border-radius: 3px;
+	-webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+	-moz-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+	box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+	text-shadow: rgba(0, 0, 0, 0.4) 0 1px 0;
+}
+
+.ansResultMark.ansCorrect:before {
+	content: "\f10c";
+	font-family: FontAwesome;
+	color: #00b500;
+}
+
+.ansResultMark.ansFailed:before {
+	content: "\f00d";
+	font-family: FontAwesome;
+	color: #ff0000;
+}
+
+.voteArea button {
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	font-size: 0.8em;
+}
+
+.nextButtonArea {
+	margin: auto;
+	max-width: 640px;
+}
+
+/*--------------------*/
+.resultSummary, .commentArea {
+	width: 95%;
+	min-height: 8em;
+	background-color: floralwhite;
+	border: 2px dashed #ffa700;
+	margin: 1em auto;
+	padding: 0.25em 0.5em;
+	font-size: 1.1em;
+}
+
+
+.shareRetryArea {
+	display: flex;
+	margin: 1.5em auto;
+	width: 90%;
+	-webkit-justify-content: space-around;
+	justify-content: space-around;
+}
+
+.shareRetryArea div {
+	text-align: center;
+}
+
+.shareRetryArea a {
+	display: block;
+	padding: 5px 10px;
+	border-radius: 3px;
+	font-size: 1.2em;
+	box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.29);
+}
+
+.shareRetryArea a:link,
+.shareRetryArea a:hover,
+.shareRetryArea a:active,
+.shareRetryArea a:visited {
+	text-decoration: none;
+}
+
+.shareRetryArea .retryButton {
+	color: #000;
+}
+
+.shareRetryArea .shareButton {
+	color: #fff;
+	background-color: #00aced;
+}
+
+.retryButton, .tryButton {
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.99, #fe7816), color-stop(0.50, #ffd480), color-stop(0.00, #fe7816));
+	background: -webkit-linear-gradient(top, #fe7816 0%, #ffd480 50%, #fe7816 99%);
+	background: -moz-linear-gradient(top, #fe7816 0%, #ffd480 50%, #fe7816 99%);
+	background: -o-linear-gradient(top, #fe7816 0%, #ffd480 50%, #fe7816 99%);
+	background: -ms-linear-gradient(top, #fe7816 0%, #ffd480 50%, #fe7816 99%);
+	background: linear-gradient(to bottom, #fe7816 0%, #ffd480 50%, #fe7816 99%);
+
+}
+
+.makeButton {
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(1.00, #c020ff), color-stop(0.50, #f3c9e2), color-stop(0.00, #c020ff));
+	background: -webkit-linear-gradient(top, #c020ff 0%, #f3c9e2 50%, #c020ff 100%);
+	background: -moz-linear-gradient(top, #c020ff 0%, #f3c9e2 50%, #c020ff 100%);
+	background: -o-linear-gradient(top, #c020ff 0%, #f3c9e2 50%, #c020ff 100%);
+	background: -ms-linear-gradient(top, #c020ff 0%, #f3c9e2 50%, #c020ff 100%);
+	background: linear-gradient(to bottom, #c020ff 0%, #f3c9e2 50%, #c020ff 100%);
+}
+
+.koujiButton {
+	background-color: #888888;
+}
+
+
+.listButton {
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(1.00, #40ecf2), color-stop(0.50, #c4f2fd), color-stop(0.00, #40ecf2));
+	background: -webkit-linear-gradient(top, #40ecf2 0%, #c4f2fd 50%, #40ecf2 100%);
+	background: -moz-linear-gradient(top, #40ecf2 0%, #c4f2fd 50%, #40ecf2 100%);
+	background: -o-linear-gradient(top, #40ecf2 0%, #c4f2fd 50%, #40ecf2 100%);
+	background: -ms-linear-gradient(top, #40ecf2 0%, #c4f2fd 50%, #40ecf2 100%);
+	background: linear-gradient(to bottom, #40ecf2 0%, #c4f2fd 50%, #40ecf2 100%);
+}
+
+.resultMark.correct:after {
+	content: '\f10c';
+	font-family: FontAwesome;
+	color: #48f061;
+}
+
+
+.resultMark.faild:after {
+	content: '\f00d';
+	font-family: FontAwesome;
+	color: #f00;
+}
+
+
+/*--------------------*/
+.quizMake textarea {
+	width: 80%;
+	max-width: 640px;
+	height: 8em;
+}
+
+.quizMake input {
+	width: 15em;
+}
+
+section {
+	margin: 0.5em 1em;
+}
+
+#contentImage {
+	max-width: 80%;
+}
+
+
+.quizMake section {
+	margin-bottom: 1.5em;
+}
+
+
+
+/*--------------------*/
+#quizList {
+	padding: 0;
+}
+
+#quizList li {
+	list-style-type: none;
+}
+
+.contentOtherInfo {
+	width: 100%;
+	display: flex;
+	-webkit-justify-content: space-around;
+	justify-content: space-around;
+}
+
+.contentOtherInfo > div {
+	width:50%;
+}
+
+.voteInfo {
+	text-align: right;
+}
+
+
+.quizMake .secMain {
+	margin-left: 1em;
+}
+
+
+
+.pageDisplay {
+	display: flex;
+}
+
+.pageDisplay ul {
+	margin: auto;
+}
+

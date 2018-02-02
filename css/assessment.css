@@ -1,0 +1,355 @@
+section {
+	margin-left: 1em;
+	margin-bottom: 2em;
+}
+
+table {
+	border: solid 1px #000;
+	margin-left: 0.5em;
+}
+
+.addAbility {
+	padding: 0.1em 0.5em 0.1em 0.5em;
+	border-radius: 10px;
+	margin-left: 0.5em;
+}
+
+.addAbility:before {
+	font-family: FontAwesome;
+	content: '\f090';
+	margin-right: 0.2em;
+}
+
+#abilityModal {
+	max-width: 560px;
+}
+
+#abilityList {
+	max-width: 420px;
+	margin: auto;
+}
+
+.abSelectHeader {
+	display: flex;
+	height: 25px;
+	background:#000;
+	color:#fff;
+	font-weight: bold;
+}
+
+.abSelectHeader > div:nth-child(2) {
+	flex-grow: 1;
+	display: flex;
+	height: 100%;
+	-webkit-justify-content: center;
+	justify-content: center;
+	align-items: center;
+}
+
+
+.abilityButtonList,
+.otherAbilityList {
+	list-style:none;
+	padding: 0;
+}
+
+.abilityButtonList li,
+.otherAbilityList li {
+	display:flex;
+	height: 40px;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	-khtml-touch-callout: none;
+}
+
+.abilityButtonList li > div:nth-child(1),
+.abilityButtonList li > div:nth-child(3),
+.otherAbilityList li > div:nth-child(1),
+.otherAbilityList li > div:nth-child(3),
+.abSelectHeader > div:nth-child(1),
+.abSelectHeader > div:nth-child(3)
+{
+	width: 30px;
+	min-width: 30px;
+	height: 100%;
+	display: flex;
+	-webkit-justify-content: center;
+	justify-content: center;
+	position: relative;
+}
+
+
+.abilityButtonList li > div:nth-child(2),
+.otherAbilityList .abName
+{
+	flex-grow: 1;
+	display: flex;
+	height: 100%;
+	-webkit-justify-content: center;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid #aaa;
+	border-radius: 8px;
+}
+
+.abName {
+	background: #eee;
+}
+
+
+.pmButton {
+	width: 30px;
+	height: 25px;
+}
+
+.pmButton:before {
+	content: '';
+	width: 21.213px;
+	height: 21.213px;
+	display: block;
+	transform: rotate(45deg);
+	position: absolute;
+}
+
+.pmButton:after {
+	font-family: FontAwesome;
+	color: #fff;
+	font-size: 26px;
+	position: absolute;
+	text-shadow:
+		1px 1px #000,
+		1px -1px #000,
+		-1px 1px #000,
+		-1px -1px #000;
+}
+
+.plusButton:before {
+	top: 4.5px;
+	left: 4.5px;
+	border-top: 1px solid #000;
+	border-left: 1px solid #000;
+	background: #f00;
+	background: -webkit-gradient(radial, 0% 0%, 0, 0% 0%, 241, color-stop(1.00, #f00), color-stop(0.70, #f6441c), color-stop(0.00, #fb9983));
+	background: -webkit-radial-gradient(0% 0%, circle, #fb9983 0%, #f6441c 70%, #f00 100%);
+	background: -moz-radial-gradient(0% 0%, circle, #fb9983 0%, #f6441c 70%, #f00 100%);
+	background: -o-radial-gradient(0% 0%, circle, #fb9983 0%, #f6441c 70%, #f00 100%);
+	background: -ms-radial-gradient(0% 0%, circle, #fb9983 0%, #f6441c 70%, #f00 100%);
+	background: radial-gradient(0% 0%, circle, #fb9983 0%, #f6441c 70%, #f00 100%);
+}
+
+.plusButton {
+	margin-top: 15px;
+	border-left: 1px solid #000;
+	border-right: 1px solid #000;
+	border-bottom: 1px solid #000;
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+	background: #f00;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(1.00, #f00), color-stop(0.00, #f6441c));
+	background: -webkit-linear-gradient(#f6441c, #f00);
+	background: -moz-linear-gradient(#f6441c, #f00);
+	background: -o-linear-gradient(#f6441c, #f00);
+	background: -ms-linear-gradient(#f6441c, #f00);
+	background: linear-gradient(#f6441c, #f00);
+}
+
+.plusButton:after {
+	content: '\f067';
+	top: 6px;
+	left: 4.7px;
+}
+
+.minusButton:before {
+	top: 14.5px;
+	right: 4.5px;
+	background: #0f0;
+	border-right: 1px solid #000;
+	border-bottom: 1px solid #000;
+	background: -webkit-gradient(radial, 100% 100%, 0, 100% 100%, 241, color-stop(1.00, #ccffd3), color-stop(0.65, #0f0), color-stop(0.00, #029216));
+	background: -webkit-radial-gradient(100% 100%, circle, #029216 0%, #0f0 65%, #ccffd3 100%);
+	background: -moz-radial-gradient(100% 100%, circle, #029216 0%, #0f0 65%, #ccffd3 100%);
+	background: -o-radial-gradient(100% 100%, circle, #029216 0%, #0f0 65%, #ccffd3 100%);
+	background: -ms-radial-gradient(100% 100%, circle, #029216 0%, #0f0 65%, #ccffd3 100%);
+	background: radial-gradient(100% 100%, circle, #029216 0%, #0f0 65%, #ccffd3 100%);
+}
+
+.minusButton {
+	margin-top: 0px;
+	border-left: 1px solid #000;
+	border-right: 1px solid #000;
+	border-top: 1px solid #000;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	background: #0f0;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(1.00, #0f0), color-stop(0.00, #ccffd3));
+	background: -webkit-linear-gradient(#ccffd3, #0f0);
+	background: -moz-linear-gradient(#ccffd3, #0f0);
+	background: -o-linear-gradient(#ccffd3, #0f0);
+	background: -ms-linear-gradient(#ccffd3, #0f0);
+	background: linear-gradient(#ccffd3, #0f0);
+}
+
+
+.minusButton:after {
+	content: '\f068';
+	top: -1px;
+	right: 5px;
+}
+
+a.buttonAct {
+	display: flex;
+	width: 50px;
+	height: 100%;
+	position: absolute;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.plusButtonArea > a.buttonAct {
+	justify-content: flex-start;
+	right: -20px;
+}
+
+.minusButtonArea > a.buttonAct {
+	justify-content: flex-end;
+	left: -20px;
+}
+
+ul.abilityDisplay {
+	display: flex;
+	flex-wrap: wrap;
+	list-style:none;
+	padding-left: 10px;
+	position: relative;
+}
+
+ul.abilityDisplay li {
+	border:1px solid #bbb;
+	background-color:#ddd;
+	color:#999;
+	border-radius:20px;
+	margin-bottom:10px;
+	margin-right:10px;
+	padding:0.3em 1em;
+	position: relative;
+	cursor: pointer;
+}
+
+li.selectedAbility, div.abColor {
+	background: -webkit-gradient(radial, 0% 54%, 0, 0% 54%, 225, color-stop(1.00, #5cebff), color-stop(0.55, #c9edf7), color-stop(0.00, #5cebff));
+	background: -webkit-radial-gradient(0% 54%, circle, #5cebff 0%, #c9edf7 55%, #5cebff 100%);
+	background: radial-gradient(0% 54%, circle, #5cebff 0%, #c9edf7 55%, #5cebff 100%);
+	color:#000000 !important;
+}
+
+li.selectedBAbility, div.BAbColor {
+	background: -webkit-gradient(radial, 0% 50%, 0, 0% 50%, 241, color-stop(1.00, #ff5047), color-stop(0.51, #f9c3c2), color-stop(0.01, #ff5047));
+	background: -webkit-radial-gradient(0% 50%, circle, #ff5047 1%, #f9c3c2 51%, #ff5047 100%);
+	background: radial-gradient(0% 50%, circle, #ff5047 1%, #f9c3c2 51%, #ff5047 100%);
+	color:#000000 !important;
+}
+
+
+li.selectedSAbility, div.SAbColor {
+	background: -webkit-gradient(radial, 0% 50%, 0, 0% 50%, 241, color-stop(1.00, #faea00), color-stop(0.52, #fffee0), color-stop(0.01, #faea00));
+	background: -webkit-radial-gradient(0% 50%, circle, #faea00 1%, #fffee0 52%, #faea00 100%);
+	background: radial-gradient(0% 50%, circle, #faea00 1%, #fffee0 52%, #faea00 100%);
+	color:#000000 !important;
+}
+
+li.selectedPAbility, div.PAbColor {
+	background: -webkit-gradient(radial, 0% 50%, 0, 0% 50%, 241, color-stop(1.00, #fa0b00), color-stop(0.51, #f89d9b), color-stop(0.01, #fa0b00));
+	background: -webkit-radial-gradient(0% 50%, circle, #fa0b00 1%, #f89d9b 51%, #fa0b00 100%);
+	background: radial-gradient(0% 50%, circle, #fa0b00 1%, #f89d9b 51%, #fa0b00 100%);
+	color:#000000 !important;
+}
+
+li.selectedHAbility, div.HAbColor {
+	background: -webkit-gradient(radial, 0% 50%, 0, 0% 50%, 241, color-stop(1.00, #ff5047), color-stop(0.70, #ffa8a3), color-stop(0.30, #a3f4ff), color-stop(0.01, #5cebff));
+	background: -webkit-radial-gradient(0% 50%, circle, #5cebff 1%, #a3f4ff 30%, #ffa8a3 70%, #ff5047 100%);
+	background: radial-gradient(0% 50%, circle, #5cebff 1%, #a3f4ff 30%, #ffa8a3 70%, #ff5047 100%);
+	color:#000000 !important;
+}
+
+
+li.selectedGAbility, div.GAbColor {
+	background: -webkit-gradient(radial, 0% 50%, 0, 0% 50%, 241, color-stop(1.00, #52ff42), color-stop(0.50, #cbfbad), color-stop(0.00, #52ff42));
+	background: -webkit-radial-gradient(0% 50%, circle, #52ff42 0%, #cbfbad 50%, #52ff42 100%);
+	background: radial-gradient(0% 50%, circle, #52ff42 0%, #cbfbad 50%, #52ff42 100%);
+	color:#000000 !important;
+}
+
+.abilityCount {
+	padding-left: 1em;
+	width:3em;
+	font-size: 1.5em;
+	font-style: italic;
+	color:#fff03b;
+	text-shadow:
+		-1px 0px #000,
+		0px -1px #000,
+		1px 0px #000,
+		0px 1px #000;
+}
+
+#assessmentDisplay {
+	margin-left: 1em;
+	font-size: 1.3em;
+}
+
+#displayRank img {
+	width: 1.5em;
+	height: 1.5em;
+}
+
+.basePointInput {
+	width: 4em;
+}
+
+div.groupHeader{
+	text-align: left;
+	margin-top: 1em;
+}
+
+.displayRankArea {
+	display: flex;
+	align-items: center;
+}
+
+.rankImgArea {
+	position: relative;
+}
+
+#displayRankNum {
+	position: absolute;
+	right: 0.1em;
+	bottom: -0.1em;
+	font-weight: bold;
+	font-size: 70%;
+	text-shadow:
+		1px 1px #fff,
+		-1px 1px #fff,
+		1px -1px #fff,
+		-1px -1px #fff;
+}
+
+.meterFrame {
+	width: 3em;
+	height: 0.8em;
+	border: 2px solid #aaa;
+	margin-left: 0.1em;
+}
+
+.meterGauge {
+	width: 0;
+	height: 100%;
+	background: -webkit-gradient(radial, 0% 56%, 0, 0% 56%, 241, color-stop(1.00, #ff4420), color-stop(0.27, #ffe552));
+	background: -webkit-radial-gradient(0% 56%, circle, #ffe552 27%, #ff4420 100%);
+	background: -moz-radial-gradient(0% 56%, circle, #ffe552 27%, #ff4420 100%);
+	background: -o-radial-gradient(0% 56%, circle, #ffe552 27%, #ff4420 100%);
+	background: -ms-radial-gradient(0% 56%, circle, #ffe552 27%, #ff4420 100%);
+	background: radial-gradient(0% 56%, circle, #ffe552 27%, #ff4420 100%);
+}
+

@@ -1,0 +1,61 @@
+.teamDetailContainer, .display, .operateContainer, .annotation {
+	width: 80%;
+	max-width: 80%;
+	margin: 1em auto;
+}
+
+.teamTable, .operateTable {
+	width: 100%;
+}
+
+.teamTable tr, .operateTable tr {
+	height: 40px;
+}
+
+
+.teamTable th {
+	width: 6em;
+}
+
+.operateTable th {
+	width: 5em;
+}
+
+.teamInput, .operateInput {
+	width: 100%;
+	height: 40px;
+}
+
+.display {
+	background-color: #fffae3;
+	border: 3px dashed #f5ac55;
+	min-height: 6em;
+}
+
+.display span {
+	color: #f00;
+	font-weight: bold;
+}
+
+.shareArea {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 0.5em;
+}
+
+.shareButton {
+	display: block;
+	color: #fff;
+	background-color: #00aced;
+	padding: 0.5em 1em;
+	border-radius: 5px;
+}
+
+.shareButton:before {
+	font-family: FontAwesome;
+	content: '\f099';
+}
+
+.shareLink {
+	display: none;
+}
