@@ -4,10 +4,10 @@
 <head>
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@hitsujiPawapro" />
-    <meta name="og:url" content="http://studiowool.webcrow.jp/products/pawapro/php/entakuLevel.php" />
+	<meta name="og:url" content="http://pawapro-simu.com/php/entakuLevel.php" />
     <meta name="og:title" content="パワプロアプリ育成シミュレーター 円卓高校練習レベル計算機" />
     <meta name="og:description" content="パワプロアプリ円卓高校の初期練習レベルを計算するツールです。" />
-    <meta name="og:image" content="http://studiowool.webcrow.jp/products/pawapro/img/thumbnail.jpg" />
+	<meta name="og:image" content="http://pawapro-simu.com//img/thumbnail.jpg" />
     <?php
     $title = 'パワプロアプリ　円卓高校練習レベル計算機';
     $description = 'パワプロアプリ円卓高校の初期練習レベルを計算するツールです。';
