@@ -1,0 +1,14 @@
+main > section {
+	margin-top: 1em;
+}
+
+.sateiImg {
+	width: 100%;
+}
+
+main > section > header {
+	background-color: #000;
+	color: #fff;
+	font-size: 1.2em;
+	font-weight: bold;
+}

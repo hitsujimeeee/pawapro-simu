@@ -30,9 +30,6 @@
 			<section class="mainSection">
 				<p class="item">・<a href="./blankCountSimulate.php">査定調査お助けくん</a></p>
 			</section>
-			<section class="mainSection">
-				<p class="item">・<a href="./epicMemo.php">円卓高校エピックメモ</a></p>
-			</section>
 		</main>
 
 		<?php include('./optionMenu.php'); ?>

@@ -1,8 +1,8 @@
 <!-- ヘッダー -->
 <?php
-$urlPadding = '../';
-if(basename(realpath("./")) === 'pawapro') {
-	$urlPadding = './';
+$urlPadding = './';
+if(basename(realpath("./")) === 'php') {
+	$urlPadding = '../';
 }
 ?>
 <header>
@@ -25,6 +25,7 @@ if(basename(realpath("./")) === 'pawapro') {
 							<li><a href="<?php echo $urlPadding; ?>php/pitcher.php">投手シミュ</a></li>
 							<li><a href="<?php echo $urlPadding; ?>php/assessment.php">査定計算機</a></li>
 							<li><a href="<?php echo $urlPadding; ?>php/characters.php">作成選手一覧</a></li>
+							<li><a href="<?php echo $urlPadding; ?>php/sateiList.php">査定表</a></li>
 						</ul>
 					</li>
 					<li><a href="<?php echo $urlPadding; ?>php/moneyCalc.php">課金額シミュ</a></li>
