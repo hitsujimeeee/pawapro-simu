@@ -4,14 +4,7 @@
 
 var calcMaxAssessmentPitcherModule = (function() {
 	var MAP_MAX_SIZE = 15000;
-	var pointList = [
-		0, 2658, 2680, 2700, 2740, 2760, 2780, 2820, 2840, 2860,
-		2902, 2922, 2942, 2962, 3002, 3022, 3062, 3082, 3102, 3122,
-		3162, 3184, 3204, 3244, 3264, 3284, 3324, 3344, 3364, 3404,
-		3424, 3444, 3466, 3506, 3526, 3546, 3586, 3606, 3626, 3666,
-		3686, 3706, 3726, 3768, 3788, 3808, 3848, 3868, 3889, 3929,
-		3949, 3969
-	];
+	var pointList = null;
 
 	return {
 
@@ -86,7 +79,7 @@ var calcMaxAssessmentPitcherModule = (function() {
 				if(data.baseTargetList !== null || $('#abilityOnly').prop("checked") !== false || window.confirm('基礎能力の査定値が条件を満たしていないため、特殊能力のみ振り分けを行います')){
 					//[経験点、　査定値、　特能IDの連結文字列、　実査定値、　総経験点]
 					var map = [[[0, 0, 0, 0, 0], [0, 0], '', 0, 0]];
-
+					pointList = data.pointList;
 					calcMaxAssessmentPitcherModule.RecallMaxAssessment(map, data.targetList, 0, expPoint, data.baseNowAssessment, data.abNowAssessment);
 				} else {
 					$.unblockUI();
@@ -224,7 +217,7 @@ var calcMaxAssessmentPitcherModule = (function() {
 
 		getRealAssessmentPoint: function(array, baseNowAssessment, abNowAssessment){
 
-			var newbaseNowAssessment = (baseNowAssessment + array[0] > 100 ? pointList[baseNowAssessment + array[0]-100] * 100 : 0);
+			var newbaseNowAssessment = pointList[baseNowAssessment + array[0]] * 100;
 			var newabNowAssessment = abNowAssessment + array[1];
 			return newbaseNowAssessment + newabNowAssessment;
 		},

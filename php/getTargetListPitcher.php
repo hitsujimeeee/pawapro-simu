@@ -26,30 +26,43 @@ $pairList = array();
 
 $baseTypeStr = array('SP', 'CO', 'ST');
 $expPointStr = ['POWER', 'SPEED', 'TECH', 'SCREWBALL', 'MENTAL'];
+$pointList = null;
 
 $nowBaseAssessment = 0;
-
 
 
 
 try{
 	$dbh = DB::connect();
 
+	//変化球の組み合わせとポイントの対応表取得
+	$sql = 'SELECT ITEM, POINT FROM CHANGE_BALL_POINT';
+	$sth = $dbh->query($sql);
+	$dictionary = $sth->fetchAll();
+
+	//ポイント→査定値の対応表取得
+	$pointList = [];
+	$sql = 'SELECT VALUE FROM PITCHER_POINT_VALUE ORDER BY POINT';
+	$sth = $dbh->query($sql);
+	while ($row = $sth->fetch(PDO::FETCH_ASSOC)) {
+		$pointList[] = (int)$row['VALUE'];
+	}
+
 	if (!$abilityOnly) {
-		$nowBaseAssessment = getChangeBallAssessmentPoint($dbh, $changeBallType, $changeBallValue);
+		$nowBaseAssessment = getChangeBallAssessmentPoint($dbh, $changeBallType, $changeBallValue, $dictionary);
+		if($nowBaseAssessment !== 0) {
+			for($i = 0; $i < count($basePoint); $i++) {
 
-		for($i = 0; $i < count($basePoint); $i++) {
+				if($basePoint[$i] === 0) {
+					continue;
+				}
 
-			if($basePoint[$i] === 0) {
-				continue;
-			}
+				$mag = (1 - $baseTrickLevel[$i] * 0.02) * $sense_per;
+				$set = array();
+				$nowAssessment = null;
+				$point = [0, 0, 0, 0, 0];
 
-			$mag = (1 - $baseTrickLevel[$i] * 0.02) * $sense_per;
-			$set = array();
-			$nowAssessment = null;
-			$point = [0, 0, 0, 0, 0];
-
-			$sql = '
+				$sql = '
 				SELECT
 					POINT,
 					POWER,
@@ -65,97 +78,89 @@ try{
 				AND
 					POINT >= :nowPoint
 				AND
-					POINT <= :limit
-		';
-			$limit = $basePoint[$i] > $baseLimitBreak[$i] ? $basePoint[$i] : $baseLimitBreak[$i];
-			$sth = $dbh->prepare($sql);
-			$sth->bindValue('type', $i+7, PDO::PARAM_INT);
-			$sth->bindValue('nowPoint', $basePoint[$i], PDO::PARAM_INT);
-			$sth->bindValue('limit', $limit, PDO::PARAM_INT);
-			$sth->execute();
+					POINT <= :limit';
 
-			//現在の査定値を取得
-			$row = $sth->fetch(PDO::FETCH_ASSOC);
-			if ($row) {
-				$nowBaseAssessment += (double)$row['ASSESSMENT'];
-				$nowAssessment = (double)$row['ASSESSMENT'];
-				$assessment = $nowAssessment;
-			}
+				$limit = $basePoint[$i] > $baseLimitBreak[$i] ? $basePoint[$i] : $baseLimitBreak[$i];
+				$sth = $dbh->prepare($sql);
+				$sth->bindValue('type', $i+7, PDO::PARAM_INT);
+				$sth->bindValue('nowPoint', $basePoint[$i], PDO::PARAM_INT);
+				$sth->bindValue('limit', $limit, PDO::PARAM_INT);
+				$sth->execute();
 
-			if ($i === 2 && $nonStamina) {
-				continue;
-			}
+				//現在の査定値を取得
+				$row = $sth->fetch(PDO::FETCH_ASSOC);
+				if ($row) {
+					$nowBaseAssessment += (double)$row['ASSESSMENT'];
+					$nowAssessment = (double)$row['ASSESSMENT'];
+					$assessment = $nowAssessment;
+				}
+
+				if ($i === 2 && $nonStamina) {
+					continue;
+				}
 
 
-			while($row = $sth->fetch(PDO::FETCH_ASSOC)) {
-				$breakFlag = false;
+				while($row = $sth->fetch(PDO::FETCH_ASSOC)) {
+					$breakFlag = false;
 
-				//取得に必要な総経験点を加算
-				//残り経験点を超えたら終了
-				for ($j = 0; $j < 5; $j++) {
-					$point[$j] += (int)$row[$expPointStr[$j]] === 0 ? 0 : (int)(max(bcmul((int)$row[$expPointStr[$j]], $mag, 1), 1));
-					if ($point[$j] > $expPoint[$j]) {
-						$breakFlag = true;
+					//取得に必要な総経験点を加算
+					//残り経験点を超えたら終了
+					for ($j = 0; $j < 5; $j++) {
+						$point[$j] += (int)$row[$expPointStr[$j]] === 0 ? 0 : (int)(max(bcmul((int)$row[$expPointStr[$j]], $mag, 1), 1));
+						if ($point[$j] > $expPoint[$j]) {
+							$breakFlag = true;
+							break;
+						}
+					}
+
+					if($breakFlag) {
 						break;
+					}
+
+					//査定値が切り替わるタイミングでtargetListに追加する
+					if((double)$row['ASSESSMENT'] > $assessment) {
+						$total = $point[0] + $point[1] + $point[2] + $point[3] + $point[4];
+						$val = (int)($row['ASSESSMENT'] - $nowAssessment);
+						$set[] = array(
+							'id'=>$baseTypeStr[$i] . $row['POINT'],
+							'type'=>0,
+							'point'=>$point,
+							'val'=>$val,
+							'eff'=>$val/(double)$total
+						);
+						$assessment = (double)$row['ASSESSMENT'];
+					}
+
+				}
+				if(count($set) > 0) {
+					usort($set, "compAssessmentEfficiency");
+					array_push($baseTargetList, $set);
+				}
+				$sth = null;
+			}
+
+			if ($pointList[$nowBaseAssessment] !== 0) {
+				for ($i = 0; $i < count($baseTargetList); $i++) {
+					for ($j = 0; $j < count($baseTargetList[$i]); $j++) {
+						$total = array_reduce($baseTargetList[$i][$j]["point"], "sum");
+						$targetVal = $baseTargetList[$i][$j]["val"] + $nowBaseAssessment;
+						$val = $pointList[$targetVal] - $pointList[$nowBaseAssessment];
+						$baseTargetList[$i][$j]["eff"] = ($val*100)/$total;
 					}
 				}
 
-				if($breakFlag) {
-					break;
+				for ($i = 0; $i < count($baseTargetList); $i++) {
+					usort($baseTargetList[$i], "compAssessmentEfficiency");
 				}
+				usort($baseTargetList, 'compAssessmentEfficiencyAll');
 
-				//査定値が切り替わるタイミングでtargetListに追加する
-				if((double)$row['ASSESSMENT'] > $assessment) {
-					$total = $point[0] + $point[1] + $point[2] + $point[3] + $point[4];
-					$val = (int)($row['ASSESSMENT'] - $nowAssessment);
-					$set[] = array(
-						'id'=>$baseTypeStr[$i] . $row['POINT'],
-						'type'=>0,
-						'point'=>$point,
-						'val'=>$val,
-						'eff'=>$val/(double)$total
-					);
-					$assessment = (double)$row['ASSESSMENT'];
-				}
-
-			}
-			if(count($set) > 0) {
-				usort($set, "compAssessmentEfficiency");
-				array_push($baseTargetList, $set);
-			}
-			$sth = null;
-		}
-
-		$pointList = [
-			0, 2658, 2680, 2700, 2740, 2760, 2780, 2820, 2840, 2860,
-			2902, 2922, 2942, 2962, 3002, 3022, 3062, 3082, 3102, 3122,
-			3162, 3184, 3204, 3244, 3264, 3284, 3324, 3344, 3364, 3404,
-			3424, 3444, 3466, 3506, 3526, 3546, 3586, 3606, 3626, 3666,
-			3686, 3706, 3726, 3768, 3788, 3808, 3848, 3868, 3889, 3929,
-			3949, 3969
-		];
-
-
-		if ($nowBaseAssessment > 100) {
-			for ($i = 0; $i < count($baseTargetList); $i++) {
-				for ($j = 0; $j < count($baseTargetList[$i]); $j++) {
-					$total = array_reduce($baseTargetList[$i][$j]["point"], "sum");
-					$targetVal = $baseTargetList[$i][$j]["val"] + $nowBaseAssessment;
-					$val = $pointList[$targetVal-100] - $pointList[$nowBaseAssessment-100];
-					$baseTargetList[$i][$j]["eff"] = ($val*100)/$total;
-				}
+				$targetList = $baseTargetList;
+			} else {
+				$baseTargetList = null;
 			}
 
-			for ($i = 0; $i < count($baseTargetList); $i++) {
-				usort($baseTargetList[$i], "compAssessmentEfficiency");
-			}
-			usort($baseTargetList, 'compAssessmentEfficiencyAll');
-
-
-			$targetList = $baseTargetList;
 		} else {
 			$baseTargetList = null;
-			$nowBaseAssessment = 0;
 		}
 
 	} else {
@@ -365,7 +370,8 @@ try{
 		'targetList'=>$targetList,
 		'baseTargetList'=>$baseTargetList,
 		'baseNowAssessment'=>$nowBaseAssessment,
-		'abNowAssessment'=>$abNowAssessment
+		'abNowAssessment'=>$abNowAssessment,
+		'pointList'=>$pointList
 	);
 
 

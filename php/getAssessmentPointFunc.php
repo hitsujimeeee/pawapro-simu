@@ -53,12 +53,12 @@ function getAssessmentPointOfBaseAbilityRaw($dbh, $basePointAim) {
 	return $point;
 }
 
-function getChangeBallAssessmentPoint($dbh, $changeBallType, $changeBallValue) {
+function getChangeBallAssessmentPoint($dbh, $changeBallType, $changeBallValue, $dictionary) {
 	//変化球の総変量を求める
 	$totalChangeValue = array_reduce($changeBallValue, "sum") - $changeBallValue[0];
 
 	$typeList = array(
-		array("2", "2", "1", "0"),
+		array("1", "2", "1", "0"),
 		array("A", "B", "A", "0"),
 		array("B", "B", "B", "B", "B", "C", "0"),
 		array("B", "A", "C", "B", "D", "B", "0"),
@@ -66,83 +66,27 @@ function getChangeBallAssessmentPoint($dbh, $changeBallType, $changeBallValue) {
 		array("A", "A", "0")
 	);
 
-	$cList = array();
-	for ($i = 0; $i < count($changeBallType); $i++) {
+	$cList = [];
+	for ($i = 1; $i < count($changeBallType); $i++) {
 		if ($changeBallValue[$i] > 0) {
-			$cList[] = array(
-				'type'=> $typeList[$i][$changeBallType[$i]-1],
-				'value'=> $changeBallValue[$i]
-			);
+			$cList[] = $typeList[$i][$changeBallType[$i]-1] . $changeBallValue[$i];
 		}
 	}
 
-
-	//var_dump($cList);
-	$changeTypeCount = count($cList) - 1;
-	$matchCountA = 0;
-	$matchCountB = 0;
-
-	for ($i = 0; $i < count($cList); $i++) {
-		switch($cList[$i]["type"]) {
-			case "A":
-				$matchCountA++;
-				break;
-			case "B":
-				$matchCountB++;
-				break;
-		}
-	}
-
+	asort($cList);
+	$cStr = implode($cList);
 
 	$nowBaseAssessment = 0;
 
-
-
-	if ($changeTypeCount === 2) {
-		switch($totalChangeValue) {
-			case 12:
-				if ($matchCountA === 2 && $cList[1]['value'] === 6) {
-					//A6A6
-					$nowBaseAssessment = 69 + (int)$cList[0]['type'] - 1;
-				} else if ($matchCountA === 1 && $matchCountB === 1 && $cList[1]['value'] === 6) {
-					//A6B6
-					$nowBaseAssessment = 70 + (int)$cList[0]['type'] - 1;
-				} else if ($matchCountB === 2) {
-					//B6B6
-					//今は無し
-				}
-				break;
-			case 13:
-				if ($matchCountA === 2 && $changeTypeCount === 2) {
-					//A6A7
-					if ($cList[1]['value'] === 6 || $cList[1]['value'] === 7) {
-						$nowBaseAssessment = 73 + (int)$cList[0]['type'] - 1;
-					}
-				} else if ($matchCountA === 1 && $matchCountB === 1) {
-					//A7B6
-					if (($cList[1]['type'] === 'A' && $cList[1]['value'] === 7) || ($cList[2]['type'] === 'A' && $cList[2]['value'] === 7)) {
-						$nowBaseAssessment = 74 + (int)$cList[0]['type'] - 1;
-					}
-				} else if ($matchCountB === 2) {
-					//B7B6
-					//今は無し
-				}
-				break;
-			case 14:
-				if ($matchCountA === 2 && $cList[1]['value'] === 7) {
-					//A7A7
-					$nowBaseAssessment = 77 + (int)$cList[0]['type'] - 1;
-				} else if ($matchCountA === 1 && $matchCountB === 1) {
-					//A7B7
-					$nowBaseAssessment = 78 + (int)$cList[0]['type'] - 1;
-				} else if ($matchCountB === 2 && $cList[1]['value'] === 7) {
-					//B7B7
-					$nowBaseAssessment = 79 + (int)$cList[0]['type'] - 1;
-				}
-				break;
+	for ($i = 0; $i < count($dictionary); $i++) {
+		if ($dictionary[$i]['ITEM'] === $cStr) {
+			$nowBaseAssessment = (int)$dictionary[$i]['POINT'];
 		}
-	} else if ($changeTypeCount === 3) {
+	}
 
+
+	if ($changeBallValue[0] > 0) {
+		$nowBaseAssessment += (int)$typeList[0][$changeBallType[0]-1] - 1;
 	}
 
 	return $nowBaseAssessment;
