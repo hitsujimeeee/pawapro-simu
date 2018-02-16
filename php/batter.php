@@ -150,7 +150,7 @@
 							<option value="2">二塁手</option>
 							<option value="3">三塁手</option>
 							<option value="4">遊撃手</option>
-							<option value="5">外野手</option>
+							<option value="5" selected>外野手</option>
 						</select>
 					</div>
 					<div>
@@ -336,7 +336,7 @@
 							<td><input type="number" class="pointInput" min="0" max="999"></td>
 							<td><input type="number" class="pointInput" min="0" max="999"></td>
 							<td><input type="number" class="pointInput" min="0" max="999"></td>
-							<td><input type="number" class="pointInput" min="0" max="999"></td>
+							<td><input type="number" class="pointInput" min="0" max="999" disabled></td>
 							<td><input type="number" class="pointInput" min="0" max="999"></td>
 							<td class="ownPointTotal"></td>
 						</tr>
