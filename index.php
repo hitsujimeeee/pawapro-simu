@@ -215,8 +215,12 @@
 						<div class="menuTitle"><a href="./php/data.php">データ一覧</a></div>
 					</li>
 					<li>
-						<div class="menuIcon"><a onclick="ga('send', 'event', 'link', 'click', 'board');" href="http://jbbs.shitaraba.net/game/58946/"><i class="fa fa-comments"></i></a></div>
-						<div class="menuTitle"><a onclick="ga('send', 'event', 'link', 'click', 'board');" href="http://jbbs.shitaraba.net/game/58946/">不具合報告・要望投稿掲示板</a></div>
+						<div class="menuIcon"><a onclick="ga('send', 'event', 'link', 'click', 'board');" href="http://jbbs.shitaraba.net/game/58946/" target="_blank"><i class="fa fa-comments"></i></a></div>
+						<div class="menuTitle"><a onclick="ga('send', 'event', 'link', 'click', 'board');" href="http://jbbs.shitaraba.net/game/58946/" target="_blank">不具合報告・要望投稿掲示板</a></div>
+					</li>
+					<li>
+						<div class="menuIcon"><a onclick="ga('send', 'event', 'link', 'click', 'blog');" href="http://studiowool.hatenablog.com/" target="_blank"><img src="./img/menu015.png" class="mainImage"></a></div>
+						<div class="menuTitle"><a onclick="ga('send', 'event', 'link', 'click', 'blog');" href="http://studiowool.hatenablog.com/" target="_blank">Blog</a></div>
 					</li>
 				</ul>
 			</div>

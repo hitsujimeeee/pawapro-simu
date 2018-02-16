@@ -28,14 +28,16 @@ if(basename(realpath("./")) === 'php') {
 							<li><a href="<?php echo $urlPadding; ?>php/sateiList.php">査定表</a></li>
 						</ul>
 					</li>
-					<li><a href="<?php echo $urlPadding; ?>php/moneyCalc.php">課金額シミュ</a></li>
-					<li><a href="<?php echo $urlPadding; ?>php/limitOpen.php">上限開放予報</a></li>
-					<li><a href="<?php echo $urlPadding; ?>php/quizHome.php">パワプロクイズ</a></li>
 					<li class="dropdown">
-						<a data-toggle="dropdown" href="javascript:return 0;">デッキシェア▼</a>
+						<a data-toggle="dropdown" href="javascript:return 0;">便利ツール▼</a>
 						<ul class="dropdown-menu">
-							<li><a href="<?php echo $urlPadding; ?>php/deckList.php">デッキ編集</a></li>
-							<li><a href="<?php echo $urlPadding; ?>php/deckSearch.php">デッキ検索</a></li>
+							<li><a href="<?php echo $urlPadding; ?>php/moneyCalc.php">課金額シミュ</a></li>
+							<li><a href="<?php echo $urlPadding; ?>php/limitOpen.php">上限開放予報</a></li>
+							<li><a href="<?php echo $urlPadding; ?>php/deckShare.php">デッキシェア</a></li>
+							<li><a href="<?php echo $urlPadding; ?>php/quizHome.php">パワプロクイズ</a></li>
+							<li><a href="<?php echo $urlPadding; ?>php/scoreBonus.php">スコアボーナス</a></li>
+							<li><a href="<?php echo $urlPadding; ?>php/entakuLevel.php">円卓練習レベル計算</a></li>
+							<li><a href="<?php echo $urlPadding; ?>php/epicMemo.php">円卓エピックメモ</a></li>
 						</ul>
 					</li>
 					<li class="dropdown">
