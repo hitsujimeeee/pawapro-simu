@@ -35,7 +35,7 @@ function getSubPositionList ($pageType, $tabType) {
 
 	for ($i = 0; $i < count($data); $i++) {
 		$d = $data[$i];
-		echo '<li name="subPosition" default="' . $d['name'] . '" onclick="commonModule.changeSubPosition(' . $tabType . ', ' . $idx . ', ' . $d['id'] . ');">' . $d['name'] . '</li>';
+		echo '<li name="subPosition" default="' . $d['name'] . '" onclick="commonModule.changeSubPosition(' . $tabType . ', ' . $idx . ', ' . $d['id'] . ');"><span class="displayName">' . $d['name'] . '</span></li>';
 		$idx++;
 	}
 

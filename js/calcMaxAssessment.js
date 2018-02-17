@@ -265,7 +265,10 @@ var calcMaxAssessmentModule = (function() {
 			//サブポジキャッチャー
 			if(!commonModule.isCatcher() && charaData.getAbilityList(1, 6) !== null) {
 				charaData.setSubPosition(1, 0, {id:"1", name:"捕手", color:"0"});
-				$('#tab2 .displaySubPosition > ul > li').eq(0).addClass('catcher').html('捕手');
+				var option = '';
+				option = !charaData.getSubPosition(0, 0) ? '<span class="changeTypeStr">new</span>' : (charaData.getSubPosition(0, 0).id != charaData.getSubPosition(1, 0).id ? '<span class="changeTypeStr"><i class="fa fa-level-up changeIcon" aria-hidden="true"></i><i class="fa fa-level-up changeIcon" aria-hidden="true"></i></span>' : '');
+				$('#tab2 .displaySubPosition > ul > li').eq(0).addClass('catcher');
+				$('#tab2 .displaySubPosition > ul > li').eq(0).find('.displayName').html('捕手' + option);
 			}
 
 
