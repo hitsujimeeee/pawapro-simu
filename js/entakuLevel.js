@@ -200,23 +200,16 @@ var entakuLevel = {
             } else if (i <= 7) {
                 idx = i + 2;
             } else {
-                $('.dispLevel').eq(i-4).html(list[i]);
+				var padding = 0;
+				if (i === 8 && $('#checkLancelot').prop('checked')) {
+					padding++;
+				}
+
+				$('.dispLevel').eq(i-4).html(list[i]-padding);
                 $('.dispLevel').eq(i+2).html(list[i]);
-                if(list[i] >= 3) {
-                    $('.dispLevel').eq(i-4).parent('div').addClass('redColor');
-                    $('.dispLevel').eq(i+2).parent('div').addClass('redColor');
-                } else {
-                    $('.dispLevel').eq(i-4).parent('div').removeClass('redColor');
-                    $('.dispLevel').eq(i+2).parent('div').removeClass('redColor');
-                }
                 continue;
             }
             $('.dispLevel').eq(idx).html(list[i]);
-            if(list[i] >= 3) {
-                $('.dispLevel').eq(i).parent('div').addClass('redColor');
-            } else {
-                $('.dispLevel').eq(i).parent('div').removeClass('redColor');
-            }
         }
     },
 

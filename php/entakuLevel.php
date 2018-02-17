@@ -14,7 +14,7 @@
     require_once './headInclude.php';
     ?>
     <link rel="stylesheet" href="../css/entakuLevel.css?ver20171230">
-    <script src="../js/entakuLevel.js?ver20180105"></script>
+    <script src="../js/entakuLevel.js?ver20180217"></script>
 </head>
 
 <body>
