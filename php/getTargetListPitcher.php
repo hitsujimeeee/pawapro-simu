@@ -35,8 +35,10 @@ $nowBaseAssessment = 0;
 try{
 	$dbh = DB::connect();
 
+	$total = array_sum($changeBallValue);
+
 	//変化球の組み合わせとポイントの対応表取得
-	$sql = 'SELECT ITEM, POINT FROM CHANGE_BALL_POINT';
+	$sql = 'SELECT ITEM, POINT FROM CHANGE_BALL_POINT WHERE TOTAL >=' . $total;
 	$sth = $dbh->query($sql);
 	$dictionary = $sth->fetchAll();
 

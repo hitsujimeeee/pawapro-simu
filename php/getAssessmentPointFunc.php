@@ -67,9 +67,14 @@ function getChangeBallAssessmentPoint($dbh, $changeBallType, $changeBallValue, $
 	);
 
 	$cList = [];
-	for ($i = 1; $i < count($changeBallType); $i++) {
+
+	for ($i = 0; $i < count($changeBallType); $i++) {
 		if ($changeBallValue[$i] > 0) {
-			$cList[] = $typeList[$i][$changeBallType[$i]-1] . $changeBallValue[$i];
+			if ($i === 0) {
+				$cList[] = $typeList[$i][$changeBallType[$i]-1];
+			} else {
+				$cList[] = $typeList[$i][$changeBallType[$i]-1] . $changeBallValue[$i];
+			}
 		}
 	}
 
@@ -82,11 +87,6 @@ function getChangeBallAssessmentPoint($dbh, $changeBallType, $changeBallValue, $
 		if ($dictionary[$i]['ITEM'] === $cStr) {
 			$nowBaseAssessment = (int)$dictionary[$i]['POINT'];
 		}
-	}
-
-
-	if ($changeBallValue[0] > 0) {
-		$nowBaseAssessment += (int)$typeList[0][$changeBallType[0]-1] - 1;
 	}
 
 	return $nowBaseAssessment;

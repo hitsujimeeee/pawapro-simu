@@ -11,7 +11,7 @@ $dbh = DB::connect();
 		$description = 'パワプロアプリ育成シミュレーターで使用しているデータ一覧です。';
 		require_once './headInclude.php';
 		?>
-		<link rel="stylesheet" href="../css/data.css">
+		<link rel="stylesheet" href="../css/data.css?ver20180216">
 		<script src="../js/data.js"></script>
 	</head>
 
@@ -37,6 +37,7 @@ $dbh = DB::connect();
 					<li><a class="tabMenu" href="#tabSabilityBatter">野手金特</a></li>
 					<li><a class="tabMenu" href="#tabAbilityPitcher">投手特能</a></li>
 					<li><a class="tabMenu" href="#tabSabilityPitcher">投手金特</a></li>
+					<li><a class="tabMenu" href="#tabChangeBallPoint">変化球</a></li>
 				</ul>
 
 				<?php
@@ -208,6 +209,33 @@ $dbh = DB::connect();
 					</div>
 
 				</div>
+
+				<div id="tabChangeBallPoint" class="tab_content">
+					<p>■変化球の査定分類</p>
+					<div class="changePattern">
+						<a href="../img/changePatternDisp.png">
+							<img src="../img/changePatternDisp.png" alt="変化球の査定分類">
+						</a>
+					</div>
+
+					<p>■査定パターンと査定ポイント</p>
+					<div class="table-responsive">
+						<table class="modern">
+							<tr>
+								<th>パターン</th>
+								<th>総変量</th>
+								<th>査定ポイント</th>
+							</tr>
+							<?php
+							$sql = 'SELECT ITEM, TOTAL, POINT FROM CHANGE_BALL_POINT ORDER BY CHAR_LENGTH(ITEM) ASC, ITEM ASC';
+							foreach ($dbh->query($sql) as $row) {
+								echo '<tr><td>' . $row['ITEM'] . '</td><td>' .
+									$row['TOTAL'] . '</td><td>' .
+									$row['POINT'] . '</td></tr>';
+							}
+							?>
+						</table>
+					</div>
 
 				</div>
 			</div>

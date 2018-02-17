@@ -214,28 +214,15 @@
 			<section>
 				<h3 id="idx1-9" class="sectionHeader"><i class="fa fa-warning"></i>投手査定最大化の注意事項</h3>
 				<p>
-					・投手査定最大化は、<span style="color:red">球速コンスタと投手特殊能力のみ</span>振り分けを行います。変化球に振りたい場合は先に振っておいてください。
+					・投手査定最大化は、<span style="color:red">球速コンスタと投手特殊能力のみ</span>振り分けを行います。<span style="color:red">変化球には振りません</span>。変化球に振りたい場合は先に振っておいてください。
 				</p>
 				<p>
-					・<span style="color:blue">バント封じ</span>は査定が特殊なので取得しません。取りたい場合は先に取ってからお願いします。
+					・この査定最大化ツールは<span style="color:red">先発用</span>の査定表を基に査定を最大化しています。もし中継ぎや抑えを作りたい場合、<span style="color:red">「スタミナを上げない」</span>にチェックを入れて最大化を推奨します。
 				</p>
 				<p>
-					・この査定最大化ツールは<span style="color:red">先発用</span>の査定表を基に査定を最大化しています。もし中継ぎや抑えを作りたい場合、<span style="color:red">「スタミナを上げない」</span>にチェックを入れて最大化を行った方が良いかもしれません。
+					・シミュレーターに入力した変化球の構成が<a href="./data.php#tabChangeBallPoint">「データ一覧」ページの変化球表</a>に載っているパターンの時のみ基礎能力込みの査定最大化できます。<br>
+					育成選手がこの条件を満たしていな場合は<span style="color:red">「特殊能力のみ振り分け」</span>が行われます。
 				</p>
-				<p>
-					・シミュレーターに入力した現在値が以下の能力を満たしている場合のみ球速コンスタと投手特殊能力の査定最大化が可能です。<br>
-				</p>
-				<ol style="font-weight:bold">
-					<li>基礎能力(球速コンスタ変化球)の査定が以下の査定表で101ポイント以上の選手</li>
-					<li>変化球が2方向、総変量12～14の選手</li>
-					<li>ナックルカーブ、ナックル、チェンジアップ、サークルチェンジ、オリジナル変化球を覚えていない選手</li>
-				</ol>
-				<p>
-					育成選手がこれらの条件を満たしていな場合は<span style="color:red">「特殊能力のみ振り分け」</span>が行われます。
-				</p>
-				<div><a href="../img/manual/01-09-01.jpg" target="_blank"><img src="../img/manual/01-09-01.jpg"></a></div>
-
-
 			</section>
 		</section>
 

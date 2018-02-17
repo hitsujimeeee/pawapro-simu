@@ -21,3 +21,16 @@
 .modern th {
 	word-break: keep-all;
 }
+
+.modern th, .modern td {
+	padding: 0 0.25em;
+}
+
+div.changePattern img {
+	width: 90%;
+	max-width: 540px;
+}
+
+div.changePattern{
+	margin-bottom: 1.5em;
+}
