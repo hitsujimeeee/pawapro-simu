@@ -3,13 +3,21 @@ $urlPadding = './';
 if(basename(realpath("./")) === 'php') {
 	$urlPadding = '../';
 }
+$absoluteURL = 'http://pawapro-simu.com/' . (basename(realpath("./")) === 'php' ? 'php/' . basename($_SERVER['PHP_SELF']) : '');
 ?>
 
 <meta charset="UTF-8">
-<meta name="author" content="Yukihiro Hitsujikai">
-<meta name="description" content="<?php echo $description ?>">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
 <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=yes">
-<title><?php echo $title ?></title>
+<meta name="author" content="Yukihiro Hitsujikai">
+<meta name="description" content="<?= $description ?>">
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@hitsujiPawapro" />
+<meta name="og:url" content="<?= $absoluteURL ?>" />
+<meta name="og:title" content="<?= $title ?>" />
+<meta name="og:description" content="<?= $description ?>" />
+<meta name="og:image" content="http://pawapro-simu.com/img/thumbnail.jpg" />
+<title><?= $title ?></title>
 <link rel="shortcut icon" href="<?php echo $urlPadding ?>img/icon.ico" type="image/vnd.microsoft.icon">
 <link rel="stylesheet" href="<?php echo $urlPadding ?>css/lib/jquery-ui.min.css?ver20171016">
 <link rel="stylesheet" href="<?php echo $urlPadding ?>css/lib/jquery.ui.labeledslider.css">
