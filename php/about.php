@@ -22,6 +22,17 @@ $dbh = DB::connect();
 			<h2><i class="fa fa-home"></i>このサイトについて</h2>
 		</header>
 		<section>
+			<p class="secHeader"><i class="fa fa-paper-plane"></i>連絡先</p>
+			<hr class="abHr">
+			<div class="contactArticle">
+				不具合報告・要望投稿掲示板: <a onclick="ga('send', 'event', 'link', 'click', 'board');" href="http://jbbs.shitaraba.net/game/58946/" target="_blank">掲示板</a><br>
+				Twitter: <a onclick="ga('send', 'event', 'link', 'click', 'twitter.com/hitsujiPawapro');" href="https://twitter.com/hitsujiPawapro" target="_blank">@hitsujiPawapro</a><br>
+			</div>
+			<div class="contactMessage">
+				不具合、計算結果の間違い、または要望などございましたら上記連絡先までご報告ください。
+			</div>
+		</section>
+		<section>
 			<p class="secHeader"><i class="fa fa-window-maximize"></i>ページ紹介</p>
 			<hr class="abHr">
 			<section class="despBox">
@@ -112,17 +123,7 @@ $dbh = DB::connect();
 			</section>
 
 		</section>
-		<section>
-			<p class="secHeader"><i class="fa fa-paper-plane"></i>連絡先</p>
-			<hr class="abHr">
-			<div class="contactArticle">
-				不具合報告・要望投稿掲示板: <a onclick="ga('send', 'event', 'link', 'click', 'board');" href="http://jbbs.shitaraba.net/game/58946/" target="_blank">掲示板</a><br>
-				Twitter: <a onclick="ga('send', 'event', 'link', 'click', 'twitter.com/hitsujiPawapro');" href="https://twitter.com/hitsujiPawapro" target="_blank">@hitsujiPawapro</a><br>
-			</div>
-			<div class="contactMessage">
-				不具合、計算結果の間違い、または要望などございましたら上記連絡先までご報告ください。
-			</div>
-		</section>
+
 
 		<section>
 			<p class="secHeader"><i class="fa fa-link"></i>リンク</p>
