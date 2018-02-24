@@ -42,12 +42,16 @@ var IndividModule = (function () {
 				var value = parseInt(array.eq(i).val(), 10);
 				var targetObj = $('#tab' + (commonModule.getTabType() + 1) + ' .baseRank td').eq(i);
 				targetObj.removeClass();
-				if (value > Number(array.eq(i).attr('max'))) {
-					value = Number(array.eq(i).attr('max'));
-				} else if (value < Number(array.eq(i).attr('min'))) {
-					value = Number(array.eq(i).attr('min'));
+				if (value) {
+					if (value > Number(array.eq(i).attr('max'))) {
+						value = Number(array.eq(i).attr('max'));
+					} else if (value < Number(array.eq(i).attr('min'))) {
+						value = Number(array.eq(i).attr('min'));
+					}
+				} else {
+					value = '';
 				}
-				array.eq(i).val(value || '');
+				array.eq(i).val(value);
 				if (i % 7 === 0) {
 					targetObj.addClass('trajectory' + value);
 				} else {

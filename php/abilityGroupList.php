@@ -61,11 +61,40 @@ try{
 		array_push($abilityGroupList, array('id'=>$d['id'], 'list'=>$abilityList, 'pair'=>$d['pair']));
 	}
 
+
+	$sql = 'SELECT
+			D.ID,
+			D.HEADER_ID,
+			D.NAME,
+			H.COLOR
+		FROM SUBPOSITION_HEADER H
+		INNER JOIN SUBPOSITION_DETAIL D
+		ON H.ID = D.HEADER_ID
+		WHERE CATEGORY = ' . $pageType . '
+		ORDER BY D.ID';
+	// SQL の実行
+	$sth = $dbh->query($sql);
+	$subPosList = [];
+
+	while ($row = $sth->fetch(PDO::FETCH_ASSOC)) {
+		$subPosList[] = array(
+			'id'=>(int)$row['ID'],
+			'headerId'=>(int)$row['HEADER_ID'],
+			'name'=>$row['NAME'],
+			'color'=>(int)$row['COLOR']
+		);
+	}
+
 }catch (PDOException $e){
 	print('Error:'.$e->getMessage());
 	die();
 }
 
+$ret = array(
+	'abilityGroupList'=>$abilityGroupList,
+	'subPosGroupList'=>$subPosList
+);
+
 $dbh = null;
-echo json_encode($abilityGroupList);
+echo json_encode($ret);
 ?>

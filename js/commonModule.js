@@ -3,6 +3,7 @@
 /*jslint shadow:true*/
 
 var abilityData = null;
+var subPosData = null;
 
 //選手データ格納クラス
 var charaData = (function() {
@@ -30,6 +31,7 @@ var charaData = (function() {
 				subPosition[0][i] = null;
 				subPosition[1][i] = null;
 			}
+			sense = 0;
 		},
 
 		getAbilityList: function (type, idx) {
@@ -209,8 +211,6 @@ var charaData = (function() {
 
 			subPosition[0] = data.subPosition[0];
 			subPosition[1] = data.subPosition[1];
-			commonModule.refreshDisplaySubPosition(0);
-			commonModule.refreshDisplaySubPosition(1);
 
 
 			$('#charaName').val(data.name);
@@ -237,12 +237,64 @@ var charaData = (function() {
 						obj.eq(i).val(data.changeBall[1][i].value);
 					}
 				}
+			}
+		},
 
+
+		convertStorageData: function() {
+			for (var t = 0; t < 2; t++) {
+				for (var i = 0; i < abilityList[t].length; i++) {
+					if (abilityList[t][i] !== null) {
+						for (var j = 0; j < abilityData.length; j++) {
+							if (abilityData[j].id === i) {
+								var list = abilityData[j].list;
+								for (var k = 0; k < list.length; k++) {
+									if (list[k].id === abilityList[t][i]) {
+										abilityList[t][i] = {
+											'id': abilityList[t][i],
+											'name': list[k].name,
+											'type': list[k].type
+										};
+									}
+								}
+							}
+						}
+					}
+				}
 			}
 
+			for (var t = 0; t < 2; t++) {
+				for (var i = 0; i < subPosition[t].length; i++) {
+					if (subPosition[t][i] !== null) {
+						for (var j = 0; j < subPosData.length; j++) {
+							if (subPosData[j].id === Number(subPosition[t][i])) {
+								subPosition[t][i] = {
+									'id': subPosition[t][i],
+									'name': subPosData[j].name,
+									'color': subPosData[j].color
+								};
+							}
+						}
+					}
+				}
+			}
 
+		},
 
+		resetAbility: function(){
+			for (var i = 0; i < abilityList.length;i++) {
+				for (var j = 0; j < abilityList[i].length;j++) {
+					abilityList[i][j] = null;
+				}
+			}
+
+			for (var i = 0; i < trickLevel.length;i++) {
+					trickLevel[i] = 0;
+					StrickLevel[i] = 0;
+			}
 		}
+
+
 
 	};
 })();
@@ -267,6 +319,23 @@ var commonModule = {
 
 		$(document).on('closing', '#abilityModal', function () {
 			commonModule.ConfirmRemodal();
+		});
+
+		$(document).on('confirmation', '#resetAbilityModal', function () {
+			charaData.init();
+			for (var i =0; i < $('.basePointInput').length; i++) {
+				$('.basePointInput').eq(i).val(0);
+			}
+
+			if (IndividModule.getMakingType() === 1) {
+				for (var i =0; i < $('.changeBallInput').length; i++) {
+					$('.changeBallInput').eq(i).val(0);
+				}
+				for (var i =0; i < $('.changeBallType').length; i++) {
+					$('.changeBallType').eq(i).val(1);
+				}
+			}
+			location.reload();
 		});
 
 		//センス○×のラジオボタンにクリック処理を加える
@@ -305,12 +374,16 @@ var commonModule = {
 			return false;
 		});
 
+		$(window).on('beforeunload', commonModule.saveSessionStorageData);
+
 		//特能一覧取得
 		commonModule.getAsyncData(
 			'abilityGroupList',
 			JSON.stringify({pageType:IndividModule.getMakingType()}),
 			function(data) {
-				abilityData = JSON.parse(data);
+				data = JSON.parse(data);
+				abilityData = data.abilityGroupList;
+				subPosData = data.subPosGroupList;
 				var param = commonModule.GetQueryString();
 				if(param.userId && param.charaId) {
 					var data = {'userId':Number(param.userId), 'charaId':param.charaId};
@@ -324,12 +397,26 @@ var commonModule = {
 								IndividModule.updateChangeBallRank();
 							}
 							commonModule.refreshDisplayAbility(0);
+							commonModule.refreshDisplaySubPosition(0);
+							commonModule.refreshDisplaySubPosition(1);
 							commonModule.calcExpPoint();
 							$('.shareLinkBody').html(window.location.href);
 						}
 
 					});
 				} else {
+					var data = sessionStorage.getItem(IndividModule.getMakingStr() + 'SessionData');
+					if(data) {
+						data = JSON.parse(data);
+						charaData.setSaveData(data);
+						charaData.convertStorageData();
+						if(typeof IndividModule.updateChangeBallRank !== 'undefined') {
+							IndividModule.updateChangeBallRank();
+						}
+						commonModule.refreshDisplayAbility(0);
+						commonModule.refreshDisplaySubPosition(0);
+						commonModule.refreshDisplaySubPosition(1);
+					}
 					IndividModule.updateBaseAbilityRank();
 				}
 
@@ -478,7 +565,7 @@ var commonModule = {
 			if (list[i] !== null) {
 				var option = '';
 				if (tab === 1) {
-					option = !charaData.getSubPosition(0, i) ? '<span class="changeTypeStr">new</span>' : (charaData.getSubPosition(0, i).id != list[i] ? '<span class="changeTypeStr"><i class="fa fa-level-up changeIcon" aria-hidden="true"></i><i class="fa fa-level-up changeIcon" aria-hidden="true"></i></span>' : '');
+					option = !charaData.getSubPosition(0, i) ? '<span class="changeTypeStr">new</span>' : (charaData.getSubPosition(0, i).id != list[i].id ? '<span class="changeTypeStr"><i class="fa fa-level-up changeIcon" aria-hidden="true"></i><i class="fa fa-level-up changeIcon" aria-hidden="true"></i></span>' : '');
 				}
 				obj.addClass(commonModule.subposTypeClass[list[i].color]);
 				obj.find('.displayName').html(list[i].name + option);
@@ -1093,18 +1180,20 @@ var commonModule = {
 	},
 
 	changeSubPosition: function(tabType, idx, id) {
-		var data = this.getAsyncData('getSubPositionDetail', JSON.stringify({'data': id}));
+		var data = subPosData.filter(function(elt){
+			return Number(elt.headerId) === id;
+		});
 		var now = charaData.getSubPosition(tabType, idx);
 
 		if (now === null) {
-			now = data[0];
+			now = {'id':data[0].id, 'name':data[0].name, 'color': data[0].color};
 		} else {
 			for (var i = 0; i < data.length; i++) {
 				if (Number(data[i].id) === Number(now.id)) {
 					if (i === data.length -1) {
 						now = null;
 					} else {
-						now = data[i+1];
+						now = {'id':data[i+1].id, 'name':data[i+1].name, 'color': data[i+1].color};
 					}
 					break;
 				}
@@ -1174,6 +1263,15 @@ var commonModule = {
 
 		e.stopPropagation();
 		return false;
-	}
+	},
+
+	saveSessionStorageData: function() {
+		sessionStorage.setItem(IndividModule.getMakingStr() + 'SessionData', JSON.stringify(charaData.getSaveData(IndividModule.getMakingType())));
+	},
+
+	openResetAbilityModal: function() {
+		$.remodal.lookup[$('[data-remodal-id=resetAbilityModal]').data('remodal')].open();
+	},
+
 };
 

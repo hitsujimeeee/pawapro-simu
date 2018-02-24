@@ -9,9 +9,9 @@
 	?>
 	<link rel="stylesheet" href="../css/batter.css?ver20170930">
 	<link rel="stylesheet" href="../css/pitcher.css?ver20170924">
-	<script src="../js/pitcher.js?ver20170930"></script>
+	<script src="../js/pitcher.js?ver20180224"></script>
 	<script src="../js/calcMaxAssessmentPitcher.js?ver20180216"></script>
-	<script src="../js/commonModule.js?ver20180217"></script>
+	<script src="../js/commonModule.js?ver20180224"></script>
 	<script>var abilityCount = <?php include('../php/getAbilityCount.php'); ?>;</script>
 </head>
 
@@ -31,7 +31,7 @@
 			<div id="tab1" class="tab_content">
 
 				<section class="basePointSection">
-					<p>■基礎能力<button class="exec" onclick="ga('send', 'event', 'action', 'click', 'pitcher/setRandomDefault');IndividModule.setRandomDefault();">ランダム</button></p>
+					<p>■基礎能力<button class="exec" onclick="ga('send', 'event', 'action', 'click', 'pitcher/setRandomDefault');IndividModule.setRandomDefault();">ランダム</button><button class="exec" onclick="commonModule.openResetAbilityModal();">リセット</button></p>
 					<table class="basePoint modern">
 						<tr>
 							<th>球速</th>
@@ -107,7 +107,7 @@
 
 			<div id="tab2" class="tab_content">
 				<section class="basePointSection">
-					<p>■基礎能力</p>
+					<p>■基礎能力<button class="exec" onclick="commonModule.openResetAbilityModal();">リセット</button></p>
 					<table class="basePoint modern">
 						<tr>
 							<th>球速</th>
@@ -521,6 +521,17 @@
 
 			<div class="modalButton">
 				<button data-remodal-action="confirm" class="remodal-confirm">Close</button>
+			</div>
+		</div>
+
+		<div id="resetAbilityModal" class="remodal" data-remodal-id="resetAbilityModal" data-remodal-options="hashTracking:false">
+			<button data-remodal-action="cancel" class="remodal-close"></button>
+			<div>
+				<i class="fa fa-warning" style="color:#f00;"></i>入力した内容(基礎能力値、特殊能力、コツLv、サブポジ)を全てリセットします。
+			</div>
+			<div class="modalButton">
+				<button data-remodal-action="confirm" class="remodal-confirm">OK</button>
+				<button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
 			</div>
 		</div>
 
