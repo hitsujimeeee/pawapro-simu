@@ -23,7 +23,7 @@ $(function() {
 		'abilityGroupList',
 		JSON.stringify({pageType:0}),
 		function(data) {
-			abilityData = JSON.parse(data);
+			abilityData = JSON.parse(data).abilityGroupList;
 			charaData.init();
 			assessment.calcAssessmentPoint();
 		}

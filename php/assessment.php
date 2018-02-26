@@ -12,7 +12,7 @@ $dbh = DB::connect();
 	require_once './headInclude.php';
 	?>
 	<link rel="stylesheet" href="../css/assessment.css?ver20170930">
-	<script src="../js/commonModule.js?ver20171001"></script>
+	<script src="../js/commonModule.js?20180226"></script>
 	<script src="../js/assessment.js?ver20170930"></script>
 	<script>
 		var baseAbilityList = <?php
