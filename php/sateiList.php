@@ -28,6 +28,8 @@
 				</div>
 			</section>
 
+			<?php include('./adsense/responsive.php') ?>
+
 			<section>
 				<header>
 					■野手特殊能力査定表
@@ -49,6 +51,8 @@
 					</a>
 				</div>
 			</section>
+
+			<?php include('./adsense/responsive.php') ?>
 
 			<section>
 				<header>

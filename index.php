@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="./css/lib/swiper.min.css"/>
 	<link rel="stylesheet" href="./css/index.css?ver20170917">
 	<script src="./js/plugin/swiper.jquery.min.js"></script>
-	<script src="./js/index.js?ver20171001"></script>
+	<script src="./js/index.js?ver20180226"></script>
 </head>
 <body>
 	<?php include('./php/header.php'); ?>
@@ -150,6 +150,8 @@
 				</ul>
 			</div>
 
+			<?php include('./php/adsense/responsive.php') ?>
+
 			<div class="categoryTitle">便利ツール</div>
 			<div class="otherMenu">
 				<ul>
@@ -192,6 +194,8 @@
 					</li>
 				</ul>
 			</div>
+
+			<?php include('./php/adsense/responsive.php') ?>
 
 			<div class="categoryTitle">その他</div>
 			<div class="otherMenu">

@@ -58,6 +58,8 @@
 
 			</section>
 
+			<?php include('./adsense/responsive.php') ?>
+
 			<hr class="abHr">
 
 			<section>

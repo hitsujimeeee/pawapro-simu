@@ -27,11 +27,6 @@ img:not(.iconGraph){
 }
 
 
-
-section {
-	margin-bottom: 2em;
-}
-
 .sectionHeader {
 	font-size: 1.5em;
 	border-bottom: solid 1px #aaa;
@@ -45,6 +40,7 @@ p {
 	background-color: burlywood;
 	color: #333;
 	margin-left: 0;
+	margin-top: 0;
 }
 
 .dlTitle {

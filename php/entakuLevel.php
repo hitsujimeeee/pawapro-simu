@@ -74,6 +74,8 @@
             </div>
         </section>
 
+		<?php include('./adsense/responsive.php') ?>
+
         <section>
             <header class="secHeader">
                ■練習レベル

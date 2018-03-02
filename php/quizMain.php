@@ -39,6 +39,9 @@
 					<button class="nextButton" style="visibility:hidden;" onclick="quiz.next();">次へ</button>
 					<span id="restQuizCounter"></span>
 				</div>
+
+				<?php include('./adsense/responsive.php') ?>
+
 			</section>
 		</main>
 

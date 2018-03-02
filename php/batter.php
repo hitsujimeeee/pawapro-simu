@@ -78,6 +78,8 @@
 						</ul>
 					</div>
 				</section>
+
+				<?php include('./adsense/fixedAd.php') ?>
 			</div>
 
 
@@ -133,6 +135,7 @@
 					</div>
 				</section>
 
+				<?php include('./adsense/fixedAd.php') ?>
 
 			</div>
 
@@ -321,6 +324,9 @@
 
 					<p>---------------------</p>
 				</section>
+
+				<?php include('./adsense/fixedAd.php') ?>
+
 				<section>
 					<p>■査定最大化<button class="exec calcMax" onclick="ga('send', 'event', 'action', 'click', 'batter/calcMaxAssessment');calcMaxAssessmentModule.calcMaxAssessment();">実行</button></p>
 					<table class="maxAssessment modern">

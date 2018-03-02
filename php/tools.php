@@ -30,6 +30,9 @@
 			<section class="mainSection">
 				<p class="item">・<a href="./blankCountSimulate.php">査定調査お助けくん</a></p>
 			</section>
+
+		<?php include('./adsense/responsive.php') ?>
+		
 		</main>
 
 		<?php include('./optionMenu.php'); ?>

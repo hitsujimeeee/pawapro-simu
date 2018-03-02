@@ -55,6 +55,8 @@
 				<div class="commentDiv"><textarea id="commentArea" maxlength="200"></textarea></div>
 			</section>
 
+			<?php include('./adsense/responsive.php') ?>
+
 			<section>
 				<header class="sectionHeader"><i class="fa fa-camera"></i>スクショorコピペ用テキスト</header>
 				<div class="cpButtonArea"><button onclick="epicMemo.outputCPText()">テキストとして出力する</button></div>

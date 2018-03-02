@@ -83,6 +83,8 @@
 				<div><img src="../img/yohokun.jpg"></div>
 			</section>
 
+			<?php include('./adsense/responsive.php') ?>
+
 			<section>
 				<header><i class="fa fa-line-chart"></i>上限開放率一覧</header>
 				<div class="table-responsive">

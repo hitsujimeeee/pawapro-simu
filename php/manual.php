@@ -6,7 +6,7 @@
 	$description = 'パワプロアプリの育成シミュレーターです。目標選手の育成に必要な経験点を計算してくれます。';
 	require_once './headInclude.php';
 	?>
-	<link rel="stylesheet" href="../css/manual.css">
+	<link rel="stylesheet" href="../css/manual.css?ver20180228">
 </head>
 <body>
 	<?php include('./header.php'); ?>
@@ -71,7 +71,7 @@
 			<hr class="abHr">
 		</section>
 
-
+		<?php include('./adsense/responsive.php') ?>
 
 		<section>
 			<h3 class="contentHeader" id="idx1">■育成シミュレーターの使い方</h3>
@@ -225,6 +225,8 @@
 				</p>
 			</section>
 		</section>
+
+		<?php include('./adsense/responsive.php') ?>
 
 		<section>
 			<h3 class="contentHeader" id="idx2">■デッキシェア機能の使い方</h3>
@@ -387,6 +389,7 @@
 
 		</section>
 
+		<?php include('./adsense/responsive.php') ?>
 
 		<section>
 			<h3 class="contentHeader" id="idx3">■上限開放予報士くんの使い方</h3>
@@ -451,6 +454,8 @@
 				</ul>
 			</section>
 		</section>
+
+		<?php include('./adsense/responsive.php') ?>
 
 		<section>
 			<h3 class="contentHeader" id="idx4">■課金額予想シミュレーターの使い方</h3>
@@ -519,6 +524,9 @@
 				</p>
 			</section>
 		</section>
+
+		<?php include('./adsense/responsive.php') ?>
+
 		<section>
 			<h3 class="contentHeader" id="idx5">■パワプロクイズの使い方</h3>
 			<section>

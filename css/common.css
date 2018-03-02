@@ -100,3 +100,11 @@ i.iconGraph {
 .hiddenDisplay {
 	display: none;
 }
+
+.simuAd {
+	padding: 1em 0;
+}
+
+.simuAdAnnotation {
+	text-align: center;
+}

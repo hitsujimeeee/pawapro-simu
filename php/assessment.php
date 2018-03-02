@@ -103,6 +103,7 @@ $dbh = DB::connect();
 			<div class="displayAbility"></div>
 		</section>
 
+		<?php include('./adsense/responsive.php') ?>
 
 		<section>
 			<p><i class="fa fa-cube"></i>査定</p>

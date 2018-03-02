@@ -43,6 +43,7 @@
 			</div>
 		</section>
 
+		<?php include('./adsense/responsive.php') ?>
 
 		<section id="pitcherSection">
 			<header><img class="iconGraph" src="../img/icon/ball.png">投手</header>
@@ -67,6 +68,8 @@
 				</table>
 			</div>
 		</section>
+
+		<?php include('./adsense/responsive.php') ?>
 
 		<!--削除確認用モーダルウインドウ-->
 		<div id="confirmModal" class="remodal" data-remodal-id="confirmModal" data-remodal-options="hashTracking:false">

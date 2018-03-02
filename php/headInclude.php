@@ -25,7 +25,7 @@ $absoluteURL = 'http://pawapro-simu.com/' . (basename(realpath("./")) === 'php' 
 <link rel="stylesheet" href="<?php echo $urlPadding ?>css/lib/font-awesome/css/font-awesome.min.css">
 <link rel="stylesheet" href="<?php echo $urlPadding ?>css/lib/remodal.css">
 <link rel="stylesheet" href="<?php echo $urlPadding ?>css/lib/remodal-default-theme.css">
-<link rel="stylesheet" href="<?php echo $urlPadding ?>css/common.css?ver20170917">
+<link rel="stylesheet" href="<?php echo $urlPadding ?>css/common.css?ver20180226">
 <link rel="stylesheet" href="<?php echo $urlPadding ?>css/optionMenu.css">
 <link rel="stylesheet" href="<?php echo $urlPadding ?>css/bootstrap_custom.css">
 <script src="<?php echo $urlPadding ?>js/plugin/jquery-3.1.1.min.js"></script>

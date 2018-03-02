@@ -22,6 +22,9 @@
 				<p><a class="button makeButton" href="./quizMake.php">問題を作る</a></p>
 				<p><a class="button listButton" href="./quizList.php">問題一覧</a></p>
 			</section>
+
+			<?php include('./adsense/responsive.php') ?>
+
 		</main>
 
 		<?php include('./optionMenu.php'); ?>

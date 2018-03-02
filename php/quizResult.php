@@ -125,6 +125,8 @@ $url = str_replace('&', '%26', $url);
 				</div>
 			</section>
 
+			<?php include('./adsense/responsive.php') ?>
+
 			<hr class="abHr">
 
 			<section>

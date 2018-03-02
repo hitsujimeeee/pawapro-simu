@@ -103,6 +103,8 @@ foreach ($dbh->query($sql) as $row) {
 			</div>
 		</section>
 
+		<?php include('./adsense/responsive.php') ?>
+
 		<section>
 			<div class="deckArea" id="deckArea">
 				<div class="newInfo">新着デッキ</div>

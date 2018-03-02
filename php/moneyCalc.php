@@ -166,11 +166,11 @@
 			</div>
 		</section>
 
-
-
 		<div id="displayArea"></div>
 		<div id="compChartArea"></div>
 		<div id="botaiChartArea"></div>
+
+		<?php include('./adsense/responsive.php') ?>
 
 
 	</main>

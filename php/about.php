@@ -32,6 +32,9 @@ $dbh = DB::connect();
 				不具合、計算結果の間違い、または要望などございましたら上記連絡先までご報告ください。
 			</div>
 		</section>
+
+		<?php include('./adsense/responsive.php') ?>
+
 		<section>
 			<p class="secHeader"><i class="fa fa-window-maximize"></i>ページ紹介</p>
 			<hr class="abHr">
