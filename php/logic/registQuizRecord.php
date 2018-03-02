@@ -51,7 +51,7 @@ try {
 			:comment,
 			:userName,
 			:twitter,
-			1
+			0
 		)
 	';
 
