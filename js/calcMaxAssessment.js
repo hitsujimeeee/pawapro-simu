@@ -62,8 +62,9 @@ var calcMaxAssessmentModule = (function() {
 				timeout: 10000,
 				data: JSON.stringify(data)
 			}).done(function(data){
-				var map = [[[0, 0, 0, 0], [0, 0], '', 0]];
+				var map = [[[0, 0, 0, 0], [0, 0], '', 0, 0]];
 				expPoint.splice(3, 1);
+				calcMaxAssessmentModule.optimiseTargetList(data.targetList);
 				calcMaxAssessmentModule.RecallMaxAssessment(map, data.targetList, 0, expPoint, data.baseNowAssessment, data.abNowAssessment);
 			}).fail(function(){
 				calcMaxAssessmentModule.ErrorCalcMaxAssessment();
@@ -110,8 +111,7 @@ var calcMaxAssessmentModule = (function() {
 
 
 			var target = targetList[depth],
-				mapCount = map.length,
-				startTime;
+				mapCount = map.length;
 
 			//mapとtargetListの掛け合わせ
 			for (var i = 0; i < mapCount; i++) {
@@ -135,29 +135,7 @@ var calcMaxAssessmentModule = (function() {
 				map.sort(function (m1, m2) {
 					return m2[3] - m1[3];
 				});
-				startTime = +new Date();
-				for (var i = 0; i < map.length; i++) {
-					for (var j = i+1; j < map.length; j++) {
-						var cutFlag = true;
-						if (map[j][1][0] <= map[i][1][0] && map[j][1][1] <= map[i][1][1]) {
-							if (map[i][4] <= map[j][4]) {
-								for (var k = 0; k < 4; k++) {
-									if (map[i][0][k] > map[j][0][k]) {
-										cutFlag = false;
-										break;
-									}
-								}
-								if (cutFlag) {
-									map.splice(j, 1);
-									j--;
-								}
-							}
-						}
-					}
-					if((+new Date()) - startTime  > 10000) {
-						break;
-					}
-				}
+				calcMaxAssessmentModule.cutUnderInterchangeable(map);
 			}
 
 			//足切り処理
@@ -167,34 +145,75 @@ var calcMaxAssessmentModule = (function() {
 					return m2[3] - m1[3];
 				});
 				map = map.slice(0, MAP_MAX_SIZE);
-				startTime = +new Date();
-				for (var i = 0; i < map.length; i++) {
-					for (var j = i+1; j < map.length; j++) {
-						var cutFlag = true;
-						if (map[j][1][0] <= map[i][1][0] && map[j][1][1] <= map[i][1][1]) {
-							if (map[i][4] <= map[j][4]) {
-								for (var k = 0; k < 4; k++) {
-									if (map[i][0][k] > map[j][0][k]) {
-										cutFlag = false;
-										break;
-									}
-								}
-								if (cutFlag) {
-									map.splice(j, 1);
-									j--;
-								}
-							}
-						}
-					}
-					if((+new Date()) - startTime  > 5000) {
-						break;
-					}
-				}
+				calcMaxAssessmentModule.cutUnderInterchangeable(map);
 			}
 
 			$('#blockMessage').hide().html('処理中... ' + Math.round((depth + 1)*100/targetList.length) + '%' ).show();
 			setTimeout(calcMaxAssessmentModule.RecallMaxAssessment, 0, map, targetList, depth+1, expPoint, baseNowAssessment, abNowAssessment);
 
+		},
+
+		optimiseTargetList: function(targetList) {
+			var newTargetList = targetList.map(function(arr) {
+				var list = arr;
+				for (var i = 0; i < arr.length; i++) {
+					for (var j = i + 1; j < arr.length; j++) {
+						if (arr[j].val <= arr[i].val && arr[j].total >= arr[i].total) {
+							var cutFlag = true;
+							for (var k = 0; k < 4; k++) {
+								if (arr[i].point[k] > arr[j].point[k]) {
+									cutFlag = false;
+									break;
+								}
+							}
+							if (cutFlag) {
+								list.splice(j, 1);
+								j--;
+							}
+						}
+					}
+				}
+				return list;
+			});
+			return newTargetList;
+		},
+
+		cutUnderInterchangeable: function(map) {
+			var startTime = +new Date();
+			for (var i = 0; i < map.length - 1; i++) {
+				for (var j = i+1; j < map.length && map[j][3] + 784 > map[i][3]; j++) {
+					if (map[j][1][0] <= map[i][1][0] && map[j][1][1] <= map[i][1][1] && map[i][4] <= map[j][4]) {
+						var cutFlag = true;
+						for (var k = 0; k < 4; k++) {
+							if (map[i][0][k] > map[j][0][k]) {
+								cutFlag = false;
+								break;
+							}
+						}
+						if (cutFlag) {
+							map.splice(j, 1);
+							j--;
+						}
+					}
+				}
+				for (var j = map.length-1; map[j][3] + 784 <= map[i][3]; j--) {
+					if (map[i][4] <= map[j][4]) {
+						var cutFlag = true;
+						for (var k = 0; k < 4; k++) {
+							if (map[i][0][k] > map[j][0][k]) {
+								cutFlag = false;
+								break;
+							}
+						}
+						if (cutFlag) {
+							map.splice(j, 1);
+						}
+					}
+				}
+				if((+new Date()) - startTime  > 15000) {
+					break;
+				}
+			}
 		},
 
 
@@ -217,24 +236,6 @@ var calcMaxAssessmentModule = (function() {
 			return point;
 		},
 
-
-		isReachGreedyMaxPoint: function(depth, restPoint, nowEV, greedyMaxPoint, backetList, baseNowAssessment, abNowAssessment) {
-			var i = 1;
-			var nowEval = [nowEV[0], nowEV[1]];
-			while(depth + i < backetList.length) {
-				restPoint -= backetList[depth+i].total;
-				if(restPoint < 0) {
-					nowEval[backetList[depth+i].type] += (backetList[depth+i].val/backetList[depth+i].total) * (restPoint + backetList[depth+i].total);
-					if(calcMaxAssessmentModule.getRealAssessmentPoint(nowEval, baseNowAssessment, abNowAssessment) < greedyMaxPoint) {
-						return false;
-					}
-					break;
-				}
-				nowEval[backetList[depth+i].type] += backetList[depth+i].val;
-				i++;
-			}
-			return true;
-		},
 
 		getTotalPoint: function(point) {
 			var sum = 0;
