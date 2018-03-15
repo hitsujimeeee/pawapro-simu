@@ -112,5 +112,6 @@ INSERT INTO HISTORIES VALUES ('2018-02-12 21:00', 'ミート上限を104に変�
 INSERT INTO HISTORIES VALUES ('2018-02-17 20:00', '野手シミュ、投手査定最大化改修');
 INSERT INTO HISTORIES VALUES ('2018-02-20 20:00', '特能「帰巣本能」追加');
 INSERT INTO HISTORIES VALUES ('2018-03-06 20:00', '特能「外角必打」追加');
+INSERT INTO HISTORIES VALUES ('2018-03-15 20:00', '特能「全開」追加');
 
 
