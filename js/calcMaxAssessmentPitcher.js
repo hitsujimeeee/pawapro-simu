@@ -5,6 +5,7 @@
 var calcMaxAssessmentPitcherModule = (function() {
 	var MAP_MAX_SIZE = 15000;
 	var pointList = null;
+	var outsideFlag = false;	//現在の能力では査定が出せない場合true
 
 	return {
 
@@ -75,15 +76,10 @@ var calcMaxAssessmentPitcherModule = (function() {
 				data: JSON.stringify(data)
 			}).done(function(data){
 
-
-				if(data.baseTargetList !== null || $('#abilityOnly').prop("checked") !== false || window.confirm('基礎能力の査定値が条件を満たしていないため、特殊能力のみ振り分けを行います')){
-					//[経験点、　査定値、　特能IDの連結文字列、　実査定値、　総経験点]
-					var map = [[[0, 0, 0, 0, 0], [0, 0], '', 0, 0]];
-					pointList = data.pointList;
-					calcMaxAssessmentPitcherModule.RecallMaxAssessment(map, data.targetList, 0, expPoint, data.baseNowAssessment, data.abNowAssessment);
-				} else {
-					$.unblockUI();
-				}
+				calcMaxAssessmentPitcherModule.outsideFlag = data.outsideFlag;
+				var map = [[[0, 0, 0, 0, 0], [0, 0], '', 0, 0]];
+				pointList = data.pointList;
+				calcMaxAssessmentPitcherModule.RecallMaxAssessment(map, data.targetList, 0, expPoint, data.baseNowAssessment, data.abNowAssessment);
 			}).fail(function(res){
 				calcMaxAssessmentPitcherModule.ErrorCalcMaxAssessment();
 			});
@@ -209,7 +205,15 @@ var calcMaxAssessmentPitcherModule = (function() {
 				}
 			}
 
-			$('#blockMessage').hide().html('処理中... ' + Math.round((depth + 1)*100/targetList.length) + '%' ).show();
+			var showMessage;
+			if (calcMaxAssessmentPitcherModule.outsideFlag) {
+				showMessage = '<p>処理中... ' + Math.round((depth + 1)*100/targetList.length) + '%<p>';
+				showMessage += '<p>※変化球の構成が査定最大化に対応していないため、変化球査定を0として計算しています</p>';
+			} else {
+				showMessage = '処理中... ' + Math.round((depth + 1)*100/targetList.length) + '%';
+
+			}
+			$('#blockMessage').hide().html(showMessage).show();
 			setTimeout(calcMaxAssessmentPitcherModule.RecallMaxAssessment, 0, map, targetList, depth+1, expPoint, baseNowAssessment, abNowAssessment);
 
 		},
@@ -378,7 +382,7 @@ var calcMaxAssessmentPitcherModule = (function() {
 
 			return result;
 
-		}
+		},
 
 	};
 })();

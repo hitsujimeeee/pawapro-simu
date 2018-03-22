@@ -11,6 +11,7 @@ $ability = $post['ability'];
 $basePoint = $post['basePoint'];
 $changeBallType = $post['changeBallType'];
 $changeBallValue = $post['changeBallValue'];
+$outsideFlag = false;
 
 try{
 	$dbh = DB::connect();
@@ -34,7 +35,11 @@ try{
 
 	//基礎能力の査定値取得
 	$basePoint = (int)getAssessmentPointOfBaseAbilityPitcher($dbh, $basePoint);
-	$basePoint += (int)getChangeBallAssessmentPoint($dbh, $changeBallType, $changeBallValue, $dictionary);
+	$changeBallPoint = (int)getChangeBallAssessmentPoint($dbh, $changeBallType, $changeBallValue, $dictionary);
+	if ($changeBallPoint === 0 && $total !== 0) {
+		$outsideFlag = true;
+	}
+	$basePoint += $changeBallPoint;
 
 	$basePoint = $pointList[$basePoint];
 
@@ -50,7 +55,7 @@ try{
 
 $dbh = null;
 header('Content-Type: application/json');
-echo json_encode(array('basePoint'=>$basePoint, 'abPoint'=>$abPoint));
+echo json_encode(array('basePoint'=>$basePoint, 'abPoint'=>$abPoint, 'outsideFlag'=>$outsideFlag));
 
 
 //IDを引数に特能情報を取得
