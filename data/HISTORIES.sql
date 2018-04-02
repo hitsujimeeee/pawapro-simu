@@ -113,5 +113,6 @@ INSERT INTO HISTORIES VALUES ('2018-02-17 20:00', '野手シミュ、投手査�
 INSERT INTO HISTORIES VALUES ('2018-02-20 20:00', '特能「帰巣本能」追加');
 INSERT INTO HISTORIES VALUES ('2018-03-06 20:00', '特能「外角必打」追加');
 INSERT INTO HISTORIES VALUES ('2018-03-15 20:00', '特能「全開」追加');
+INSERT INTO HISTORIES VALUES ('2018-03-30 20:00', '特能「完全燃焼」追加');
 
 
