@@ -1,0 +1,37 @@
+.inputForm, .resultForm, .dispArea, .refInfo {
+	margin: auto auto 1em 1em;
+}
+
+.inputForm > div, .resultForm > div, .dispArea > div, .refInfo > div checkForm {
+	margin-left: 1em;
+}
+
+.numInput {
+	width: 4em;
+}
+
+#itemList tr, #itemList td, #expList th, #expList td, #charaExpList th, #charaExpList td {
+	padding: 0.25em 0.5em;
+}
+
+#itemList tr > td:nth-child(2), #expList td, #charaExpList tr > td:nth-child(2) {
+	text-align: right;
+}
+
+#itemList, #expList, #charaExpList,.getExpLis {
+	margin-left: 1em;
+}
+
+#expList {
+	margin-bottom: 1em;
+}
+
+.getExpList dt {
+	width: 7em;
+	clear: left;
+	float: left;
+}
+
+.getExpList dd {
+	padding-left: 7.5em;
+}
