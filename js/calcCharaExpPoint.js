@@ -58,7 +58,7 @@ var calcCharaExpPoint = {
 		}
 
 		useCount.forEach(function(val, idx){
-			$('#itemList tr:nth-child(' + (idx+2) + ') > td:nth-child(2)').css('font-weight', val ? 'bold' : 'nomarl').html(val);
+			$('#itemList tr:nth-child(' + (idx+2) + ') > td:nth-child(2)').css('font-weight', val ? 'bold' : 'normal').html(val);
 		});
 
 		var totalGetPointRow = useCount.map(function(elt, idx){

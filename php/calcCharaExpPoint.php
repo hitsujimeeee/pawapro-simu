@@ -8,7 +8,7 @@
 		require_once './headInclude.php';
 		?>
 		<link rel="stylesheet" href="../css/calcCharaExpPoint.css">
-		<script src="../js/calCharaExpPoint.js"></script>
+		<script src="../js/calcCharaExpPoint.js"></script>
 	</head>
 
 	<body>
@@ -33,11 +33,11 @@
 				</div>
 				<div>
 					<label for="targetLv">目標Lv</label>
-					<input type="number" id="targetLv" class="numInput" min="0" max="50">pt
+					<input type="number" id="targetLv" class="numInput" min="0" max="50">
 				</div>
 				<div>
-					<label for="nowLv">次のLvまであと</label>
-					<input type="number" id="restNextLv" class="numInput" min="1">
+					<label for="restNextLv">次のLvまであと</label>
+					<input type="number" id="restNextLv" class="numInput" min="1">pt
 				</div>
 
 				<div>
@@ -47,14 +47,14 @@
 						<input type="checkbox" id="canCheckPN" class="canUseFlag" checked><label for="canCheckPN">PNキャラ</label>
 						<input type="checkbox" id="canCheckNGedo" class="canUseFlag" checked><label for="canCheckNGedo">Nゲドー</label>
 						<input type="checkbox" id="canCheckRGedo" class="canUseFlag" checked><label for="canCheckRGedo">Rゲドー</label>
-						<input type="checkbox" id="canCheckSPGedo" class="canUseFlag" checked><label for="canCheckSPGedo">SRゲドー</label>
+						<input type="checkbox" id="canCheckSRGedo" class="canUseFlag" checked><label for="canCheckSRGedo">SRゲドー</label>
 						<input type="checkbox" id="canCheckPSRGedo" class="canUseFlag" checked><label for="canCheckPSRGedo">PSRゲドー</label>
 					</div>
 				</div>
 
 				<div>
 					<div><input type="checkbox" id="doSuperExp" checked><label for="doSuperExp">強化大成功時として計算</label></div>
-					<div clas="doSuperExpDisp">※通常強化で強化素材をいくつ使いか知りたい場合はチェックを外してください。</div>
+					<div class="doSuperExpDisp">※通常強化で強化素材をいくつ使うか知りたい場合はチェックを外してください。</div>
 				</div>
 			</section>
 
@@ -101,7 +101,7 @@
 				<div>
 					<div>取得経験値</div>
 					<dl class="getExpList">
-						<dt style="color:red;">強化大成功</dt>
+						<dt style="color:red;">強化大成功：</dt>
 						<dd style="color:red;"><span id="totalGetPoint">0</span>pt</dd>
 						<dt>通常強化：</dt>
 						<dd><span id="totalGetPointRow">0</span>pt</dd>

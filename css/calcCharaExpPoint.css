@@ -2,7 +2,7 @@
 	margin: auto auto 1em 1em;
 }
 
-.inputForm > div, .resultForm > div, .dispArea > div, .refInfo > div checkForm {
+.inputForm > div, .resultForm > div, .dispArea > div, .refInfo > div .checkForm {
 	margin-left: 1em;
 }
 
@@ -10,7 +10,7 @@
 	width: 4em;
 }
 
-#itemList tr, #itemList td, #expList th, #expList td, #charaExpList th, #charaExpList td {
+#itemList th, #itemList td, #expList th, #expList td, #charaExpList th, #charaExpList td {
 	padding: 0.25em 0.5em;
 }
 
@@ -18,7 +18,7 @@
 	text-align: right;
 }
 
-#itemList, #expList, #charaExpList,.getExpLis {
+#itemList, #expList, #charaExpList, .getExpList {
 	margin-left: 1em;
 }
 
