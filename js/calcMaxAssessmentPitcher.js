@@ -279,10 +279,9 @@ var calcMaxAssessmentPitcherModule = (function() {
 				charaData.setSubPosition(1, i, charaData.getSubPosition(0, i));
 			}
 
-			//サブポジキャッチャー
-			if(!commonModule.isCatcher() && charaData.getAbilityList(1, 6) !== null) {
-				charaData.setSubPosition(1, 0, {id:"1", name:"捕手", color:"0"});
-				$('#tab2 .subPositionList a').eq(0).addClass('selectedSubPosition');
+			//鉄腕
+			if(charaData.getAbilityList(1, 88) !== null && charaData.getAbilityList(1, 132) !== null) {
+				charaData.setAbilityList(1, 132, null);
 			}
 			$('#assessmentPointCharaData').html('+' + addAssessment);
 

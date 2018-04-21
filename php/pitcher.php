@@ -10,8 +10,8 @@
 	<link rel="stylesheet" href="../css/batter.css?ver20170930">
 	<link rel="stylesheet" href="../css/pitcher.css?ver20170924">
 	<script src="../js/pitcher.js?ver20180224"></script>
-	<script src="../js/calcMaxAssessmentPitcher.js?ver20180319"></script>
-	<script src="../js/commonModule.js?ver20180319"></script>
+	<script src="../js/calcMaxAssessmentPitcher.js?ver20180421"></script>
+	<script src="../js/commonModule.js?ver20180421"></script>
 	<script>var abilityCount = <?php include('../php/getAbilityCount.php'); ?>;</script>
 </head>
 

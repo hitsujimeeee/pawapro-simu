@@ -14,6 +14,8 @@ $subPositionNow = $post['now']['subPosition'];
 $subPositionAim = $post['aim']['subPosition'];
 $point = array(0, 0, 0, 0, 0);
 $pageType = $post['pageType'];
+$tyoushi = isset($post['tyoushi']) ? $post['tyoushi'] : null;
+
 try{
 	$dbh = DB::connect();
 
@@ -167,6 +169,18 @@ try{
 			$temp_point[3] += (int)($ability['screwball'] * $mag * $sense_per);
 			$temp_point[4] += (int)($ability['mental'] * $mag * $sense_per);
 			$temp = $ability['lower'];
+
+			//鉄腕
+			if ($ability['id'] === 'S214') {
+				if ($tyoushi === null) {
+					$temp_point[2] += (int)(20 * $sense_per);
+					$temp_point[4] += (int)(30 * $sense_per);
+				} else if ($tyoushi === 'G23') {
+					$temp_point[2] += (int)(20 * $sense_per) * 2;
+					$temp_point[4] += (int)(30 * $sense_per) * 2;
+				}
+			}
+
 			if ($temp === $abilityNow[$i]) {
 				break;
 			}

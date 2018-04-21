@@ -546,12 +546,13 @@ var commonModule = {
 		for (var i = 0; i < list.length; i++) {
 			var obj = list.eq(i);
 			var id = Number(obj.attr('idx'));
-			obj.find('button').removeClass('GAColor');
+			obj = obj.find('.abName');
+			obj.removeClass('GAbColor');
 			var ab = charaData.getAbilityList(commonModule.getTabType(), id);
 			if (ab !== null) {
-				obj.find('button').html(ab.name).addClass('GAColor');
+				obj.html(ab.name).addClass('GAbColor');
 			} else {
-				obj.find('button').html(obj.find('button').data('defname'));
+				obj.html(obj.data('defname'));
 			}
 		}
 	},
@@ -658,7 +659,8 @@ var commonModule = {
 			"changeBallType": changeBallType,
 			"changeBallTrickLevel": changeBallTrickLevel,
 			"sense": charaData.getSensePer(),
-			"pageType": pageType
+			"pageType": pageType,
+			"tyoushi": abNow[132] ? abNow[132].id : null
 		};
 
 		var point = this.getAsyncData('calcExpPoint', JSON.stringify(data)),

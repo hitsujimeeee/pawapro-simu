@@ -265,6 +265,17 @@ try{
 		$valueList = array(0, 0, 0, 0, 0);
 		$assessment = 0;
 
+		//鉄腕
+		if ((int)$abilityGroup[$i]['id'] === 88) {
+			if ($abilityNow[132] === null || $abilityNow[132]['id'] === null) {
+				$valueList[2] += (int)(20 * $sense_per);
+				$valueList[4] += (int)(30 * $sense_per);
+			} else if ($abilityNow[132]['id'] === 'G23') {
+				$valueList[2] += (int)(20 * $sense_per) * 2;
+				$valueList[4] += (int)(30 * $sense_per) * 2;
+			}
+		}
+
 		//打ち消し合うタイプの特能を既に習得している場合、査定値にマイナス補正を掛ける。
 		if($abilityGroup[$i]['pair'] !== null) {
 			$pairList[] = array(
