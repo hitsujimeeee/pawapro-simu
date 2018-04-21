@@ -189,6 +189,10 @@
 						<div class="menuTitle"><a href="./php/epicMemo.php">円卓エピックメモ</a></div>
 					</li>
 					<li>
+						<div class="menuIcon"><a href="./php/zeniTrade.php"><i class="fa fa-yen fa-fw" aria-hidden="true"></i></a></div>
+						<div class="menuTitle"><a href="./php/zeniTrade.php">銭ペナアイテム交換計算機</a></div>
+					</li>
+					<li>
 						<div class="menuIcon"><a href="./php/tools.php"><i class="fa fa-wrench fa-fw" aria-hidden="true"></i></a></div>
 						<div class="menuTitle"><a href="./php/tools.php">その他ツール</a></div>
 					</li>
