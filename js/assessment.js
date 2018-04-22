@@ -97,7 +97,7 @@ var assessment = {
 
 		}
 
-		var total = parseInt((basePoint + abilityPoint) / 14, 10) * 14;
+		var total = Math.floor((basePoint + abilityPoint) / 14, 10) * 14;
 		var rankStr = '';
 		var rankNum = '';
 		var gauge = 0;
@@ -106,13 +106,13 @@ var assessment = {
 			if (total >= rankData[i].pointFrom && total < rankData[i].pointTo) {
 				rankStr = rankData[i].rankStr;
 				if (rankStr.charAt(0) === 'G') {
-					gauge = parseInt((rankData[i].pointTo - total)/14, 10);
+					gauge = Math.ceil((rankData[i].pointTo - total)/28);
 					gauge = 10 - gauge;
 					if (gauge < 0) {
 						gauge = 0;
 					}
 				} else {
-					gauge = parseInt((total - rankData[i].pointFrom)/14, 10);
+					gauge = parseInt((total - rankData[i].pointFrom)/Math.floor((rankData[i].pointTo-rankData[i].pointFrom)/10), 10);
 				}
 				break;
 			}

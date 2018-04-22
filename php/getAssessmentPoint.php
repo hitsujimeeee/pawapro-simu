@@ -24,9 +24,9 @@ try{
 	$abPoint = getAssessmentPointOfAbility($dbh, $abilityAim);
 //	var_dump($abPoint);
 
-	$point = (int)(($point+ $abPoint)/14) * 14;
+	$point = floor(($point+ $abPoint)/14) * 14;
 
-	$sql = 'SELECT RANK_STR, POINT_FROM
+	$sql = 'SELECT RANK_STR, POINT_FROM, POINT_TO
 			FROM ASSESSMENT_RANK
 			WHERE POINT_FROM <= ' . $point  . '
 			AND POINT_TO > ' . $point;
@@ -37,9 +37,14 @@ try{
 	if($row) {
 		$rankStr = $row['RANK_STR'];
 		if ($rankStr === 'G') {
-			$meter = 0;
+			$meter = ceil(($row['POINT_TO'] - $point)/28);
+			$meter = 10 - $meter;
+			if ($meter < 0) {
+				$meter = 0;
+			}
+
 		} else {
-			$meter = ($point - (int)($row['POINT_FROM'])) / 14;
+			$meter = floor(($point - (int)($row['POINT_FROM'])) / floor(($row['POINT_TO'] - $row['POINT_FROM'])  / 10));
 		}
 	}
 
