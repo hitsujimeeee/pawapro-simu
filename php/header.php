@@ -38,6 +38,7 @@ if(basename(realpath("./")) === 'php') {
 							<li><a href="<?php echo $urlPadding; ?>php/scoreBonus.php">スコアボーナス</a></li>
 							<li><a href="<?php echo $urlPadding; ?>php/entakuLevel.php">円卓練習レベル計算</a></li>
 							<li><a href="<?php echo $urlPadding; ?>php/epicMemo.php">円卓エピックメモ</a></li>
+							<li><a href="<?php echo $urlPadding; ?>php/calcCharaExpPoint.php">イベキャラ強化</a></li>
 						</ul>
 					</li>
 					<li class="dropdown">

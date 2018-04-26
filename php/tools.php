@@ -25,9 +25,8 @@
 				<h2><i class="fa fa-wrench" aria-hidden="true"></i>その他ツール</h2>
 			</header>
 			<section class="mainSection">
-				<p class="item">・<a href="../data/vampGauge.zip">ヴァンプ高校 ブラッドゲージ管理ツール</a></p>
-			</section>
-			<section class="mainSection">
+				<p class="item">・<a href="../data/vampGauge.zip">ヴァンプ高校 ブラッドゲージ管理ツール(※zipファイル)</a></p>
+				<p class="item">・<a href="./hirameki.php">ひらめきシミュレーター</a></p>
 				<p class="item">・<a href="./blankCountSimulate.php">査定調査お助けくん</a></p>
 			</section>
 

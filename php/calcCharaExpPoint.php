@@ -16,12 +16,17 @@
 
 		<main>
 			<header class="pageHeader">
-				<h2><i class="fa fa-graduation-cap" aria-hidden="true"></i>イベキャラ強化計算機</h2>
+				<h2><i class="fa fa-gavel" aria-hidden="true"></i>イベキャラ強化計算機</h2>
 			</header>
 			<section class="dispArea">
-				<p><i class="fa fa-cube"></i>機能概要</p>
+				<p><i class="fa fa-cube"></i>どんなツール？</p>
 				<div>
-					イベキャラ強化大成功が起こった時に、経験点溢れせずにきっちり使い切るように強化素材を選んでくれるツールです。
+					<div>
+						イベキャラ強化大成功が起こった時に、経験点溢れせずにきっちり使い切るように強化素材の組み合わせを選んでくれるツールです。
+					</div>
+					<div>
+						イベキャラをフル強化するのに素材がいくつ必要か等も計算できます。
+					</div>
 				</div>
 			</section>
 
@@ -174,6 +179,7 @@
 					</table>
 				</div>
 			</section>
+			<?php include('./adsense/responsive.php') ?>
 
 		</main>
 

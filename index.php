@@ -173,10 +173,6 @@
 						<div class="menuTitle"><a href="./php/quizHome.php">パワプロクイズ</a></div>
 					</li>
 					<li>
-						<div class="menuIcon"><a href="./php/hirameki.php"><img src="./img/menu009.png" class="mainImage"></a></div>
-						<div class="menuTitle"><a href="./php/hirameki.php">ひらめきシミュレーター</a></div>
-					</li>
-					<li>
 						<div class="menuIcon"><a href="./php/scoreBonus.php"><img src="./img/menu014.png" class="mainImage"></a></div>
 						<div class="menuTitle"><a href="./php/scoreBonus.php">スコアボーナスチェッカー</a></div>
 					</li>
@@ -187,6 +183,10 @@
 					<li>
 						<div class="menuIcon"><a href="./php/epicMemo.php"><i class="fa fa-sticky-note fa-fw" aria-hidden="true"></i></a></div>
 						<div class="menuTitle"><a href="./php/epicMemo.php">円卓エピックメモ</a></div>
+					</li>
+					<li>
+						<div class="menuIcon"><a href="./php/calcCharaExpPoint.php"><i class="fa fa-gavel fa-fw" aria-hidden="true"></i></a></div>
+						<div class="menuTitle"><a href="./php/calcCharaExpPoint.php">イベキャラ強化計算機</a></div>
 					</li>
 					<li>
 						<div class="menuIcon"><a href="./php/zeniTrade.php"><i class="fa fa-yen fa-fw" aria-hidden="true"></i></a></div>
