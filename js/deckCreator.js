@@ -106,7 +106,7 @@ $(function () {
 		}
 		localStorage.setItem('favoriteList', JSON.stringify(list));
 		$('#favButton').attr('data-fav-status', list.indexOf($('#deckId').val()) >= 0 ? 1 : 0);
-	}).fail(function(res) {
+	}).fail(function() {
 	});
 
 
@@ -134,7 +134,7 @@ $(function () {
 	}).done(function(data) {
 		deckCreator.makedCharaList = data.data.charaList;
 		deckCreator.setMakedCharacterList(data);
-	}).fail(function(res) {
+	}).fail(function() {
 	});
 
 });
@@ -225,11 +225,9 @@ var deckCreator = {
 			if(dir === 0) {
 				if (aVal === '') {
 					return 1;
-				}
-				if (bVal === '') {
+				} else if (bVal === '') {
 					return -1;
-				}
-				if(aVal > bVal) {
+				} else if(aVal > bVal) {
 					return 1;
 				} else {
 					return -1;
@@ -237,17 +235,14 @@ var deckCreator = {
 			} else {
 				if (aVal === '') {
 					return -1;
-				}
-				if (bVal === '') {
+				} else if (bVal === '') {
 					return 1;
-				}				if(aVal < bVal) {
+				} else if(aVal < bVal) {
 					return 1;
 				} else {
 					return -1;
 				}
 			}
-
-			return dir === 0 ? aVal >= bVal : bVal >= aVal;
 		});
 
 
@@ -307,7 +302,7 @@ var deckCreator = {
 		}
 	},
 
-	save: function () {
+	save: function (privateFlag) {
 		var validate = deckCreator.validateInput();
 		if(validate) {
 			alert(validate);
@@ -339,6 +334,7 @@ var deckCreator = {
 		deckData.author = $('#author').val();
 		deckData.gameId = $('#gameId').val();
 		deckData.twitterId = $('#twitterId').val();
+		deckData.privateFlag = privateFlag;
 
 		deckCreator.showBlockMessage('処理中……');
 
@@ -443,7 +439,7 @@ var deckCreator = {
 					alert('失敗しました');
 					break;
 			}
-		}).fail(function (res) {
+		}).fail(function () {
 		});
 
 
@@ -546,7 +542,7 @@ var deckCreator = {
 						}
 						str += '.png">';
 						if(j !== 0) {
-							str += '<div class="rankNum">' + chara.basePoint[1][j] + '</div>'
+							str += '<div class="rankNum">' + chara.basePoint[1][j] + '</div>';
 						}
 						str += '</div>';
 					}
@@ -583,7 +579,7 @@ var deckCreator = {
 							str += '.png">';
 						}
 						if(j !== 0) {
-							str += '<div class="rankNum">' + chara.basePoint[1][j] + '</div>'
+							str += '<div class="rankNum">' + chara.basePoint[1][j] + '</div>';
 						}
 						str += '</div>';
 					}
@@ -632,7 +628,6 @@ var deckCreator = {
 		table = $('#pitcherDisplayTable');
 		obj = $('#pitcherTable tr');
 		existFlag = false;
-		table
 		table.find("tr:gt(0)").remove();
 		for (var i = 0; i < obj.length; i++) {
 			if (obj.eq(i).hasClass('selectedMakedCharacter')) {

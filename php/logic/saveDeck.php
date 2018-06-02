@@ -82,6 +82,7 @@ try{
 			AUTHOR = :author,
 			GAME_ID = :gameId,
 			TWITTER_ID = :twitterId,
+			PRIVATE_FLAG = :privateFlag,
 			RENEW_DATE = NOW()
 		WHERE
 			USER_ID = :userId
@@ -108,6 +109,7 @@ try{
 		$stmt -> bindValue('author', $deckData['author']);
 		$stmt -> bindValue('gameId', $deckData['gameId']);
 		$stmt -> bindValue('twitterId', $deckData['twitterId']);
+		$stmt -> bindValue('privateFlag', $deckData['privateFlag']);
 		$stmt -> bindValue('userId', $userId);
 		$stmt -> bindValue('deckId', $deckId);
 		$stmt->execute();
@@ -151,7 +153,8 @@ try{
 			SUMMARY,
 			AUTHOR,
 			GAME_ID,
-			TWITTER_ID
+			TWITTER_ID,
+			PRIVATE_FLAG
 		)
 		VALUES (
 			:deckId,
@@ -180,7 +183,8 @@ try{
 			:summary,
 			:author,
 			:gameId,
-			:twitterId
+			:twitterId,
+			:privateFlag
 		)
 		";
 		$stmt = $dbh->prepare($sql);
@@ -203,6 +207,7 @@ try{
 		$stmt -> bindValue('author', $deckData['author']);
 		$stmt -> bindValue('gameId', $deckData['gameId']);
 		$stmt -> bindValue('twitterId', $deckData['twitterId']);
+		$stmt -> bindValue('privateFlag', $deckData['privateFlag']);
 		$stmt -> bindValue('userId', $userId);
 		$stmt -> bindValue('deckId', $deckId);
 		$stmt->execute();

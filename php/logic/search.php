@@ -102,7 +102,7 @@ try{
 
 	$condStr .= "
 	WHERE
-		1 = 1";
+		PRIVATE_FLAG = 0";
 
 
 	if (trim($deckName) !== "") {

@@ -152,7 +152,7 @@ function getDeckEventDetail($dbh, $charaList) {
 	<link rel="stylesheet" href="../css/deckCreator.css">
 	<script src="https://cdn.jsdelivr.net/clipboard.js/1.6.0/clipboard.min.js"></script>
 	<script src="../js/plugin/jquery.history.js"></script>
-	<script src="../js/deckCreator.js"></script>
+	<script src="../js/deckCreator.js?ver20180602"></script>
 	<script>
 		var savedCharaList = [
 			<?php
@@ -278,7 +278,7 @@ function getDeckEventDetail($dbh, $charaList) {
 					<?php for ($i = 0; $i < count($deckData['chara']); $i++) {?>
 					<li class="eveCharaImg">
 						<div class="relative">
-							<img class="eveIcon" onerror="this.src='../img/noface.jpg';" src="../img/eventChara/<?= $deckData['chara'][$i] ? $rarelityGraphList[$deckData['rare'][$i]] . '/' . $deckData['chara'][$i] . '.jpg' : 'noimage.jpg' ?>">
+							<img class="eveIcon" onerror="this.src='../img/noface.jpg';" src="../img/eventChara/<?= $deckData['chara'][$i] ? $rarelityGraphList[$deckData['rare'][$i]] . '/' . $deckData['chara'][$i] . '.jpg?20180411' : 'noimage.jpg' ?>">
 							<div class="lvText"><?= $deckData['lv'][$i] ? 'Lv' . $deckData['lv'][$i] : '' ?></div>
 							<?php if ((int)$deckData['rare'][$i] === 1) {?>
 							<img class="rarelityBadge" src="../img/icon/PSR_icon.png">
@@ -315,7 +315,7 @@ function getDeckEventDetail($dbh, $charaList) {
 						<?php if (count($deckEventDetail['eventTypeList'][0]) > 0) {?>
 						<p class="arrow_box" style="width:<?= count($deckEventDetail['eventTypeList'][0]) * 10+10?>vw;max-width:400px">
 							<?php foreach($deckEventDetail['eventTypeList'][0] as $row) { ?>
-							<img class="evTypeTooltip" src="../img/eventChara/SR/<?= $row ?>.jpg">
+							<img class="evTypeTooltip" src="../img/eventChara/SR/<?= $row ?>.jpg?20180411">
 							<?php } ?>
 						</p>
 						<?php } ?>
@@ -325,7 +325,7 @@ function getDeckEventDetail($dbh, $charaList) {
 						<?php if (count($deckEventDetail['eventTypeList'][1]) > 0) {?>
 						<p class="arrow_box" style="width:<?= count($deckEventDetail['eventTypeList'][1]) * 10+10?>vw;max-width:400px">
 							<?php foreach($deckEventDetail['eventTypeList'][1] as $row) { ?>
-							<img class="evTypeTooltip" src="../img/eventChara/SR/<?= $row ?>.jpg">
+							<img class="evTypeTooltip" src="../img/eventChara/SR/<?= $row ?>.jpg?20180411">
 							<?php } ?>
 						</p>
 						<?php } ?>
@@ -340,7 +340,7 @@ function getDeckEventDetail($dbh, $charaList) {
 					<?php for ($i = 0; $i < 6; $i++) { ?>
 					<li class="eveCharaImg">
 						<div class="eveImageArea" onclick="deckCreator.deleteSelectedEveChara(<?= $i ?>)">
-							<img onerror="this.src='../img/noface.jpg';" src="../img/eventChara/<?= isset($deckData) && $deckData['chara'][$i] ? $rarelityGraphList[$deckData['rare'][$i]] . '/' . $deckData['chara'][$i] . '.jpg' : 'noimage.jpg' ?>">
+							<img onerror="this.src='../img/noface.jpg';" src="../img/eventChara/<?= isset($deckData) && $deckData['chara'][$i] ? $rarelityGraphList[$deckData['rare'][$i]] . '/' . $deckData['chara'][$i] . '.jpg?20180411' : 'noimage.jpg' ?>">
 							<div class="trainingIcon"><img class="trainingIcon hiddenDisplay"></div>
 						</div>
 						<div>
@@ -504,7 +504,11 @@ function getDeckEventDetail($dbh, $charaList) {
 				<button id="favButton" class="favButton" data-fav-status="0" onclick="deckCreator.setFavarite();">お気に入り</button>
 			</div>
 			<?php } else { ?>
-			<div><button onclick="deckCreator.save();">保存</button><button onclick="deleteDeck();">削除</button></div>
+			<div>
+				<button onclick="deckCreator.save(0);">保存</button>
+				<button onclick="deckCreator.save(1);">非公開で保存</button>
+				<button onclick="deleteDeck();">削除</button>
+			</div>
 			<div>▼公開用URL:<button id="copyText" data-clipboard-target="#openURL">クリップボードにコピー</button></div>
 			<div id="openURL" class="openURL"><?= $mode === 2 ? (empty($_SERVER["HTTPS"]) ? "http://" : "https://") . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"] : ''?></div>
 			<?php } ?>
@@ -554,7 +558,7 @@ function getDeckEventDetail($dbh, $charaList) {
 				$src = $item['trainingType'] !== null ? ' src="../img/practice' . $item['trainingType'] . '.jpg"' : '';
 				$selectedClass = isset($deckData) && in_array($item['id'], $deckData['chara']) ? ' selectedItem' : ''; ?>
 			<li class="eveCharaListItem" data-chara-id="<?= $item['id'] ?>" data-chara-name="<?= $item['name'] ?>" data-chara-read="<?= $item['yomi'] ?>" data-training-type="<?= $item['trainingType'] ?>" data-chara-type="<?= $item['charaType'] ?>" data-event-type="<?= $item['eventType'] ?>">
-				<img class="evecharaIcon<?= $selectedClass ?>" src="../img/eventChara/SR/<?= $item['id'] ?>.jpg"><img class="trainingIcon"<?= $src ?>>
+				<img class="evecharaIcon<?= $selectedClass ?>" src="../img/eventChara/SR/<?= $item['id'] ?>.jpg?20180411"><img class="trainingIcon"<?= $src ?>>
 				<div class="nameArea"><?= $item['name'] ?></div>
 				<div class="evTypeArea">
 					<span class="<?= $evTypeClass[$item['eventType']] ?>"><?= $evTypeList[$item['eventType']] ?></span>
