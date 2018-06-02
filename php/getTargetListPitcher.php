@@ -26,7 +26,6 @@ $pairList = array();
 
 $baseTypeStr = array('SP', 'CO', 'ST');
 $expPointStr = ['POWER', 'SPEED', 'TECH', 'SCREWBALL', 'MENTAL'];
-$pointList = null;
 
 $nowBaseAssessment = 0;
 $outsideFlag = false;
@@ -41,14 +40,6 @@ try{
 	$sql = 'SELECT ITEM, POINT FROM CHANGE_BALL_POINT WHERE TOTAL >=' . $total;
 	$sth = $dbh->query($sql);
 	$dictionary = $sth->fetchAll();
-
-	//ポイント→査定値の対応表取得
-	$pointList = [];
-	$sql = 'SELECT VALUE FROM PITCHER_POINT_VALUE ORDER BY POINT';
-	$sth = $dbh->query($sql);
-	while ($row = $sth->fetch(PDO::FETCH_ASSOC)) {
-		$pointList[] = (int)$row['VALUE'];
-	}
 
 	if (!$abilityOnly) {
 		$nowBaseAssessment = getChangeBallAssessmentPoint($dbh, $changeBallType, $changeBallValue, $dictionary);
@@ -145,12 +136,12 @@ try{
 			$sth = null;
 		}
 
-		if ($pointList[$nowBaseAssessment] !== 0) {
+		if (convertPointToAssessment($nowBaseAssessment) !== 0) {
 			for ($i = 0; $i < count($baseTargetList); $i++) {
 				for ($j = 0; $j < count($baseTargetList[$i]); $j++) {
 					$total = array_reduce($baseTargetList[$i][$j]["point"], "sum");
 					$targetVal = $baseTargetList[$i][$j]["val"] + $nowBaseAssessment;
-					$val = $pointList[$targetVal] - $pointList[$nowBaseAssessment];
+					$val = convertPointToAssessment($targetVal) - convertPointToAssessment($nowBaseAssessment);
 					$baseTargetList[$i][$j]["eff"] = ($val*100)/$total;
 				}
 			}
@@ -383,7 +374,6 @@ try{
 		'baseTargetList'=>$baseTargetList,
 		'baseNowAssessment'=>$nowBaseAssessment,
 		'abNowAssessment'=>$abNowAssessment,
-		'pointList'=>$pointList,
 		'outsideFlag'=>$outsideFlag
 	);
 

@@ -57,23 +57,19 @@ function getChangeBallAssessmentPoint($dbh, $changeBallType, $changeBallValue, $
 	//変化球の総変量を求める
 	$totalChangeValue = array_reduce($changeBallValue, "sum") - $changeBallValue[0];
 
-	$typeList = array(
-		array("1", "2", "1", "0"),
-		array("A", "B", "A", "0"),
-		array("B", "B", "B", "B", "B", "C", "0"),
-		array("B", "A", "C", "B", "D", "B", "0"),
-		array("B", "B", "C", "0"),
-		array("A", "A", "0")
-	);
-
 	$cList = [];
 
 	for ($i = 0; $i < count($changeBallType); $i++) {
 		if ($changeBallValue[$i] > 0) {
+			$cType = getChangeBallType($i, $changeBallType[$i]);
 			if ($i === 0) {
-				$cList[] = $typeList[$i][$changeBallType[$i]-1];
+				$cList[] = $cType;
 			} else {
-				$cList[] = $typeList[$i][$changeBallType[$i]-1] . $changeBallValue[$i];
+				if ($cType === '0') {
+					$cList[] = 'A' . $changeBallValue[$i];
+				} else {
+					$cList[] = $cType . $changeBallValue[$i];
+				}
 			}
 		}
 	}
@@ -216,5 +212,25 @@ function sum($pre, $cur) {
 	return $pre + $cur;
 }
 
+//ポイント→査定値への変換ロジック
+function convertPointToAssessment($point) {
+	if($point === 0) return 0;
+	$sub = $point % 10 < 9 ? ($point % 10) : -1;
+	$add = (int)(($point % 10 % 9) / 3);
+	return 2 * (int)((($point + $add + (int)(($point - $sub) / 10) * 3) * 20.14 + 2)/2);
+}
+
+//変化球の種類(A,B,C,D,1,2)を取得する
+function getChangeBallType($dir, $idx){
+	$typeList = array(
+		array("1", "2", "1", "0"),
+		array("A", "B", "A", "0"),
+		array("B", "B", "B", "B", "B", "C", "0"),
+		array("B", "A", "C", "B", "D", "B", "0"),
+		array("B", "B", "C", "0"),
+		array("A", "A", "0")
+	);
+	return $typeList[$dir][$idx-1];
+}
 
 ?>

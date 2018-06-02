@@ -824,7 +824,9 @@ var commonModule = {
 		var assessmentNow = this.getAsyncData('getAssessmentPointPitcher', JSON.stringify({"basePoint":baseNowPoint, "ability":abilityNow, "changeBallType":changeBallType, "changeBallValue":changeBallNow}));
 		var assessmentAim = this.getAsyncData('getAssessmentPointPitcher', JSON.stringify({"basePoint":baseAimPoint, "ability":abilityAim, "changeBallType":changeBallType, "changeBallValue":changeBallAim}));
 		var nowTotal = (assessmentNow.basePoint !== null ? assessmentNow.basePoint : 0) + assessmentNow.abPoint;
+		nowTotal = Math.floor(nowTotal/36) * 36
 		var aimTotal = (assessmentAim.basePoint !== null ? assessmentAim.basePoint : 0) + assessmentAim.abPoint;
+		aimTotal = Math.floor(aimTotal/36) * 36
 		$('#assessmentPointCharaData').html((assessmentNow.basePoint !== null && !assessmentNow.outsideFlag && !assessmentAim.outsideFlag ? parseInt(aimTotal) : '') + '(' + parseInt(aimTotal - nowTotal, 10) + '↑)');
 
 	},

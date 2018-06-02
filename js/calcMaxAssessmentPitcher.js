@@ -4,7 +4,6 @@
 
 var calcMaxAssessmentPitcherModule = (function() {
 	var MAP_MAX_SIZE = 15000;
-	var pointList = null;
 	var outsideFlag = false;	//現在の能力では査定が出せない場合true
 
 	return {
@@ -78,7 +77,6 @@ var calcMaxAssessmentPitcherModule = (function() {
 
 				calcMaxAssessmentPitcherModule.outsideFlag = data.outsideFlag;
 				var map = [[[0, 0, 0, 0, 0], [0, 0], '', 0, 0]];
-				pointList = data.pointList;
 				calcMaxAssessmentPitcherModule.RecallMaxAssessment(map, data.targetList, 0, expPoint, data.baseNowAssessment, data.abNowAssessment);
 			}).fail(function(res){
 				calcMaxAssessmentPitcherModule.ErrorCalcMaxAssessment();
@@ -221,9 +219,9 @@ var calcMaxAssessmentPitcherModule = (function() {
 
 		getRealAssessmentPoint: function(array, baseNowAssessment, abNowAssessment){
 
-			var newbaseNowAssessment = pointList[baseNowAssessment + array[0]] * 100;
+			var newbaseNowAssessment = calcMaxAssessmentPitcherModule.convertPointToAssessment(baseNowAssessment + array[0]) * 100;
 			var newabNowAssessment = abNowAssessment + array[1];
-			return newbaseNowAssessment + newabNowAssessment;
+			return newbaseNowAssessment + newabNowAssessment + 3300;
 		},
 
 
@@ -295,6 +293,13 @@ var calcMaxAssessmentPitcherModule = (function() {
 			setTimeout($.unblockUI, 2000);
 		},
 
+		//ポイント→査定値への変換ロジック
+		convertPointToAssessment: function(n) {
+			if(n === 0) return 0;
+			var sub = n % 10 < 9 ? (n % 10) : -1;
+			var add = parseInt((n % 10 % 9) / 3, 10);
+			return 2 * parseInt(((n + add + parseInt((n - sub) / 10, 10) * 3) * 20.14 + 2)/2, 10);
+		},
 
 		unionBaseAbility: function(list, expPoint, nowAssessment) {
 			var newList = [{
@@ -364,7 +369,7 @@ var calcMaxAssessmentPitcherModule = (function() {
 					return pre + cur;
 				});
 				newList[i].id = newList[i].id.substr(0, newList[i].id.length-1);
-				newList[i].val = (pointList[newList[i].val+nowAssessment-100] - pointList[nowAssessment-100]) * 100;
+				newList[i].val = (calcMaxAssessmentPitcherModule.convertPointToAssessment(newList[i].val+nowAssessment-100) - calcMaxAssessmentPitcherModule.convertPointToAssessment(nowAssessment-100)) * 100;
 				newList[i].eff = newList[i].val / total;
 			}
 

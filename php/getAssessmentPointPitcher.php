@@ -25,14 +25,6 @@ try{
 	$sth = $dbh->query($sql);
 	$dictionary = $sth->fetchAll();
 
-	//ポイント→査定値の対応表取得
-	$pointList = [];
-	$sql = 'SELECT VALUE FROM PITCHER_POINT_VALUE ORDER BY POINT';
-	$sth = $dbh->query($sql);
-	while ($row = $sth->fetch(PDO::FETCH_ASSOC)) {
-		$pointList[] = (int)$row['VALUE'];
-	}
-
 	//基礎能力の査定値取得
 	$basePoint = (int)getAssessmentPointOfBaseAbilityPitcher($dbh, $basePoint);
 	$changeBallPoint = (int)getChangeBallAssessmentPoint($dbh, $changeBallType, $changeBallValue, $dictionary);
@@ -41,7 +33,11 @@ try{
 	}
 	$basePoint += $changeBallPoint;
 
-	$basePoint = $pointList[$basePoint];
+	$basePoint = convertPointToAssessment($basePoint) + 33;
+
+	if (hasOriginalChangeBall($changeBallType, $changeBallValue)) {
+		$basePoint += 113;
+	}
 
 	//特能計算部分
 	$abPoint = getAssessmentPointOfAbility($dbh, $ability);
@@ -66,6 +62,19 @@ function getAbility($data, $id) {
 		}
 	}
 	return null;
+}
+
+function hasOriginalChangeBall($changeBallType, $changeBallValue) {
+
+	for ($i = 0; $i < count($changeBallType); $i++) {
+		if ($changeBallValue[$i] > 0) {
+			$cType = getChangeBallType($i, $changeBallType[$i]);
+			if ($cType === '0') {
+				return true;
+			}
+		}
+	}
+	return false;
 }
 
 ?>
