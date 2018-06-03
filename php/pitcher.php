@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="../css/pitcher.css?ver20170924">
 	<script src="../js/pitcher.js?ver20180224"></script>
 	<script src="../js/calcMaxAssessmentPitcher.js?ver20180602"></script>
-	<script src="../js/commonModule.js?ver20180602"></script>
+	<script src="../js/commonModule.js?ver20180603"></script>
 	<script>var abilityCount = <?php include('../php/getAbilityCount.php'); ?>;</script>
 </head>
 

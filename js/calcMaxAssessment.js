@@ -63,6 +63,13 @@ var calcMaxAssessmentModule = (function() {
 				data: JSON.stringify(data)
 			}).done(function(data){
 				var map = [[[0, 0, 0, 0], [0, 0], '', 0, 0]];
+
+				//現在の査定がマイナスの時に挙動がおかしくなるのを回避
+				var nowAssessment = calcMaxAssessmentModule.getRealAssessmentPoint([0, 0], data.baseNowAssessment, data.abNowAssessment);
+				if (nowAssessment < 0) {
+					map[0][3] = nowAssessment;
+				}
+
 				expPoint.splice(3, 1);
 				calcMaxAssessmentModule.optimiseTargetList(data.targetList);
 				calcMaxAssessmentModule.RecallMaxAssessment(map, data.targetList, 0, expPoint, data.baseNowAssessment, data.abNowAssessment);
