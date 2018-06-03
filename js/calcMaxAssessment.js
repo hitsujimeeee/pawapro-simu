@@ -59,7 +59,7 @@ var calcMaxAssessmentModule = (function() {
 			$.ajax({
 				type:"POST",
 				url:'./getTargetList.php',
-				timeout: 10000,
+				timeout: 15000,
 				data: JSON.stringify(data)
 			}).done(function(data){
 				var map = [[[0, 0, 0, 0], [0, 0], '', 0, 0]];
@@ -99,7 +99,7 @@ var calcMaxAssessmentModule = (function() {
 				$.ajax({
 					type:"POST",
 					url:'./getMaxAssessmentStatus.php',
-					timeout: 10000,
+					timeout: 15000,
 					data: JSON.stringify(data)
 				}).done(function(data){
 					calcMaxAssessmentModule.finishCalcMaxAssessment(data);
@@ -271,7 +271,6 @@ var calcMaxAssessmentModule = (function() {
 				$('#tab2 .displaySubPosition > ul > li').eq(0).addClass('catcher');
 				$('#tab2 .displaySubPosition > ul > li').eq(0).find('.displayName').html('捕手' + option);
 			}
-
 
 			commonModule.calcExpPoint();
 			$.unblockUI();

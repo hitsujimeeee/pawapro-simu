@@ -478,7 +478,7 @@ var commonModule = {
 				type: "POST",
 				url: method + '.php',
 				data: data || {},
-				timeout: 5000,
+				timeout: 15000,
 				success: callBackSuccess,
 				error: callBackError
 			});
