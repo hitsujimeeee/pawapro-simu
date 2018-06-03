@@ -3,3 +3,5 @@
 /php/lib/PHPExcel
 /img/satei
 .eslintrc.json
+php/webScraping/charaURL.csv
+php/webScraping/itemList.csv
