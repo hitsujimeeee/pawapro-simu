@@ -624,6 +624,8 @@ var commonModule = {
 				subPositionNow[subPositionNow.length] = Number((posNow[i] ? posNow[i].id : null));
 				subPositionAim[subPositionAim.length] = Number((posAim[i] ? posAim[i].id : null));
 			}
+			commonModule.changeSubPositionColorTag(0, i, posNow[i]);
+			commonModule.changeSubPositionColorTag(1, i, posAim[i]);
 		}
 
 		//変化球部分
@@ -1204,41 +1206,31 @@ var commonModule = {
 			}
 		}
 		charaData.setSubPosition(tabType, idx, now);
-
-		var obj = $('#tab' + (tabType + 1) +' .displaySubPosition > ul > li').eq(idx);
-		obj.removeClass(commonModule.subposTypeClass.join(' '));
-		if (now !== null) {
-			obj.addClass(commonModule.subposTypeClass[now.color]);
-			var option = '';
-			if (tabType === 1) {
-				option = !charaData.getSubPosition(0, idx) ? '<span class="changeTypeStr">new</span>' : (charaData.getSubPosition(0, idx).id != charaData.getSubPosition(1, idx).id ? '<span class="changeTypeStr"><i class="fa fa-level-up changeIcon" aria-hidden="true"></i><i class="fa fa-level-up changeIcon" aria-hidden="true"></i></span>' : '');
-			}
-			obj.find('.displayName').html(now.name + option);
-		} else {
-			obj.find('.displayName').html(obj.attr('default'));
-		}
-
-
-		var obj = $('#tab' + (tabType + 1) +' .displaySubPosition > ul > li').eq(idx);
-		obj.removeClass(commonModule.subposTypeClass.join(' '));
-		if (now !== null) {
-			obj.addClass(commonModule.subposTypeClass[now.color]);
-			var option = '';
-			if (tabType === 1) {
-				option = !charaData.getSubPosition(0, idx) ? '<span class="changeTypeStr">new</span>' : (charaData.getSubPosition(0, idx).id != charaData.getSubPosition(1, idx).id ? '<span class="changeTypeStr"><i class="fa fa-level-up changeIcon" aria-hidden="true"></i><i class="fa fa-level-up changeIcon" aria-hidden="true"></i></span>' : '');
-			}
-			obj.find('.displayName').html(now.name + option);
-		} else {
-			obj.find('.displayName').html(obj.attr('default'));
-		}
+		commonModule.changeSubPositionColorTag(tabType, idx, now);
 
 		if (tabType === 0 && charaData.getSubPosition(1, idx)) {
-			obj = $('#tab2 .displaySubPosition > ul > li').eq(idx);
+			var obj = $('#tab2 .displaySubPosition > ul > li').eq(idx);
 			var option = '';
 			option = !charaData.getSubPosition(0, idx) ? '<span class="changeTypeStr">new</span>' : (charaData.getSubPosition(0, idx).id != charaData.getSubPosition(1, idx).id ? '<span class="changeTypeStr"><i class="fa fa-level-up changeIcon" aria-hidden="true"></i><i class="fa fa-level-up changeIcon" aria-hidden="true"></i></span>' : '');
 			obj.find('.displayName').html(charaData.getSubPosition(1, idx).name + option);
 		}
 
+	},
+
+	//サブポジの色を変える
+	changeSubPositionColorTag: function(tabType, idx, subPos) {
+		var obj = $('#tab' + (tabType + 1) +' .displaySubPosition > ul > li').eq(idx);
+		obj.removeClass(commonModule.subposTypeClass.join(' '));
+		if (subPos !== null) {
+			obj.addClass(commonModule.subposTypeClass[subPos.color]);
+			var option = '';
+			if (tabType === 1) {
+				option = !charaData.getSubPosition(0, idx) ? '<span class="changeTypeStr">new</span>' : (charaData.getSubPosition(0, idx).id != charaData.getSubPosition(1, idx).id ? '<span class="changeTypeStr"><i class="fa fa-level-up changeIcon" aria-hidden="true"></i><i class="fa fa-level-up changeIcon" aria-hidden="true"></i></span>' : '');
+			}
+			obj.find('.displayName').html(subPos.name + option);
+		} else {
+			obj.find('.displayName').html(obj.attr('default'));
+		}
 	},
 
 	openTrickLevelDropdown: function(e) {
