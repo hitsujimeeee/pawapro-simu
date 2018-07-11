@@ -59,7 +59,7 @@ var calcMaxAssessmentModule = (function() {
 			$.ajax({
 				type:"POST",
 				url:'./getTargetList.php',
-				timeout: 15000,
+				timeout: 10000,
 				data: JSON.stringify(data)
 			}).done(function(data){
 				var map = [[[0, 0, 0, 0], [0, 0], '', 0, 0]];
@@ -106,7 +106,7 @@ var calcMaxAssessmentModule = (function() {
 				$.ajax({
 					type:"POST",
 					url:'./getMaxAssessmentStatus.php',
-					timeout: 15000,
+					timeout: 10000,
 					data: JSON.stringify(data)
 				}).done(function(data){
 					calcMaxAssessmentModule.finishCalcMaxAssessment(data);
