@@ -57,7 +57,7 @@
 							<td><input type="number" class="basePointInput" min="1" max="100" step="1"></td>
 							<td><input type="number" class="basePointInput" min="1" max="100" step="1"></td>
 							<td><input type="number" class="basePointInput" min="1" max="104" step="1"></td>
-							<td><input type="number" class="basePointInput" min="1" max="102" step="1"></td>
+							<td><input type="number" class="basePointInput" min="1" max="106" step="1"></td>
 						</tr>
 					</table>
 				</section>
@@ -113,7 +113,7 @@
 							<td><input type="number" class="basePointInput" min="1" max="100" step="1"></td>
 							<td><input type="number" class="basePointInput" min="1" max="100" step="1"></td>
 							<td><input type="number" class="basePointInput" min="1" max="104" step="1"></td>
-							<td><input type="number" class="basePointInput" min="1" max="102" step="1"></td>
+							<td><input type="number" class="basePointInput" min="1" max="106" step="1"></td>
 						</tr>
 					</table>
 				</section>
@@ -257,7 +257,12 @@
 						捕球
 						<select class="baseLimitBreak">
 							<option value="100">100</option>
+							<option value="101">101</option>
 							<option value="102">102</option>
+							<option value="103">103</option>
+							<option value="104">104</option>
+							<option value="105">105</option>
+							<option value="106">106</option>
 						</select>
 					</div>
 				</section>
