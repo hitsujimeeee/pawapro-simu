@@ -145,6 +145,8 @@ INSERT INTO ABILITY_HEADER (ID, NAME, CATEGORY, PAIR, SORT_ORDER) VALUES
 ('139','冷静','0',NULL,'70'),
 ('140','全開','4',NULL,'44'),
 ('141','サイン察知','0',NULL,'71'),
-('142','アウトロー球威〇','4',NULL,'45');
+('142','アウトロー球威〇','4',NULL,'45'),
+('143','四番〇','0',NULL,'72'),
+('144','孤高','0',NULL,'73');
 
 SET AUTOCOMMIT=1;
