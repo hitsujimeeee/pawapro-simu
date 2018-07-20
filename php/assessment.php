@@ -70,7 +70,7 @@ $dbh = DB::connect();
 				</tr>
 				<tr>
 					<th>ミート</th>
-					<td><input type="number" class="basePointInput" min="1" max="104" step="1"></td>
+					<td><input type="number" class="basePointInput" min="1" max="106" step="1"></td>
 				</tr>
 				<tr>
 					<th>パワー</th>
@@ -86,7 +86,7 @@ $dbh = DB::connect();
 				</tr>
 				<tr>
 					<th>守備</th>
-					<td><input type="number" class="basePointInput" min="1" max="104" step="1"></td>
+					<td><input type="number" class="basePointInput" min="1" max="106" step="1"></td>
 				</tr>
 				<tr>
 					<th>捕球</th>

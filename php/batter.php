@@ -52,11 +52,11 @@
 						</tr>
 						<tr>
 							<td><input type="number" class="basePointInput" min="1" max="4" step="1"></td>
-							<td><input type="number" class="basePointInput" min="1" max="104" step="1"></td>
+							<td><input type="number" class="basePointInput" min="1" max="106" step="1"></td>
 							<td><input type="number" class="basePointInput" min="1" max="100" step="1"></td>
 							<td><input type="number" class="basePointInput" min="1" max="100" step="1"></td>
 							<td><input type="number" class="basePointInput" min="1" max="100" step="1"></td>
-							<td><input type="number" class="basePointInput" min="1" max="104" step="1"></td>
+							<td><input type="number" class="basePointInput" min="1" max="106" step="1"></td>
 							<td><input type="number" class="basePointInput" min="1" max="106" step="1"></td>
 						</tr>
 					</table>
@@ -108,11 +108,11 @@
 						</tr>
 						<tr>
 							<td><input type="number" class="basePointInput" min="1" max="4" step="1"></td>
-							<td><input type="number" class="basePointInput" min="1" max="104" step="1"></td>
+							<td><input type="number" class="basePointInput" min="1" max="106" step="1"></td>
 							<td><input type="number" class="basePointInput" min="1" max="100" step="1"></td>
 							<td><input type="number" class="basePointInput" min="1" max="100" step="1"></td>
 							<td><input type="number" class="basePointInput" min="1" max="100" step="1"></td>
-							<td><input type="number" class="basePointInput" min="1" max="104" step="1"></td>
+							<td><input type="number" class="basePointInput" min="1" max="106" step="1"></td>
 							<td><input type="number" class="basePointInput" min="1" max="106" step="1"></td>
 						</tr>
 					</table>
@@ -224,7 +224,8 @@
 						<select class="baseLimitBreak">
 							<option value="100">100</option>
 							<option value="102">102</option>
-							<option value="102">104</option>
+							<option value="104">104</option>
+							<option value="106">106</option>
 						</select>
 					</div>
 					<div>
@@ -250,7 +251,8 @@
 						<select class="baseLimitBreak">
 							<option value="100">100</option>
 							<option value="102">102</option>
-                            <option value="102">104</option>
+                            <option value="104">104</option>
+                            <option value="106">106</option>
                         </select>
 					</div>
 					<div>
