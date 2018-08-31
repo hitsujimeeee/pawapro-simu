@@ -52,12 +52,12 @@
 						</tr>
 						<tr>
 							<td><input type="number" class="basePointInput" min="1" max="4" step="1"></td>
-							<td><input type="number" class="basePointInput" min="1" max="106" step="1"></td>
+							<td><input type="number" class="basePointInput" min="1" max="108" step="1"></td>
 							<td><input type="number" class="basePointInput" min="1" max="100" step="1"></td>
-							<td><input type="number" class="basePointInput" min="1" max="100" step="1"></td>
+							<td><input type="number" class="basePointInput" min="1" max="102" step="1"></td>
 							<td><input type="number" class="basePointInput" min="1" max="100" step="1"></td>
 							<td><input type="number" class="basePointInput" min="1" max="106" step="1"></td>
-							<td><input type="number" class="basePointInput" min="1" max="106" step="1"></td>
+							<td><input type="number" class="basePointInput" min="1" max="108" step="1"></td>
 						</tr>
 					</table>
 				</section>
@@ -108,12 +108,12 @@
 						</tr>
 						<tr>
 							<td><input type="number" class="basePointInput" min="1" max="4" step="1"></td>
-							<td><input type="number" class="basePointInput" min="1" max="106" step="1"></td>
+							<td><input type="number" class="basePointInput" min="1" max="108" step="1"></td>
 							<td><input type="number" class="basePointInput" min="1" max="100" step="1"></td>
-							<td><input type="number" class="basePointInput" min="1" max="100" step="1"></td>
+							<td><input type="number" class="basePointInput" min="1" max="102" step="1"></td>
 							<td><input type="number" class="basePointInput" min="1" max="100" step="1"></td>
 							<td><input type="number" class="basePointInput" min="1" max="106" step="1"></td>
-							<td><input type="number" class="basePointInput" min="1" max="106" step="1"></td>
+							<td><input type="number" class="basePointInput" min="1" max="108" step="1"></td>
 						</tr>
 					</table>
 				</section>
@@ -226,6 +226,7 @@
 							<option value="102">102</option>
 							<option value="104">104</option>
 							<option value="106">106</option>
+							<option value="108">108</option>
 						</select>
 					</div>
 					<div>
@@ -238,6 +239,7 @@
 						走力
 						<select class="baseLimitBreak">
 							<option value="100">100</option>
+							<option value="102">102</option>
 						</select>
 					</div>
 					<div>
@@ -265,6 +267,8 @@
 							<option value="104">104</option>
 							<option value="105">105</option>
 							<option value="106">106</option>
+							<option value="107">107</option>
+							<option value="108">108</option>
 						</select>
 					</div>
 				</section>
