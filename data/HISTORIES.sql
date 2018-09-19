@@ -122,4 +122,5 @@ INSERT INTO HISTORIES VALUES ('2018-07-11 20:00', '捕球上限を106に変更')
 INSERT INTO HISTORIES VALUES ('2018-07-17 20:00', '特能「不動の四番」、「孤軍奮闘」追加。ミート、守備上限を106に変更');
 INSERT INTO HISTORIES VALUES ('2018-08-25 20:00', '特能「走力ブースト」、「走力バースト」追加');
 INSERT INTO HISTORIES VALUES ('2018-08-25 21:00', '走力上限102,ミート＆捕球上限108に変更');
+INSERT INTO HISTORIES VALUES ('2018-09-19 19:00', '特能「投打躍動」、「二刀流」追加、コン上限を106に変更');
 
