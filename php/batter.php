@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="../css/batter.css?ver20170930">
 	<script src="../js/batter.js?ver20180224"></script>
 	<script src="../js/calcMaxAssessment.js?ver20180710"></script>
-	<script src="../js/commonModule.js?ver20180710"></script>
+	<script src="../js/commonModule.js?ver20181020"></script>
 </head>
 
 <body>
@@ -52,11 +52,11 @@
 						</tr>
 						<tr>
 							<td><input type="number" class="basePointInput" min="1" max="4" step="1"></td>
-							<td><input type="number" class="basePointInput" min="1" max="108" step="1"></td>
+							<td><input type="number" class="basePointInput" min="1" max="114" step="1"></td>
 							<td><input type="number" class="basePointInput" min="1" max="100" step="1"></td>
 							<td><input type="number" class="basePointInput" min="1" max="102" step="1"></td>
-							<td><input type="number" class="basePointInput" min="1" max="100" step="1"></td>
-							<td><input type="number" class="basePointInput" min="1" max="106" step="1"></td>
+							<td><input type="number" class="basePointInput" min="1" max="102" step="1"></td>
+							<td><input type="number" class="basePointInput" min="1" max="108" step="1"></td>
 							<td><input type="number" class="basePointInput" min="1" max="108" step="1"></td>
 						</tr>
 					</table>
@@ -108,11 +108,11 @@
 						</tr>
 						<tr>
 							<td><input type="number" class="basePointInput" min="1" max="4" step="1"></td>
-							<td><input type="number" class="basePointInput" min="1" max="108" step="1"></td>
+							<td><input type="number" class="basePointInput" min="1" max="114" step="1"></td>
 							<td><input type="number" class="basePointInput" min="1" max="100" step="1"></td>
 							<td><input type="number" class="basePointInput" min="1" max="102" step="1"></td>
-							<td><input type="number" class="basePointInput" min="1" max="100" step="1"></td>
-							<td><input type="number" class="basePointInput" min="1" max="106" step="1"></td>
+							<td><input type="number" class="basePointInput" min="1" max="102" step="1"></td>
+							<td><input type="number" class="basePointInput" min="1" max="108" step="1"></td>
 							<td><input type="number" class="basePointInput" min="1" max="108" step="1"></td>
 						</tr>
 					</table>
@@ -223,10 +223,20 @@
 						ミート
 						<select class="baseLimitBreak">
 							<option value="100">100</option>
+							<option value="101">101</option>
 							<option value="102">102</option>
+							<option value="103">103</option>
 							<option value="104">104</option>
+							<option value="105">105</option>
 							<option value="106">106</option>
+							<option value="107">107</option>
 							<option value="108">108</option>
+							<option value="109">109</option>
+							<option value="110">110</option>
+							<option value="111">111</option>
+							<option value="112">112</option>
+							<option value="113">113</option>
+							<option value="114">114</option>
 						</select>
 					</div>
 					<div>
@@ -246,6 +256,7 @@
 						肩力
 						<select class="baseLimitBreak">
 							<option value="100">100</option>
+							<option value="102">102</option>
 						</select>
 					</div>
 					<div>
@@ -255,6 +266,7 @@
 							<option value="102">102</option>
                             <option value="104">104</option>
                             <option value="106">106</option>
+                            <option value="108">108</option>
                         </select>
 					</div>
 					<div>

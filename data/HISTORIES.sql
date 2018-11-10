@@ -123,4 +123,5 @@ INSERT INTO HISTORIES VALUES ('2018-07-17 20:00', '特能「不動の四番」�
 INSERT INTO HISTORIES VALUES ('2018-08-25 20:00', '特能「走力ブースト」、「走力バースト」追加');
 INSERT INTO HISTORIES VALUES ('2018-08-25 21:00', '走力上限102,ミート＆捕球上限108に変更');
 INSERT INTO HISTORIES VALUES ('2018-09-19 19:00', '特能「投打躍動」、「二刀流」追加、コン上限を106に変更');
-
+INSERT INTO HISTORIES VALUES ('2018-10-20 22:00', '特能「ファースト〇」、「守備移動〇」、「至高の一番手」、「牛若丸」追加');
+INSERT INTO HISTORIES VALUES ('2018-10-20 23:00', '基礎能力上限をミート114、肩力102、守備力108、コン110に変更');
