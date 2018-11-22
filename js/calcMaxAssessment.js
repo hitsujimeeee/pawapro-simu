@@ -52,6 +52,7 @@ var calcMaxAssessmentModule = (function() {
 				"sense": charaData.getSensePer(),
 				"expPoint": expPoint,
 				"isCather":commonModule.isCatcher(),
+				"isFirst":commonModule.isFirst(),
 				"nonMoody":$('#nonMoody').prop("checked"),
 				"nonCatcher":$('#nonCatcher').prop("checked")
 			};
@@ -278,6 +279,15 @@ var calcMaxAssessmentModule = (function() {
 				$('#tab2 .displaySubPosition > ul > li').eq(0).addClass('catcher');
 				$('#tab2 .displaySubPosition > ul > li').eq(0).find('.displayName').html('捕手' + option);
 			}
+
+			//サブポジファースト
+			if(!commonModule.isFirst() && charaData.getAbilityList(1, 147) !== null) {
+				charaData.setSubPosition(1, 1, {id:"4", name:"一塁", color:"1"});
+				var option = '';
+				option = !charaData.getSubPosition(0, 1) ? '<span class="changeTypeStr">new</span>' : (charaData.getSubPosition(0, 1).id != charaData.getSubPosition(1, 1).id ? '<span class="changeTypeStr"><i class="fa fa-level-up changeIcon" aria-hidden="true"></i><i class="fa fa-level-up changeIcon" aria-hidden="true"></i></span>' : '');
+				$('#tab2 .displaySubPosition > ul > li').eq(1).addClass('first');
+				$('#tab2 .displaySubPosition > ul > li').eq(1).find('.displayName').html('一塁' + option);
+			}			
 
 			commonModule.calcExpPoint();
 			$.unblockUI();

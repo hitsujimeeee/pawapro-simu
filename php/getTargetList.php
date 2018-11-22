@@ -12,7 +12,8 @@ $abilityNow = $post['ability'];
 $baseTrickLevel = $post['baseTrickLevel'];
 $baseLimitBreak = $post['baseLimitBreak'];
 $isCatcher = $post['isCather'];
-$nonCatcher = $post['nonCatcher'];
+$isFirst = $post['isCather'];
+$nonCatcher = $post['nonCatcher'];	//キャッチャー〇を取得しないフラグ
 $nonMoody = isset($post['nonMoody']) ? $post['nonMoody'] : 0;
 $expPoint = $post['expPoint'];
 array_splice($expPoint, 3, 1);
@@ -110,6 +111,7 @@ try{
 	}
 
 	$catcherPoint = array(0, 0, 0, 0);
+	$firstPoint = array(0, 0, 0, 0);
 
 	//キャッチャーでない場合に、キャッチャー○用の必要経験点を取得しておく
 	if(!$isCatcher) {
@@ -129,6 +131,23 @@ try{
 		$catcherPoint = array((int)$row['POWER'], (int)$row['SPEED'], (int)$row['TECH'], (int)$row['MENTAL']);
 	}
 
+	//ファーストでない場合に、ファースト○用の必要経験点を取得しておく
+	if(!$isFirst) {
+		$sql = '
+		SELECT
+			POWER,
+			SPEED,
+			TECH,
+			MENTAL
+		FROM
+			SUBPOSITION_DETAIL
+		WHERE
+			ID = 4
+	';
+		$sth = $dbh->query($sql);
+		$row = $sth->fetch(PDO::FETCH_ASSOC);
+		$firstPoint = array((int)$row['POWER'], (int)$row['SPEED'], (int)$row['TECH'], (int)$row['MENTAL']);
+	}
 
 	//特能グループ全取得
 	$abilityGroup = array();
@@ -235,6 +254,13 @@ try{
 			}
 		}
 
+		//ファースト特能の場合、サブポジファースト分の経験点も追加
+		if($abilityGroup[$i]['id'] === 147) {
+			for($j = 0; $j < count($catcherPoint); $j++) {
+				$valueList[$j] += (int)($firstPoint[$j] * $sense_per);
+			}
+		}
+		
 		//打ち消し合うタイプの特能を既に習得している場合、査定値にマイナス補正を掛ける。
 		if($abilityGroup[$i]['pair'] !== null) {
 			$pairList[] = array(

@@ -840,8 +840,15 @@ var commonModule = {
 		return false;
 	},
 
+	isFirst: function() {
+		if(Number($('#mainPosition option:selected').val()) === 1 || charaData.getSubPosition(0, 1) !== null) {
+			return true;
+		}
+		return false;
+	},
+
 	getRankString: function (val) {
-		var rank = ['G', 'G', 'F', 'F', 'E', 'D', 'C', 'B', 'A', 'S', 'S'];
+		var rank = ['G', 'G', 'F', 'F', 'E', 'D', 'C', 'B', 'A', 'S', 'S', 'S', 'S'];
 		return rank[parseInt(val/10)];
 	},
 
