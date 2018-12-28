@@ -9,8 +9,8 @@
 	?>
 	<link rel="stylesheet" href="../css/batter.css?ver20170930">
 	<script src="../js/batter.js?ver20180224"></script>
-	<script src="../js/calcMaxAssessment.js?ver20181110"></script>
-	<script src="../js/commonModule.js?ver20181110"></script>
+	<script src="../js/calcMaxAssessment.js?ver20181216"></script>
+	<script src="../js/commonModule.js?ver20181216"></script>
 </head>
 
 <body>
@@ -55,7 +55,7 @@
 							<td><input type="number" class="basePointInput" min="1" max="114" step="1"></td>
 							<td><input type="number" class="basePointInput" min="1" max="100" step="1"></td>
 							<td><input type="number" class="basePointInput" min="1" max="102" step="1"></td>
-							<td><input type="number" class="basePointInput" min="1" max="102" step="1"></td>
+							<td><input type="number" class="basePointInput" min="1" max="104" step="1"></td>
 							<td><input type="number" class="basePointInput" min="1" max="108" step="1"></td>
 							<td><input type="number" class="basePointInput" min="1" max="108" step="1"></td>
 						</tr>
@@ -111,7 +111,7 @@
 							<td><input type="number" class="basePointInput" min="1" max="114" step="1"></td>
 							<td><input type="number" class="basePointInput" min="1" max="100" step="1"></td>
 							<td><input type="number" class="basePointInput" min="1" max="102" step="1"></td>
-							<td><input type="number" class="basePointInput" min="1" max="102" step="1"></td>
+							<td><input type="number" class="basePointInput" min="1" max="104" step="1"></td>
 							<td><input type="number" class="basePointInput" min="1" max="108" step="1"></td>
 							<td><input type="number" class="basePointInput" min="1" max="108" step="1"></td>
 						</tr>
@@ -257,6 +257,7 @@
 						<select class="baseLimitBreak">
 							<option value="100">100</option>
 							<option value="102">102</option>
+							<option value="104">104</option>
 						</select>
 					</div>
 					<div>

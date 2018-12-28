@@ -127,3 +127,4 @@ INSERT INTO HISTORIES VALUES ('2018-10-20 22:00', '特能「ファースト〇�
 INSERT INTO HISTORIES VALUES ('2018-10-20 23:00', '基礎能力上限をミート114、肩力102、守備力108、コン110に変更');
 INSERT INTO HISTORIES VALUES ('2018-11-10 12:00', 'ファースト〇取得時にファースト適正があるかをチェックするよう修正');
 INSERT INTO HISTORIES VALUES ('2018-11-22 21:00', '特能「痛打」、「大打撃」追加。コン上限を112に調整');
+INSERT INTO HISTORIES VALUES ('2018-12-16 20:00', '特能「セカンド〇」他追加、コン上限を114、肩上限104に調整');

@@ -287,7 +287,16 @@ var calcMaxAssessmentModule = (function() {
 				option = !charaData.getSubPosition(0, 1) ? '<span class="changeTypeStr">new</span>' : (charaData.getSubPosition(0, 1).id != charaData.getSubPosition(1, 1).id ? '<span class="changeTypeStr"><i class="fa fa-level-up changeIcon" aria-hidden="true"></i><i class="fa fa-level-up changeIcon" aria-hidden="true"></i></span>' : '');
 				$('#tab2 .displaySubPosition > ul > li').eq(1).addClass('first');
 				$('#tab2 .displaySubPosition > ul > li').eq(1).find('.displayName').html('一塁' + option);
-			}			
+			}
+			
+			//サブポジセカンド
+			if(!commonModule.isSecond() && charaData.getAbilityList(1, 150) !== null) {
+				charaData.setSubPosition(1, 2, {id:"7", name:"二塁", color:"1"});
+				var option = '';
+				option = !charaData.getSubPosition(0, 2) ? '<span class="changeTypeStr">new</span>' : (charaData.getSubPosition(0, 2).id != charaData.getSubPosition(1, 2).id ? '<span class="changeTypeStr"><i class="fa fa-level-up changeIcon" aria-hidden="true"></i><i class="fa fa-level-up changeIcon" aria-hidden="true"></i></span>' : '');
+				$('#tab2 .displaySubPosition > ul > li').eq(2).addClass('second');
+				$('#tab2 .displaySubPosition > ul > li').eq(2).find('.displayName').html('二塁' + option);
+			}		
 
 			commonModule.calcExpPoint();
 			$.unblockUI();
