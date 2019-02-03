@@ -952,6 +952,8 @@ INSERT INTO BASE_POINT_HEADER (TYPE, POINT, ASSESSMENT) VALUES
 ('9','97','11'),
 ('9','98','11'),
 ('9','99','12'),
-('9','100','12');
+('9','100','12'),
+('9','101','26'),
+('9','102','26');
 
 SET AUTOCOMMIT=1;

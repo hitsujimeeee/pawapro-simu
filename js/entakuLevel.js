@@ -188,6 +188,11 @@ var entakuLevel = {
             levelList[8]++;
         }
 
+        //岸田チェック
+        if ($('#checkKnight').prop('checked')) {
+            levelList[1]++;
+        }
+
         entakuLevel.output(levelList);
 
     },

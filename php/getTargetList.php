@@ -12,7 +12,9 @@ $abilityNow = $post['ability'];
 $baseTrickLevel = $post['baseTrickLevel'];
 $baseLimitBreak = $post['baseLimitBreak'];
 $isCatcher = $post['isCather'];
-$isFirst = $post['isCather'];
+$isFirst = $post['isFirst'];
+$isSecond = $post['isSecond'];
+$isThird = $post['isThird'];
 $nonCatcher = $post['nonCatcher'];	//キャッチャー〇を取得しないフラグ
 $nonMoody = isset($post['nonMoody']) ? $post['nonMoody'] : 0;
 $expPoint = $post['expPoint'];
@@ -113,6 +115,7 @@ try{
 	$catcherPoint = array(0, 0, 0, 0);
 	$firstPoint = array(0, 0, 0, 0);
 	$secondPoint = array(0, 0, 0, 0);
+	$thirdPoint = array(0, 0, 0, 0);
 
 	//キャッチャーでない場合に、キャッチャー○用の必要経験点を取得しておく
 	if(!$isCatcher) {
@@ -151,7 +154,7 @@ try{
 	}
 
 	//セカンドでない場合に、セカンド○用の必要経験点を取得しておく
-	if(!$isFirst) {
+	if(!$isSecond) {
 		$sql = '
 		SELECT
 			POWER,
@@ -166,6 +169,24 @@ try{
 		$sth = $dbh->query($sql);
 		$row = $sth->fetch(PDO::FETCH_ASSOC);
 		$secondPoint = array((int)$row['POWER'], (int)$row['SPEED'], (int)$row['TECH'], (int)$row['MENTAL']);
+	}
+
+	//サードでない場合に、サード○用の必要経験点を取得しておく
+	if(!$isThird) {
+		$sql = '
+		SELECT
+			POWER,
+			SPEED,
+			TECH,
+			MENTAL
+		FROM
+			SUBPOSITION_DETAIL
+		WHERE
+			ID = 10
+	';
+		$sth = $dbh->query($sql);
+		$row = $sth->fetch(PDO::FETCH_ASSOC);
+		$thirdPoint = array((int)$row['POWER'], (int)$row['SPEED'], (int)$row['TECH'], (int)$row['MENTAL']);
 	}
 
 	//特能グループ全取得
@@ -284,6 +305,13 @@ try{
 		if($abilityGroup[$i]['id'] === 150) {
 			for($j = 0; $j < count($secondPoint); $j++) {
 				$valueList[$j] += (int)($secondPoint[$j] * $sense_per);
+			}
+		}
+
+		//サード特能の場合、サブポジサード分の経験点も追加
+		if($abilityGroup[$i]['id'] === 152) {
+			for($j = 0; $j < count($thirdPoint); $j++) {
+				$valueList[$j] += (int)($thirdPoint[$j] * $sense_per);
 			}
 		}
 				

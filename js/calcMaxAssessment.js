@@ -53,6 +53,8 @@ var calcMaxAssessmentModule = (function() {
 				"expPoint": expPoint,
 				"isCather":commonModule.isCatcher(),
 				"isFirst":commonModule.isFirst(),
+				"isSecond":commonModule.isSecond(),
+				"isThird":commonModule.isThird(),
 				"nonMoody":$('#nonMoody').prop("checked"),
 				"nonCatcher":$('#nonCatcher').prop("checked")
 			};
@@ -74,7 +76,7 @@ var calcMaxAssessmentModule = (function() {
 				expPoint.splice(3, 1);
 				calcMaxAssessmentModule.optimiseTargetList(data.targetList);
 				calcMaxAssessmentModule.RecallMaxAssessment(map, data.targetList, 0, expPoint, data.baseNowAssessment, data.abNowAssessment);
-			}).fail(function(){
+			}).fail(function(err){
 				calcMaxAssessmentModule.ErrorCalcMaxAssessment();
 			});
 		},
@@ -296,6 +298,15 @@ var calcMaxAssessmentModule = (function() {
 				option = !charaData.getSubPosition(0, 2) ? '<span class="changeTypeStr">new</span>' : (charaData.getSubPosition(0, 2).id != charaData.getSubPosition(1, 2).id ? '<span class="changeTypeStr"><i class="fa fa-level-up changeIcon" aria-hidden="true"></i><i class="fa fa-level-up changeIcon" aria-hidden="true"></i></span>' : '');
 				$('#tab2 .displaySubPosition > ul > li').eq(2).addClass('second');
 				$('#tab2 .displaySubPosition > ul > li').eq(2).find('.displayName').html('二塁' + option);
+			}		
+			
+			//サブポジサード
+			if(!commonModule.isThird() && charaData.getAbilityList(1, 152) !== null) {
+				charaData.setSubPosition(1, 3, {id:"10", name:"三塁", color:"1"});
+				var option = '';
+				option = !charaData.getSubPosition(0, 3) ? '<span class="changeTypeStr">new</span>' : (charaData.getSubPosition(0, 3).id != charaData.getSubPosition(1, 3).id ? '<span class="changeTypeStr"><i class="fa fa-level-up changeIcon" aria-hidden="true"></i><i class="fa fa-level-up changeIcon" aria-hidden="true"></i></span>' : '');
+				$('#tab2 .displaySubPosition > ul > li').eq(3).addClass('third');
+				$('#tab2 .displaySubPosition > ul > li').eq(3).find('.displayName').html('三塁' + option);
 			}		
 
 			commonModule.calcExpPoint();

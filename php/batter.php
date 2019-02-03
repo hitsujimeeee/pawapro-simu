@@ -9,8 +9,8 @@
 	?>
 	<link rel="stylesheet" href="../css/batter.css?ver20170930">
 	<script src="../js/batter.js?ver20180224"></script>
-	<script src="../js/calcMaxAssessment.js?ver20181216"></script>
-	<script src="../js/commonModule.js?ver20181216"></script>
+	<script src="../js/calcMaxAssessment.js?ver20190203"></script>
+	<script src="../js/commonModule.js?ver20190203"></script>
 </head>
 
 <body>

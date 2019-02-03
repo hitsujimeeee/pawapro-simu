@@ -154,6 +154,7 @@ INSERT INTO ABILITY_HEADER (ID, NAME, CATEGORY, PAIR, SORT_ORDER) VALUES
 ('148','守備移動〇','0',NULL,'76'),
 ('149','痛打','0',NULL,'77'),
 ('150','セカンド〇','0',NULL,'78'),
-('151','制圧','4',NULL,'47');
+('151','制圧','4',NULL,'47'),
+('152','サード〇','0',NULL,'79');
 
 SET AUTOCOMMIT=1;
