@@ -296,11 +296,17 @@ try{
 			$ability = getAbility($abilityList, $tempId);
 
 			//現在の特能が金特かつ金特のコツレベルが0の場合は終了
-			if ((int)$ability['type'] === 1 && $nowState['StrickLevel'] === 0) {
+			if ((int)$ability['type'] === 1 && $nowState['StrickLevel'] === 0 && $nowState['RtrickLevel'] === 0) {
 				break;
 			}
+			//現在の特能が虹特かつ虹特のコツレベルが0の場合は終了
+			if ((int)$ability['type'] === 6 && $nowState['RtrickLevel'] === 0) {
+				break;
+			}
+			
+			
 
-			$mag = (int)$ability['type'] === 1 ? $magArray[$nowState['StrickLevel']] : $magArray[$nowState['trickLevel']];
+			$mag = (int)$ability['type'] === 1 ? $magArray[$nowState['StrickLevel']] : ((int)$ability['type'] === 6 ? $magArray[$nowState['RtrickLevel']] : $magArray[$nowState['trickLevel']]);
 			for ($j = 0; $j < count($valueList); $j++) {
 				$valueList[$j] += (int)($ability[mb_strtolower($expPointStr[$j])] * ($sense_per * $mag));
 			}

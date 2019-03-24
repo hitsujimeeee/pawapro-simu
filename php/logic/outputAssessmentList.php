@@ -13,7 +13,7 @@ $list = getAssessmentList($dbh, $type, $spFlag);
 
 //テンプレート読み込み
 $template = [['templateBatter', 'templateBatterS'], ['templatePitcher', 'templatePitcherS']][$type][$spFlag];
-$filepath = "../../data/" . $template . ".xlsm";
+$filepath = "../../data/" . $template . ".xlsx";
 $reader = PHPExcel_IOFactory::createReader('Excel2007');
 $objExcel = $reader->load($filepath);
 
@@ -122,7 +122,7 @@ foreach($list as $l) {
 
 }
 
-$fname = [['sateiBatter.xlsm', 'sateiBatterS.xlsm'], ['sateiPitcher.xlsm', 'sateiPitcherS.xlsm']][$type][$spFlag];
+$fname = [['sateiBatter.xlsx', 'sateiBatterS.xlsx'], ['sateiPitcher.xlsx', 'sateiPitcherS.xlsx']][$type][$spFlag];
 
 $sheet->setSelectedCell('A1');
 

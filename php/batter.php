@@ -7,10 +7,10 @@
 	$description = 'パワプロアプリの育成シミュレーター(野手版)です。目標能力までに必要な経験点を計算できます。査定計算機能や、余った経験点から査定が最大になるように能力を振ってくれる査定最大化機能もあります。';
 	require_once './headInclude.php';
 	?>
-	<link rel="stylesheet" href="../css/batter.css?ver20170930">
+	<link rel="stylesheet" href="../css/batter.css?ver20190309">
 	<script src="../js/batter.js?ver20180224"></script>
-	<script src="../js/calcMaxAssessment.js?ver20190203"></script>
-	<script src="../js/commonModule.js?ver20190203"></script>
+	<script src="../js/calcMaxAssessment.js?ver20190309"></script>
+	<script src="../js/commonModule.js?ver20190309"></script>
 </head>
 
 <body>
@@ -406,6 +406,7 @@
 						<div></div>
 						<div>青ｺﾂ</div>
 						<div>金ｺﾂ</div>
+						<div>虹ｺﾂ</div>
 					</div>
 
 					<ul class="abilityButtonList">
@@ -431,6 +432,7 @@
 							</div>
 							<div><button class="abTrickLevel"<?= !$d['abTrick'] ? ' disabled' : ''?>>0</button></div>
 							<div><button class="SabTrickLevel"<?= !$d['SabTrick'] ? ' disabled' : ''?>>0</button></div>
+							<div><button class="RabTrickLevel"<?= !$d['RabTrick'] ? ' disabled' : ''?>>0</button></div>
 						</li>
 					<?php } ?>
 					<?php } ?>

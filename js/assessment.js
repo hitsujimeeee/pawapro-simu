@@ -32,7 +32,7 @@ $(function() {
 });
 
 var assessment = {
-	abTypeClass: ['selectedAbility', 'selectedSAbility', 'selectedBAbility', 'selectedPAbility', 'selectedHAbility', 'selectedGAbility'],
+	abTypeClass: ['selectedAbility', 'selectedSAbility', 'selectedBAbility', 'selectedPAbility', 'selectedHAbility', 'selectedGAbility', 'selectedRAbility'],
 
 	ConfirmRemodal: function() {
 

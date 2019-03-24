@@ -23,6 +23,7 @@ function getAbilityList ($pageType) {
 				'pair'=>$row['PAIR'],
 				'abTrick'=> false,
 				'SabTrick'=> false,
+				'RabTrick'=> false,
 			);
 		}
 
@@ -57,6 +58,7 @@ function getAbilityList ($pageType) {
 	for ($i = 0; $i < count($data); $i++) {
 		$abTrickFlag = false;
 		$SabTrickFlag = false;
+		$RabTrickFlag = false;
 		for ($j = 0; $j < count($abilityList); $j++) {
 			$ab = $abilityList[$j];
 			if ($data[$i]['id'] == $ab['id']) {
@@ -66,9 +68,12 @@ function getAbilityList ($pageType) {
 				} else if ($ab['type'] === 1) {
 					$data[$i]['SabTrick'] = true;
 					$SabTrickFlag = true;
+				} else if ($ab['type'] === 6) {
+					$data[$i]['RabTrick'] = true;
+					$RabTrickFlag = true;
 				}
 
-				if ($abTrickFlag && $SabTrickFlag) {
+				if ($abTrickFlag && $SabTrickFlag && $RabTrickFlag) {
 					break;
 				}
 			}

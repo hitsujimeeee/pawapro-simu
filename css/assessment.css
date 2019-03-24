@@ -281,6 +281,19 @@ li.selectedGAbility, div.GAbColor {
 	color:#000000 !important;
 }
 
+li.selectedRAbility, div.RAbColor {
+	background : linear-gradient(60deg, 
+								 #ff4040,
+								 #fdb93b,
+								 #f8f837,
+								 #4bf14b,
+								 #3cffff,
+								 #3191eb,
+								 #f07df0);
+	background-color:#f07df0;
+	color:#000000 !important;
+}
+
 .abilityCount {
 	padding-left: 1em;
 	width:3em;

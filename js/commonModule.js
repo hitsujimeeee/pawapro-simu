@@ -10,6 +10,7 @@ var charaData = (function() {
 	var abilityList = [[], []],	//{id:'', name:'', type:''}
 		trickLevel = [],
 		StrickLevel = [],
+		RtrickLevel = [],
 		subPosition = [[], []],	//{id:'', name:'', type:''}
 		sense = 0;
 
@@ -24,6 +25,7 @@ var charaData = (function() {
 				abilityList[1][i] = null;
 				trickLevel[i] = 0;
 				StrickLevel[i] = 0;
+				RtrickLevel[i] = 0;
 			}
 
 			size = $('#tab1 li[name=subPosition]').length;
@@ -56,6 +58,14 @@ var charaData = (function() {
 
 		setSTrickLevel: function (idx, val) {
 			StrickLevel[idx] = val;
+		},
+
+		getRTrickLevel: function (idx) {
+			return typeof(idx) === "undefined" ? RtrickLevel : RtrickLevel[idx];
+		},
+
+		setRTrickLevel: function (idx, val) {
+			RtrickLevel[idx] = val;
 		},
 
 		getSubPosition: function (type, idx) {
@@ -159,6 +169,7 @@ var charaData = (function() {
 				ability:abilitys,
 				trickLevel:trickLevel,
 				StrickLevel:StrickLevel,
+				RtrickLevel:RtrickLevel,
 				subPosition:subPosition.map(function(elem) {
 					return elem.map(function(e) {
 						return e ? e.id : null;
@@ -200,6 +211,9 @@ var charaData = (function() {
 
 				obj.find('.abTrickLevel').html(data.trickLevel[id]);
 				obj.find('.SabTrickLevel').html(data.StrickLevel[id]);
+				if (data.RtrickLevel) {
+					obj.find('.RabTrickLevel').html(data.RtrickLevel[id]);
+				}
 			}
 
 			for (var i = 0; i < data.ability[0].length; i++) {
@@ -207,6 +221,9 @@ var charaData = (function() {
 				abilityList[1][i] = data.ability[1][i];
 				trickLevel[i] = data.trickLevel[i];
 				StrickLevel[i] = data.StrickLevel[i];
+				if (data.RtrickLevel) {
+					RtrickLevel[i] = data.RtrickLevel[i];
+				}
 			}
 
 			subPosition[0] = data.subPosition[0];
@@ -291,6 +308,7 @@ var charaData = (function() {
 			for (var i = 0; i < trickLevel.length;i++) {
 					trickLevel[i] = 0;
 					StrickLevel[i] = 0;
+					RtrickLevel[i] = 0;
 			}
 		}
 
@@ -302,7 +320,7 @@ var charaData = (function() {
 
 var commonModule = {
 	tabType: 0,
-	abTypeClass: ['selectedAbility', 'selectedSAbility', 'selectedBAbility', 'selectedPAbility', 'selectedHAbility', 'selectedGAbility'],
+	abTypeClass: ['selectedAbility', 'selectedSAbility', 'selectedBAbility', 'selectedPAbility', 'selectedHAbility', 'selectedGAbility', 'selectedRAbility'],
 	subposTypeClass: ['catcher', 'infield', 'outfield', 'pitcher'],
 	selAbility: null,
 	selTrickType: 0,
@@ -349,6 +367,7 @@ var commonModule = {
 
 		$('.abTrickLevel').click(commonModule.openTrickLevelDropdown);
 		$('.SabTrickLevel').click(commonModule.openTrickLevelDropdown);
+		$('.RabTrickLevel').click(commonModule.openTrickLevelDropdown);
 
 		$('body').click(function() {
 			$('#trickDropdown').css('display', 'none');
@@ -362,12 +381,22 @@ var commonModule = {
 			var val = $('.trickLevelVal').index($(e.currentTarget));
 			var id = Number($('.abilityButtonList li').eq(commonModule.selAbility).attr('idx'));
 
-			if (commonModule.selTrickType === 0) {
-				charaData.setTrickLevel(id, val);
-			}else {
-				charaData.setSTrickLevel(id, val);
+			switch(commonModule.selTrickType) {
+				case 0:
+					charaData.setTrickLevel(id, val);
+					break;
+				case 1:
+					charaData.setSTrickLevel(id, val);
+					break;
+				case 2:
+					charaData.setRTrickLevel(id, val);
+					break;
+
 			}
-			$('.' + (commonModule.selTrickType === 0 ? 'abTrickLevel' : 'SabTrickLevel')).eq(commonModule.selAbility).html(val);
+
+			var classType = ['abTrickLevel', 'SabTrickLevel', 'RabTrickLevel'][commonModule.selTrickType];
+
+			$('.' + classType).eq(commonModule.selAbility).html(val);
 			$('#trickDropdown').css('display', 'none');
 			commonModule.selAbility = null;
 			e.stopPropagation();
@@ -584,6 +613,7 @@ var commonModule = {
 			dataAbilityAim = [],
 			trickLevel = [],
 			StrickLevel = [],
+			RtrickLevel = [],
 			baseTrickLevel = [],
 			subPositionNow = [],
 			subPositionAim = [],
@@ -610,6 +640,7 @@ var commonModule = {
 				dataAbilityAim[dataAbilityAim.length] = (abAim[i] ? abAim[i].id : null);
 				trickLevel[trickLevel.length] = charaData.getTrickLevel(i);
 				StrickLevel[StrickLevel.length] = charaData.getSTrickLevel(i);
+				RtrickLevel[RtrickLevel.length] = charaData.getRTrickLevel(i);
 			}
 		}
 		obj = $('.baseTrickSlider');
@@ -657,6 +688,7 @@ var commonModule = {
 			"aim":{"basePoint":basePointAim, ability:dataAbilityAim, subPosition:subPositionAim, changeBall:changeBallAim},
 			"trickLevel":trickLevel,
 			"StrickLevel":StrickLevel,
+			"RtrickLevel":RtrickLevel,
 			"baseTrickLevel": baseTrickLevel,
 			"changeBallType": changeBallType,
 			"changeBallTrickLevel": changeBallTrickLevel,
@@ -1162,7 +1194,7 @@ var commonModule = {
 		var abGr = abilityData.filter(function(e){
 			return e.id === id;
 		})[0].list;
-		var abColors = ['abColor', 'SAbColor', 'BAbColor', 'PAbColor', 'HAbColor'];
+		var abColors = ['abColor', 'SAbColor', 'BAbColor', 'PAbColor', 'HAbColor', 'GAbColor', 'RAbColor'];
 		var namePlate = targetLi.find('.abName');
 		namePlate.removeClass(abColors.join(' '));
 		if (nowAb !== null) {
@@ -1260,9 +1292,12 @@ var commonModule = {
 		if ($(e.currentTarget).hasClass('abTrickLevel')) {
 			selIdx = $('.abTrickLevel').index($(e.currentTarget));
 			typeIdx = 0;
-		} else {
+		} else if ($(e.currentTarget).hasClass('SabTrickLevel')) {
 			selIdx = $('.SabTrickLevel').index($(e.currentTarget));
 			typeIdx = 1;
+		} else {
+			selIdx = $('.RabTrickLevel').index($(e.currentTarget));
+			typeIdx = 2;
 		}
 
 		if ($('#trickDropdown').css('display') === 'flex' && selIdx === commonModule.selAbility && typeIdx === commonModule.selTrickType) {
@@ -1274,8 +1309,10 @@ var commonModule = {
 		commonModule.selAbility = selIdx;
 		commonModule.selTrickType = typeIdx;
 
+		var abilityClassStr = ['normalAbility', 'specialAbility', 'rainbowAbility'];
+
 		$('#trickDropdown').insertAfter($(e.currentTarget));
-		$('#trickDropdown').removeClass('normalAbility specialAbility').addClass(commonModule.selTrickType === 0 ? 'normalAbility' : 'specialAbility');
+		$('#trickDropdown').removeClass(abilityClassStr.join(' ')).addClass(abilityClassStr[typeIdx]);
 		$('#trickDropdown').css('display', 'flex');
 
 		e.stopPropagation();

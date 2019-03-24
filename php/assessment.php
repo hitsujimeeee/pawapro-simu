@@ -11,9 +11,9 @@ $dbh = DB::connect();
 	$description = 'パワプロアプリの査定計算ツールです。選手能力を入れると査定値(実査定値、表示査定値)を計算します。';
 	require_once './headInclude.php';
 	?>
-	<link rel="stylesheet" href="../css/assessment.css?ver20170930">
-	<script src="../js/commonModule.js?ver20180421"></script>
-	<script src="../js/assessment.js?ver20180421"></script>
+	<link rel="stylesheet" href="../css/assessment.css?ver20190309">
+	<script src="../js/commonModule.js?ver20190309"></script>
+	<script src="../js/assessment.js?ver20190309"></script>
 	<script>
 		var baseAbilityList = <?php
 			$str = '';

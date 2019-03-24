@@ -208,7 +208,8 @@ td.changeBallTrickBar {
 }
 
 .abSelectHeader > div:nth-child(4),
-.abSelectHeader > div:nth-child(5)
+.abSelectHeader > div:nth-child(5),
+.abSelectHeader > div:nth-child(6)
 {
 	display:flex;
 	align-items: center;
@@ -222,6 +223,10 @@ td.changeBallTrickBar {
 
 .abSelectHeader > div:nth-child(5) {
 	color:#ff0;
+}
+
+.abSelectHeader > div:nth-child(6) {
+	color:#ff4fe8;
 }
 
 .abilityButtonList,
@@ -273,10 +278,12 @@ td.changeBallTrickBar {
 
 .abilityButtonList li > div:nth-child(4),
 .abilityButtonList li > div:nth-child(5),
+.abilityButtonList li > div:nth-child(6),
 .otherAbilityList li > div:nth-child(4),
 .otherAbilityList li > div:nth-child(5),
 .abSelectHeader > div:nth-child(4),
-.abSelectHeader > div:nth-child(5)
+.abSelectHeader > div:nth-child(5),
+.abSelectHeader > div:nth-child(6)
 {
 	min-width: 40px;
 	width: 40px;
@@ -299,6 +306,10 @@ td.changeBallTrickBar {
 
 .SabTrickLevel {
 	background-color: #fcffb0;
+}
+
+.RabTrickLevel {
+	background-color:#f07df0;
 }
 
 .otherAbilityList li,
@@ -521,6 +532,20 @@ li.selectedGAbility, #abilityCharaData li.selectedGAbility, div.GAbColor {
 	background-color: #52ff42;
 	color:#000000 !important;
 }
+
+li.selectedRAbility, #abilityCharaData li.selectedRAbility, div.RAbColor {
+	background : linear-gradient(60deg, 
+								 #ff4040,
+								 #fdb93b,
+								 #f8f837,
+								 #4bf14b,
+								 #3cffff,
+								 #3191eb,
+								 #e755e7);
+	background-color:#f07df0;
+	color:#000000 !important;
+}
+
 
 .subPositionList li.infield {
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(1.00, #FDCC17), color-stop(0.50, #FDCC17), color-stop(0.50, #FDE47D), color-stop(0.00, #FDE47D));
@@ -801,13 +826,13 @@ div#abilityModal div.groupHeader{
 	margin: 1em 0.5em;
 }
 
-.abTrickLevel, .SabTrickLevel {
+.abTrickLevel, .SabTrickLevel, .RabTrickLevel {
 	width: 40px;
 	height: 30px;
 	border-radius: 5px;
 }
 
-.abTrickLevel:after, .SabTrickLevel:after {
+.abTrickLevel:after, .SabTrickLevel:after, .RabTrickLevel:after {
 	content: '▼';
 	font-size: 40%;
 	position: absolute;
@@ -821,6 +846,10 @@ div#abilityModal div.groupHeader{
 
 .SabTrickLevel:disabled {
 	background-color: #dbd8ab;
+}
+
+.RabTrickLevel:disabled {
+	background-color: #854681;
 }
 
 #trickDropdown {
@@ -855,6 +884,16 @@ div#abilityModal div.groupHeader{
 .specialAbility > div:active {
 	background-color: #faea00;
 }
+
+.rainbowAbility {
+	background-color: #f07df0;
+}
+
+.rainbowAbility > div:hover,
+.rainbowAbility > div:active {
+	background-color: #fd5bf5;
+}
+
 
 #trickDropdown div {
 	width: 100%;

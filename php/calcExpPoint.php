@@ -10,6 +10,7 @@ $abilityNow = $post['now']['ability'];
 $abilityAim = $post['aim']['ability'];
 $trickLevel = $post['trickLevel'];
 $StrickLevel = $post['StrickLevel'];
+$RtrickLevel = $post['RtrickLevel'];
 $subPositionNow = $post['now']['subPosition'];
 $subPositionAim = $post['aim']['subPosition'];
 $point = array(0, 0, 0, 0, 0);
@@ -160,8 +161,10 @@ try{
 			}
 			if ($ability['type'] == '0' || $ability['type'] == '4') {
 				$mag = $magArray[$trickLevel[$i]];//倍率
-			} else {
+			} else if ($ability['type'] == '1') {
 				$mag = $magArray[$StrickLevel[$i]];//倍率
+			} else {
+				$mag = $magArray[$RtrickLevel[$i]];//倍率
 			}
 			$temp_point[0] += (int)($ability['power'] * $mag * $sense_per);
 			$temp_point[1] += (int)($ability['speed'] * $mag * $sense_per);

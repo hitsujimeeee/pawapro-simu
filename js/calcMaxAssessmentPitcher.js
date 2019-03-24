@@ -47,6 +47,7 @@ var calcMaxAssessmentPitcherModule = (function() {
 					"id":abNow[i] ? abNow[i].id: null,
 					"trickLevel":charaData.getTrickLevel(i),
 					"StrickLevel":charaData.getSTrickLevel(i),
+					"RtrickLevel":charaData.getRTrickLevel(i),
 				};
 			}
 
