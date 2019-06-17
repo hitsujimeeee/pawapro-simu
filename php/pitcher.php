@@ -49,7 +49,7 @@
 						<tr>
 							<td><input type="number" class="basePointInput" min="80" max="170" step="1"></td>
 							<td><input type="number" class="basePointInput" min="1" max="116" step="1"></td>
-							<td><input type="number" class="basePointInput" min="1" max="102" step="1"></td>
+							<td><input type="number" class="basePointInput" min="1" max="104" step="1"></td>
 						</tr>
 					</table>
 				</section>
@@ -128,7 +128,7 @@
 						<tr>
 							<td><input type="number" class="basePointInput" min="80" max="170" step="1"></td>
 							<td><input type="number" class="basePointInput" min="1" max="116" step="1"></td>
-							<td><input type="number" class="basePointInput" min="1" max="102" step="1"></td>
+							<td><input type="number" class="basePointInput" min="1" max="104" step="1"></td>
 						</tr>
 					</table>
 				</section>
@@ -313,6 +313,7 @@
 						<select class="baseLimitBreak">
 							<option value="100">100</option>
 							<option value="102">102</option>
+							<option value="102">104</option>
 						</select>
 					</div>
 				</section>
