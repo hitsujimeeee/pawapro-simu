@@ -55,7 +55,7 @@
 							<td><input type="number" class="basePointInput" min="1" max="114" step="1"></td>
 							<td><input type="number" class="basePointInput" min="1" max="100" step="1"></td>
 							<td><input type="number" class="basePointInput" min="1" max="102" step="1"></td>
-							<td><input type="number" class="basePointInput" min="1" max="104" step="1"></td>
+							<td><input type="number" class="basePointInput" min="1" max="106" step="1"></td>
 							<td><input type="number" class="basePointInput" min="1" max="108" step="1"></td>
 							<td><input type="number" class="basePointInput" min="1" max="108" step="1"></td>
 						</tr>
@@ -111,7 +111,7 @@
 							<td><input type="number" class="basePointInput" min="1" max="114" step="1"></td>
 							<td><input type="number" class="basePointInput" min="1" max="100" step="1"></td>
 							<td><input type="number" class="basePointInput" min="1" max="102" step="1"></td>
-							<td><input type="number" class="basePointInput" min="1" max="104" step="1"></td>
+							<td><input type="number" class="basePointInput" min="1" max="106" step="1"></td>
 							<td><input type="number" class="basePointInput" min="1" max="108" step="1"></td>
 							<td><input type="number" class="basePointInput" min="1" max="108" step="1"></td>
 						</tr>
@@ -258,6 +258,7 @@
 							<option value="100">100</option>
 							<option value="102">102</option>
 							<option value="104">104</option>
+							<option value="104">106</option>
 						</select>
 					</div>
 					<div>
