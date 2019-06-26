@@ -13,7 +13,7 @@ $list = getBaseAssessmentList($dbh, $type);
 
 //テンプレート読み込み
 $template = ['templateBatterBase', 'templatePitcherBase'][$type];
-$filepath = "../../data/" . $template . ".xlsm";
+$filepath = "../../data/" . $template . ".xlsx";
 $reader = PHPExcel_IOFactory::createReader('Excel2007');
 $objExcel = $reader->load($filepath);
 //シート設定
@@ -72,7 +72,7 @@ for($i = 1; $i < count($list); $i++) {
 
 
 
-$fname = ['sateiBatterBase.xlsm', 'sateiPitcherBase.xlsm'][$type];
+$fname = ['sateiBatterBase.xlsx', 'sateiPitcherBase.xlsx'][$type];
 
 $sheet->setSelectedCell('A1');
 

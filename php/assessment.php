@@ -86,7 +86,7 @@ $dbh = DB::connect();
 				</tr>
 				<tr>
 					<th>守備</th>
-					<td><input type="number" class="basePointInput" min="1" max="108" step="1"></td>
+					<td><input type="number" class="basePointInput" min="1" max="112" step="1"></td>
 				</tr>
 				<tr>
 					<th>捕球</th>
