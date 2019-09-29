@@ -15,6 +15,7 @@ $isCatcher = $post['isCather'];
 $isFirst = $post['isFirst'];
 $isSecond = $post['isSecond'];
 $isThird = $post['isThird'];
+$isOutfield = $post['isOutfield'];
 $nonCatcher = $post['nonCatcher'];	//キャッチャー〇を取得しないフラグ
 $nonMoody = isset($post['nonMoody']) ? $post['nonMoody'] : 0;
 $expPoint = $post['expPoint'];
@@ -116,6 +117,7 @@ try{
 	$firstPoint = array(0, 0, 0, 0);
 	$secondPoint = array(0, 0, 0, 0);
 	$thirdPoint = array(0, 0, 0, 0);
+	$outfieldPoint = array(0, 0, 0, 0);
 
 	//キャッチャーでない場合に、キャッチャー○用の必要経験点を取得しておく
 	if(!$isCatcher) {
@@ -189,6 +191,24 @@ try{
 		$thirdPoint = array((int)$row['POWER'], (int)$row['SPEED'], (int)$row['TECH'], (int)$row['MENTAL']);
 	}
 
+	//外野手でない場合に、外野○用の必要経験点を取得しておく
+	if(!$isThird) {
+		$sql = '
+		SELECT
+			POWER,
+			SPEED,
+			TECH,
+			MENTAL
+		FROM
+			SUBPOSITION_DETAIL
+		WHERE
+			ID = 16
+	';
+		$sth = $dbh->query($sql);
+		$row = $sth->fetch(PDO::FETCH_ASSOC);
+		$outfieldPoint = array((int)$row['POWER'], (int)$row['SPEED'], (int)$row['TECH'], (int)$row['MENTAL']);
+	}
+	
 	//特能グループ全取得
 	$abilityGroup = array();
 	$sql = '
@@ -312,6 +332,13 @@ try{
 		if($abilityGroup[$i]['id'] === 152) {
 			for($j = 0; $j < count($thirdPoint); $j++) {
 				$valueList[$j] += (int)($thirdPoint[$j] * $sense_per);
+			}
+		}
+
+		//外野特能の場合、サブポジ外野分の経験点も追加
+		if($abilityGroup[$i]['id'] === 156) {
+			for($j = 0; $j < count($outfieldPoint); $j++) {
+				$valueList[$j] += (int)($outfieldPoint[$j] * $sense_per);
 			}
 		}
 				

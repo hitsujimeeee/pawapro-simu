@@ -893,6 +893,13 @@ var commonModule = {
 		return false;
 	},
 
+	isOutfield: function() {
+		if(Number($('#mainPosition option:selected').val()) === 5 || charaData.getSubPosition(0, 5) !== null) {
+			return true;
+		}
+		return false;
+	},
+
 	getRankString: function (val) {
 		var rank = ['G', 'G', 'F', 'F', 'E', 'D', 'C', 'B', 'A', 'S', 'S', 'S', 'S'];
 		return rank[parseInt(val/10)];

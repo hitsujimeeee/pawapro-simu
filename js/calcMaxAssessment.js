@@ -56,6 +56,7 @@ var calcMaxAssessmentModule = (function() {
 				"isFirst":commonModule.isFirst(),
 				"isSecond":commonModule.isSecond(),
 				"isThird":commonModule.isThird(),
+				"isOutfield":commonModule.isOutfield(),
 				"nonMoody":$('#nonMoody').prop("checked"),
 				"nonCatcher":$('#nonCatcher').prop("checked")
 			};
@@ -279,7 +280,7 @@ var calcMaxAssessmentModule = (function() {
 				charaData.setSubPosition(1, 0, {id:"1", name:"捕手", color:"0"});
 				var option = '';
 				option = !charaData.getSubPosition(0, 0) ? '<span class="changeTypeStr">new</span>' : (charaData.getSubPosition(0, 0).id != charaData.getSubPosition(1, 0).id ? '<span class="changeTypeStr"><i class="fa fa-level-up changeIcon" aria-hidden="true"></i><i class="fa fa-level-up changeIcon" aria-hidden="true"></i></span>' : '');
-				$('#tab2 .displaySubPosition > ul > li').eq(0).addClass('catcher');
+				$('#tab2 .displaySubPosition > ul > li').eq(0).addClass('infield');
 				$('#tab2 .displaySubPosition > ul > li').eq(0).find('.displayName').html('捕手' + option);
 			}
 
@@ -288,7 +289,7 @@ var calcMaxAssessmentModule = (function() {
 				charaData.setSubPosition(1, 1, {id:"4", name:"一塁", color:"1"});
 				var option = '';
 				option = !charaData.getSubPosition(0, 1) ? '<span class="changeTypeStr">new</span>' : (charaData.getSubPosition(0, 1).id != charaData.getSubPosition(1, 1).id ? '<span class="changeTypeStr"><i class="fa fa-level-up changeIcon" aria-hidden="true"></i><i class="fa fa-level-up changeIcon" aria-hidden="true"></i></span>' : '');
-				$('#tab2 .displaySubPosition > ul > li').eq(1).addClass('first');
+				$('#tab2 .displaySubPosition > ul > li').eq(1).addClass('infield');
 				$('#tab2 .displaySubPosition > ul > li').eq(1).find('.displayName').html('一塁' + option);
 			}
 			
@@ -297,7 +298,7 @@ var calcMaxAssessmentModule = (function() {
 				charaData.setSubPosition(1, 2, {id:"7", name:"二塁", color:"1"});
 				var option = '';
 				option = !charaData.getSubPosition(0, 2) ? '<span class="changeTypeStr">new</span>' : (charaData.getSubPosition(0, 2).id != charaData.getSubPosition(1, 2).id ? '<span class="changeTypeStr"><i class="fa fa-level-up changeIcon" aria-hidden="true"></i><i class="fa fa-level-up changeIcon" aria-hidden="true"></i></span>' : '');
-				$('#tab2 .displaySubPosition > ul > li').eq(2).addClass('second');
+				$('#tab2 .displaySubPosition > ul > li').eq(2).addClass('infield');
 				$('#tab2 .displaySubPosition > ul > li').eq(2).find('.displayName').html('二塁' + option);
 			}		
 			
@@ -306,9 +307,19 @@ var calcMaxAssessmentModule = (function() {
 				charaData.setSubPosition(1, 3, {id:"10", name:"三塁", color:"1"});
 				var option = '';
 				option = !charaData.getSubPosition(0, 3) ? '<span class="changeTypeStr">new</span>' : (charaData.getSubPosition(0, 3).id != charaData.getSubPosition(1, 3).id ? '<span class="changeTypeStr"><i class="fa fa-level-up changeIcon" aria-hidden="true"></i><i class="fa fa-level-up changeIcon" aria-hidden="true"></i></span>' : '');
-				$('#tab2 .displaySubPosition > ul > li').eq(3).addClass('third');
+				$('#tab2 .displaySubPosition > ul > li').eq(3).addClass('infield');
 				$('#tab2 .displaySubPosition > ul > li').eq(3).find('.displayName').html('三塁' + option);
+			}
+			
+			//サブポジ外野手
+			if(!commonModule.isOutfield() && charaData.getAbilityList(1, 156) !== null) {
+				charaData.setSubPosition(1, 5, {id:"16", name:"外野", color:"2"});
+				var option = '';
+				option = !charaData.getSubPosition(0, 5) ? '<span class="changeTypeStr">new</span>' : (charaData.getSubPosition(0, 5).id != charaData.getSubPosition(1, 5).id ? '<span class="changeTypeStr"><i class="fa fa-level-up changeIcon" aria-hidden="true"></i><i class="fa fa-level-up changeIcon" aria-hidden="true"></i></span>' : '');
+				$('#tab2 .displaySubPosition > ul > li').eq(5).addClass('outfield');
+				$('#tab2 .displaySubPosition > ul > li').eq(5).find('.displayName').html('外野' + option);
 			}		
+			
 
 			commonModule.calcExpPoint();
 			$.unblockUI();
