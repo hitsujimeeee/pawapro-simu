@@ -78,7 +78,7 @@ $dbh = DB::connect();
 				</tr>
 				<tr>
 					<th>走力</th>
-					<td><input type="number" class="basePointInput" min="1" max="102" step="1"></td>
+					<td><input type="number" class="basePointInput" min="1" max="106" step="1"></td>
 				</tr>
 				<tr>
 					<th>肩力</th>
